@@ -663,7 +663,8 @@
             <p>コピー・切り取りした内容を自動で記録。過去に調べた型番やピン留めした商品をいつでも見返して内容を確認し直す、そのまま再検索して価格や在庫の変化をチェックする、仕入れ候補として次の作業につなげる——といった使い方ができます。各履歴からはワンクリックで検索・挿入・修正・定型文への変換までできます。</p>
             <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">ミニメニュー・ツールバーからは、履歴を開かずその場で📌ピン留め(最大300件)も可能。保存件数(20〜200件)・ピン留め上限とも、お好みに調整できます。ピン留めのみ・履歴のみ・両方から選んでCSV書き出しもできるので、仕入れ候補のリスト化や表計算ソフトでの管理にも使えます。</p>
             <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">履歴・ピン留めどちらの項目からも、フリマウォッチの重複チェック・仮登録をそのまま呼び出せます。型番を選び直す必要はありません。</p>
-            <p style="margin-top:10px; font-size:12.5px; color:var(--good); font-weight:700;">💡 「現在のコピー」表示:コピー・切り取りに成功するたびに、画面右下に今クリップボードに入っている内容がその場で表示されます。クリップボードの中身は最後の操作で必ず上書きされてしまうため、別の場所で何かコピーしたことに気づかないまま古い内容を貼り付けてしまう事故を防げます。表示が消えるまでの秒数(0〜60秒、0で消えない)も自由に調整できます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--good); font-weight:700;">💡 「現在のコピー」表示:コピー・切り取りに成功するたびに、画面右下に今クリップボードに入っている内容がその場で表示されます。クリップボードの中身は最後の操作で必ず上書きされてしまうため、別の場所で何かコピーしたことに気づかないまま古い内容を貼り付けてしまう事故を防げます。表示が消えるまでの秒数(0〜60秒、0で消えない)も自由に調整できます。この表示自体のON/OFF、および「コピーしました」等の一瞬の操作通知のON/OFFは、それぞれ設定で個別に切り替えられます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">ウィンドウ内には折りたたみ式の「🧮 電卓」も内蔵しています。計算結果を「📋 結果をコピー」でそのままクリップボードへ(コピー履歴にも自動で残ります)。キーボードの数字キーでも操作できます。</p>
           </div>
           <div style="display:flex; flex-direction:column; gap:16px;">
           <figure style="margin:0;">
@@ -972,22 +973,39 @@
       <div class="feat">
         <div class="ico">✂️</div>
         <h3>入力欄を丸ごと切り取り</h3>
-        <p>範囲を選択しなくても、入力欄の中身をワンクリックでまるごと切り取り。検索窓の打ち直しがぐっと減ります。</p>
+        <p>今フォーカスしている入力欄の中身を、範囲を選択しなくてもワンクリックでまるごと切り取ります。前の検索キーワードが残った検索窓を、選択→削除→入力し直す手間が省け、切り取った内容はクリップボード履歴にも残るので後から使い回せます。右クリック・ツールバー・ミニメニュー・ショートカットのどこからでも実行でき、誤操作を防ぐため実行前に確認をはさみます。</p>
       </div>
-      <div class="feat">
+      <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">🧮</div>
         <h3>電卓</h3>
-        <p>右クリックやミニメニューからすぐ呼び出せる四則演算電卓。計算するたびに式と答えを自動で履歴に記録(最大30件)し、あとから呼び出して続きの計算や入力欄への挿入にも使えます。</p>
+        <p>利益計算・送料の合算・値引き後価格など、リサーチや出品の合間にちょっとした計算をしたい時のための四則演算電卓です。ブラウザや別アプリの電卓に切り替えず、その場で計算できます。</p>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">使える場所は3つあります。用途に合わせて選べます。</p>
+        <div style="margin-top:8px; display:grid; gap:10px;">
+          <p style="margin:0; font-size:13px;"><strong>① 単体の電卓ウィンドウ</strong> — 右クリック・ツールバー・ミニメニュー・ショートカットキーのどこからでも呼び出せます。<strong>計算履歴を自動で記録(最大30件)</strong>し、あとから呼び出して続きの計算に使ったり、「▶入力」で直前に触っていた入力欄へ結果を挿入したりできます。</p>
+          <p style="margin:0; font-size:13px;"><strong>② フリマウォッチ確認・登録パネルの中</strong> — 「▼ 電卓」を開くと、パネルを離れずに計算できます。「→ 上限欄へ反映」「→ 下限欄へ反映」で、計算結果をそのまま金額欄に入れられます(反映は任意で、普通の電卓としても使えます)。</p>
+          <p style="margin:0; font-size:13px;"><strong>③ クリップボード履歴ウィンドウの中</strong> — 「🧮 電卓」セクションを開いて計算し、「📋 結果をコピー」でクリップボードへ。コピーした瞬間、そのウィンドウの「最近のコピー」履歴にも自動で記録されます。</p>
+        </div>
+        <p style="margin-top:12px; font-size:13px;"><strong>キーボード操作にも対応</strong>しています(電卓を開いている時のみ。サイトの入力欄に入力中はキーを横取りしません)。</p>
+        <div style="margin-top:8px; overflow-x:auto;">
+          <table style="width:100%; max-width:460px; border-collapse:collapse; font-size:12.5px;">
+            <tr style="background:var(--card-2);"><th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">キー</th><th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">動作</th></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">0〜9 . + −(テンキーも可)</td><td style="border:1px solid var(--line); padding:6px 10px;">そのまま入力</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">* / </td><td style="border:1px solid var(--line); padding:6px 10px;">× ÷</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">Enter / =</td><td style="border:1px solid var(--line); padding:6px 10px;">計算</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">Backspace</td><td style="border:1px solid var(--line); padding:6px 10px;">1文字削除</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">Esc / C</td><td style="border:1px solid var(--line); padding:6px 10px;">クリア</td></tr>
+          </table>
+        </div>
       </div>
       <div class="feat">
         <div class="ico">⌨️</div>
         <h3>入力パッド</h3>
-        <p>数字・英字・かな・カナ・記号のタブ切り替え式パッドを、入力欄にカーソルを置いたまま呼び出せます。日本語入力のON/OFF切り替えが面倒な場面でのサッとした入力に。</p>
+        <p>数字・英字・かな・カナ・記号のタブ切り替え式パッドを、入力欄にカーソルを置いたまま呼び出せます。日本語入力(IME)のON/OFF切り替えが面倒な場面や、記号を探す手間を省きたい時のサッとした入力に。ミニメニュー・ツールバー・ショートカットから呼び出せ、パネルの大きさは自由に変えられます。</p>
       </div>
       <div class="feat">
         <div class="ico">📖</div>
         <h3>説明書を検索</h3>
-        <p>型番などを選んで実行すると、「選んだ文字+説明書」でGoogle検索を開きます。出品前に取扱説明書やスペックをサッと確認したい時に。右クリック・ツールバー・ミニメニュー、どこからでも呼び出せます。</p>
+        <p>型番などを選んで実行すると、「選んだ文字+説明書」でGoogle検索を開きます。出品前に取扱説明書・付属品・スペック・発売時期をサッと確認したい時に。右クリック・ツールバー・ミニメニュー、どこからでも呼び出せます。深堀検索にも対応しているので、新しいタブでも型番を選び直さずに続けて調べられます。</p>
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">🧩</div>
