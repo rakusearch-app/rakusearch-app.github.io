@@ -381,6 +381,17 @@
   .contactForm button.btn-primary:disabled { opacity: 0.6; cursor: default; }
   .contact-error { color: var(--accent-deep); font-size: 12.5px; margin: -10px 0 14px; }
   .contact-success { max-width: 480px; margin: 0 auto; background: var(--good); color: #fff; border-radius: 10px; padding: 18px 20px; text-align: center; font-size: 14px; }
+  .contactToggle { max-width: 480px; margin: 0 auto; }
+  .contactToggle summary {
+    cursor: pointer; list-style: none; text-align: center;
+    background: var(--accent); color: #fff; padding: 15px 26px; border-radius: 10px;
+    font-weight: 700; font-size: 15.5px; box-shadow: var(--shadow);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .contactToggle summary::-webkit-details-marker { display: none; }
+  .contactToggle summary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+  .contactToggle[open] summary { margin-bottom: 24px; }
+  .contactToggle .contactForm { margin: 0 auto; }
 
   ::selection { background: var(--accent-soft); }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -1146,28 +1157,31 @@
       <span class="eyebrow">お問い合わせ</span>
       <h2>不具合・ご要望など、お気軽にどうぞ。</h2>
     </div>
-    <form class="contactForm" id="contactForm" onsubmit="return false;">
-      <div class="field">
-        <label for="contactType">お問い合わせの種類</label>
-        <select id="contactType">
-          <option value="bugfix">不具合の報告</option>
-          <option value="feature">機能の要望</option>
-          <option value="howto">使い方の質問</option>
-          <option value="other">その他</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="contactEmail">メールアドレス(返信用)</label>
-        <input type="email" id="contactEmail" placeholder="name@example.com" autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="contactMessage">お問い合わせ内容</label>
-        <textarea id="contactMessage" placeholder="不具合の場合は、発生した操作の手順も書いていただけると助かります"></textarea>
-      </div>
-      <div class="contact-error" id="contactError" hidden></div>
-      <button type="button" class="btn-primary" id="contactSubmitBtn" onclick="submitContactForm()">送信する</button>
-    </form>
-    <div class="contact-success" id="contactSuccess" hidden>✅ お問い合わせを受け付けました。ご記入いただいたメールアドレスに確認メールをお送りしました。</div>
+    <details class="contactToggle">
+      <summary>📩 お問い合わせフォームを開く</summary>
+      <form class="contactForm" id="contactForm" onsubmit="return false;">
+        <div class="field">
+          <label for="contactType">お問い合わせの種類</label>
+          <select id="contactType">
+            <option value="bugfix">不具合の報告</option>
+            <option value="feature">機能の要望</option>
+            <option value="howto">使い方の質問</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="contactEmail">メールアドレス(返信用)</label>
+          <input type="email" id="contactEmail" placeholder="name@example.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="contactMessage">お問い合わせ内容</label>
+          <textarea id="contactMessage" placeholder="不具合の場合は、発生した操作の手順も書いていただけると助かります"></textarea>
+        </div>
+        <div class="contact-error" id="contactError" hidden></div>
+        <button type="button" class="btn-primary" id="contactSubmitBtn" onclick="submitContactForm()">送信する</button>
+      </form>
+      <div class="contact-success" id="contactSuccess" hidden>✅ お問い合わせを受け付けました。ご記入いただいたメールアドレスに確認メールをお送りしました。</div>
+    </details>
   </div>
 </section>
 
@@ -1343,6 +1357,15 @@
     if (new URLSearchParams(location.search).get("checkout") === "success") {
       var banner = document.getElementById("checkoutSuccessBanner");
       if (banner) banner.hidden = false;
+    }
+  })();
+
+  (function () {
+    // 設定・使い方ページなどから「#contact」付きでリンクされた場合、
+    // フォーム自体は折りたたみ式(details)なので、開いた状態で表示する。
+    if (location.hash === "#contact") {
+      var toggle = document.querySelector("#contact .contactToggle");
+      if (toggle) toggle.open = true;
     }
   })();
 
