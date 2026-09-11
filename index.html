@@ -1157,8 +1157,8 @@
       <span class="eyebrow">お問い合わせ</span>
       <h2>不具合・ご要望など、お気軽にどうぞ。</h2>
     </div>
-    <details class="contactToggle">
-      <summary>📩 お問い合わせフォームを開く</summary>
+    <details class="contactToggle" id="contactToggle">
+      <summary id="contactToggleLabel">📩 お問い合わせフォームを開く</summary>
       <form class="contactForm" id="contactForm" onsubmit="return false;">
         <div class="field">
           <label for="contactType">お問い合わせの種類</label>
@@ -1361,11 +1361,22 @@
   })();
 
   (function () {
+    var toggle = document.getElementById("contactToggle");
+    var label = document.getElementById("contactToggleLabel");
+    if (!toggle || !label) return;
+
+    // 開閉状態に合わせてボタンの文字を「開く」「閉じる」で切り替える
+    // (summaryは標準では開閉に関わらず同じ文字のままなので、明示的に書き換える)。
+    toggle.addEventListener("toggle", function () {
+      label.textContent = toggle.open ? "📩 お問い合わせフォームを閉じる" : "📩 お問い合わせフォームを開く";
+    });
+
     // 設定・使い方ページなどから「#contact」付きでリンクされた場合、
     // フォーム自体は折りたたみ式(details)なので、開いた状態で表示する。
+    // (toggleイベントに頼らず、ここでもボタンの文字を明示的に合わせておく)
     if (location.hash === "#contact") {
-      var toggle = document.querySelector("#contact .contactToggle");
-      if (toggle) toggle.open = true;
+      toggle.open = true;
+      label.textContent = "📩 お問い合わせフォームを閉じる";
     }
   })();
 
