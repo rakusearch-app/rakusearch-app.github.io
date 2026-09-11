@@ -367,6 +367,21 @@
     font-size: 13.5px; font-weight: 700; box-shadow: var(--shadow); z-index: 200; max-width: 90vw; text-align: center;
   }
 
+  /* ---------- contact form ---------- */
+  .contactForm { max-width: 480px; margin: 0 auto; }
+  .contactForm .field { margin-bottom: 18px; }
+  .contactForm label { display: block; font-size: 13px; color: var(--ink-soft); margin: 0 0 6px; }
+  .contactForm select, .contactForm input[type="email"], .contactForm textarea {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px;
+    font-size: 15px; background: var(--paper); color: var(--ink); box-sizing: border-box; font-family: inherit;
+  }
+  .contactForm textarea { min-height: 120px; resize: vertical; }
+  .contactForm select:focus-visible, .contactForm input:focus-visible, .contactForm textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .contactForm button.btn-primary { width: 100%; justify-content: center; border: none; cursor: pointer; font-family: inherit; font-size: 15px; }
+  .contactForm button.btn-primary:disabled { opacity: 0.6; cursor: default; }
+  .contact-error { color: var(--accent-deep); font-size: 12.5px; margin: -10px 0 14px; }
+  .contact-success { max-width: 480px; margin: 0 auto; background: var(--good); color: #fff; border-radius: 10px; padding: 18px 20px; text-align: center; font-size: 14px; }
+
   ::selection { background: var(--accent-soft); }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
@@ -379,6 +394,7 @@
       <a href="#how">使い方</a>
       <a href="#price">料金</a>
       <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
       <a class="navcta" href="javascript:void(0)" onclick="openCheckoutModal()">今すぐ始める</a>
     </div>
   </div>
@@ -1124,6 +1140,37 @@
   </div>
 </section>
 
+<section id="contact">
+  <div class="wrap">
+    <div class="sectiontitle">
+      <span class="eyebrow">お問い合わせ</span>
+      <h2>不具合・ご要望など、お気軽にどうぞ。</h2>
+    </div>
+    <form class="contactForm" id="contactForm" onsubmit="return false;">
+      <div class="field">
+        <label for="contactType">お問い合わせの種類</label>
+        <select id="contactType">
+          <option value="bugfix">不具合の報告</option>
+          <option value="feature">機能の要望</option>
+          <option value="howto">使い方の質問</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="contactEmail">メールアドレス(返信用)</label>
+        <input type="email" id="contactEmail" placeholder="name@example.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="contactMessage">お問い合わせ内容</label>
+        <textarea id="contactMessage" placeholder="不具合の場合は、発生した操作の手順も書いていただけると助かります"></textarea>
+      </div>
+      <div class="contact-error" id="contactError" hidden></div>
+      <button type="button" class="btn-primary" id="contactSubmitBtn" onclick="submitContactForm()">送信する</button>
+    </form>
+    <div class="contact-success" id="contactSuccess" hidden>✅ お問い合わせを受け付けました。ご記入いただいたメールアドレスに確認メールをお送りしました。</div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="finalcta">
@@ -1139,6 +1186,7 @@
     <div class="footgrid">
       <div class="brand" style="font-size:16px;"><span class="mark" style="width:24px;height:24px;font-size:12px;">🔎</span>ラクサーチ</div>
       <div class="footlinks">
+        <a href="#contact">お問い合わせ</a>
         <a href="#terms">利用規約</a>
         <a href="#privacy">プライバシーポリシー</a>
         <a href="#tokushoho">特定商取引法に基づく表示</a>
@@ -1297,6 +1345,49 @@
       if (banner) banner.hidden = false;
     }
   })();
+
+  async function submitContactForm() {
+    var type = document.getElementById("contactType").value;
+    var emailInput = document.getElementById("contactEmail");
+    var messageInput = document.getElementById("contactMessage");
+    var err = document.getElementById("contactError");
+    var btn = document.getElementById("contactSubmitBtn");
+    var email = emailInput.value.trim();
+    var message = messageInput.value.trim();
+    err.hidden = true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      err.textContent = "メールアドレスの形式が正しくありません。";
+      err.hidden = false;
+      return;
+    }
+    if (!message) {
+      err.textContent = "お問い合わせ内容を入力してください。";
+      err.hidden = false;
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = "送信中...";
+    try {
+      var res = await fetch("https://gnaccktgjrupjbadzgez.supabase.co/functions/v1/submit-contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: type, email: email, message: message })
+      });
+      var data = await res.json();
+      if (data && data.success) {
+        document.getElementById("contactForm").hidden = true;
+        document.getElementById("contactSuccess").hidden = false;
+        return;
+      }
+      err.textContent = "エラーが発生しました。しばらくしてからもう一度お試しください。";
+      err.hidden = false;
+    } catch (e) {
+      err.textContent = "通信エラーが発生しました。時間をおいて再度お試しください。";
+      err.hidden = false;
+    }
+    btn.disabled = false;
+    btn.textContent = "送信する";
+  }
 </script>
 
 <script>
