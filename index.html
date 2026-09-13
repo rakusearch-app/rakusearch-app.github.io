@@ -421,6 +421,7 @@
         <a class="btn-primary" href="javascript:void(0)" onclick="openCheckoutModal()">初回14日間無料で試す →</a>
         <span class="heronote">その後は月額2,480円。<b>右クリックの「ラクサーチ」はずっと無料</b>で使えます</span>
       </div>
+      <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、Chromeウェブストアからの拡張機能の追加(無料)が別途必要です。</p>
     </div>
     <div class="fanstage">
       <div class="tag t1" aria-hidden="true"><span class="site">メルカリ</span><span class="stat">14件</span></div>
@@ -429,7 +430,7 @@
       <div class="tag t4" aria-hidden="true"><span class="site">Amazon</span><span class="stat">21件</span></div>
       <div class="tag t5" aria-hidden="true"><span class="site">楽天市場</span><span class="stat">6件</span></div>
       <div class="tag t6" aria-hidden="true"><span class="site">駿河屋</span><span class="stat">3件</span></div>
-      <div class="tag t7" aria-hidden="true"><span class="site">PayPayフリマ</span><span class="stat">8件</span></div>
+      <div class="tag t7" aria-hidden="true"><span class="site">Yahoo!フリマ</span><span class="stat">8件</span></div>
       <div class="tag t8" aria-hidden="true"><span class="site">ヨドバシ.com</span><span class="stat">5件</span></div>
       <button type="button" class="searchpill" id="heroDemoBtn" aria-label="ダブルクリックで、範囲選択とミニメニューが出る様子を体験できます">
         <div class="lbl">選択した文字</div>
@@ -797,65 +798,6 @@
         <p style="margin-top:8px; font-size:11.5px; color:var(--ink-soft);">※上記の件数上限・条件・機能内容は今後の改善で変更になる場合があります。また、フリマウォッチ側の仕様変更により、対応状況が向上することも、一部ご利用いただけなくなることもあります。</p>
         <p style="margin-top:10px; font-size:12.5px; background:var(--gold-soft); border:1px solid var(--gold); color:var(--ink); border-radius:8px; padding:10px 12px;">⚠️ この機能が扱うのは<strong>商品名のキーワード(型番)と上限・下限の金額のみ</strong>の簡易版です。除外ワード・通知設定・自動購入設定など、フリマウォッチが持つそれ以外の設定項目は一切読み込み・書き出しできません。フリマウォッチのすべての設定を管理・代行するものではありませんので、あらかじめご了承ください。</p>
 
-        <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 940 210" role="img" aria-label="型番を選ぶか入力すると、フリマウォッチに登録済みかその場で確認し、未登録なら上限・下限を入れて登録、ため込みリストに追加され、たまったらCSVとして書き出して全データに移る、という一連の流れ" style="width:100%; min-width:760px; height:auto; display:block; margin:0 auto;">
-            <defs>
-              <marker id="fwArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-                <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
-              </marker>
-            </defs>
-
-            <!-- 1: 型番を選ぶ/入力 -->
-            <rect x="10" y="20" width="200" height="170" rx="12" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="110" y="46" text-anchor="middle" font-size="13" fill="var(--ink-soft)">選ぶ、または入力</text>
-            <rect x="30" y="60" width="160" height="34" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
-            <text x="110" y="83" text-anchor="middle" font-size="16" font-family="DotGothic16, monospace" fill="var(--ink)">AH-D5200</text>
-            <text x="110" y="120" text-anchor="middle" font-size="13" fill="var(--ink-soft)">何も選択していなくても</text>
-            <text x="110" y="140" text-anchor="middle" font-size="13" fill="var(--ink-soft)">その場で書き換え可能</text>
-            <text x="110" y="172" text-anchor="middle" font-size="14" font-weight="700" fill="var(--accent)">🔍 確認・登録パネル</text>
-
-            <!-- 2: 重複確認 -->
-            <rect x="265" y="20" width="210" height="170" rx="12" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="370" y="46" text-anchor="middle" font-size="13" fill="var(--ink-soft)">重複を確認</text>
-            <rect x="285" y="60" width="170" height="30" rx="15" fill="var(--good)" fill-opacity="0.15" stroke="var(--good)"></rect>
-            <text x="370" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="var(--good)">✅ 未登録です</text>
-            <rect x="285" y="100" width="170" height="30" rx="15" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
-            <text x="370" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent-deep)">⚠️ 登録済みです</text>
-            <text x="370" y="160" text-anchor="middle" font-size="13" fill="var(--ink-soft)">完全一致で自動判定</text>
-
-            <!-- 3: ため込みリスト -->
-            <rect x="520" y="20" width="200" height="170" rx="12" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></rect>
-            <text x="620" y="46" text-anchor="middle" font-size="14" font-weight="700" fill="var(--accent)">📝 ため込みリスト</text>
-            <rect x="540" y="62" width="160" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
-            <text x="550" y="79" font-size="12" font-family="DotGothic16, monospace" fill="var(--ink)">AH-D5200 〜¥20,000</text>
-            <rect x="540" y="94" width="160" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
-            <text x="550" y="111" font-size="12" fill="var(--ink-soft)">型番の編集・削除も可能</text>
-            <text x="620" y="150" text-anchor="middle" font-size="13" fill="var(--gold)" font-weight="700">最大100件まで保管</text>
-            <text x="620" y="172" text-anchor="middle" font-size="12.5" fill="var(--ink-soft)">(超えると要書き出し)</text>
-
-            <!-- 4: CSV書き出し→全データ -->
-            <rect x="775" y="20" width="155" height="170" rx="12" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="852" y="46" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">📚 全データ</text>
-            <rect x="795" y="62" width="115" height="34" rx="6" fill="var(--gold-soft)" stroke="var(--gold)"></rect>
-            <text x="852" y="84" text-anchor="middle" font-size="13" fill="var(--ink)">📤 CSV書き出し</text>
-            <text x="852" y="120" text-anchor="middle" font-size="13" fill="var(--ink-soft)">フリマウォッチと</text>
-            <text x="852" y="138" text-anchor="middle" font-size="13" fill="var(--ink-soft)">同じ列構成</text>
-            <text x="852" y="168" text-anchor="middle" font-size="13" fill="var(--good)" font-weight="700">最大10万件</text>
-
-            <!-- 矢印とラベルは最後に描画し、箱の塗りに隠れないようにする -->
-            <line x1="220" y1="105" x2="255" y2="105" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#fwArrow)"></line>
-            <text x="237" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">自動で</text>
-
-            <line x1="475" y1="105" x2="510" y2="105" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#fwArrow)"></line>
-            <text x="492" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">上限を</text>
-            <text x="492" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">入力して登録</text>
-
-            <line x1="730" y1="105" x2="765" y2="105" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#fwArrow)"></line>
-            <text x="747" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">たまったら</text>
-          </svg>
-          <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin-top:6px;">型番を選ぶ/入力→自動で重複確認→上限を入れて登録→ため込みリストに追加→たまったらCSV書き出しで全データへ、という一連の流れ</figcaption>
-        </figure>
-
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">⚠️ 重複していた型番(独自機能1)</h4>
         <div class="clipfeat-split">
           <div>
@@ -964,9 +906,10 @@
 
             <!-- ①フリマウォッチの一覧を読み込む(初回・毎周とも最初に行う) -->
             <rect x="10" y="140" width="210" height="140" rx="14" fill="var(--card)" stroke="var(--accent)" stroke-width="2.5"></rect>
-            <text x="115" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="var(--accent)">① フリマウォッチの</text>
-            <text x="115" y="202" text-anchor="middle" font-size="15" fill="var(--ink)">一覧をエクスポート</text>
-            <text x="115" y="226" text-anchor="middle" font-size="15" fill="var(--ink)">→「全データ」へ読み込む</text>
+            <text x="115" y="172" text-anchor="middle" font-size="18" font-weight="700" fill="var(--accent)">① フリマウォッチの</text>
+            <text x="115" y="194" text-anchor="middle" font-size="14" fill="var(--ink)">一覧をエクスポート</text>
+            <text x="115" y="216" text-anchor="middle" font-size="14" fill="var(--ink)">→「全データ」へ読み込む</text>
+            <text x="115" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="var(--accent)">※ラクサーチ内だけの写し</text>
 
             <!-- ②型番を確認・仮登録 -->
             <rect x="245" y="140" width="210" height="140" rx="14" fill="var(--card)" stroke="var(--line)"></rect>
@@ -976,26 +919,96 @@
 
             <!-- ③CSV書き出し -->
             <rect x="480" y="140" width="210" height="140" rx="14" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="585" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">③ たまったら</text>
-            <text x="585" y="200" text-anchor="middle" font-size="15" fill="var(--ink)">CSV書き出し</text>
-            <text x="585" y="222" text-anchor="middle" font-size="13" fill="var(--ink-soft)">→フリマウォッチへ</text>
-            <text x="585" y="244" text-anchor="middle" font-size="13" fill="var(--ink-soft)">手動アップロード</text>
+            <text x="585" y="172" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">③ ため込みリストを</text>
+            <text x="585" y="194" text-anchor="middle" font-size="14" fill="var(--ink)">ワンクリックで書き出し</text>
+            <text x="585" y="216" text-anchor="middle" font-size="13" fill="var(--ink-soft)">→フリマウォッチへ</text>
+            <text x="585" y="238" text-anchor="middle" font-size="13" fill="var(--ink-soft)">手動アップロード</text>
 
             <!-- ④フリマウォッチ側で整理 -->
             <rect x="715" y="140" width="210" height="140" rx="14" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="820" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">④ フリマウォッチ側で</text>
-            <text x="820" y="202" text-anchor="middle" font-size="15" fill="var(--ink)">定期的に整理</text>
-            <text x="820" y="226" text-anchor="middle" font-size="13" fill="var(--ink-soft)">(削除する)</text>
+            <text x="820" y="172" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">④ フリマウォッチ側で</text>
+            <text x="820" y="194" text-anchor="middle" font-size="14" fill="var(--ink)">定期的に整理</text>
+            <text x="820" y="216" text-anchor="middle" font-size="13" fill="var(--ink-soft)">(重複アラートを削除)</text>
+            <text x="820" y="240" text-anchor="middle" font-size="12" fill="var(--ink-soft)">(フリマウォッチ内だけ)</text>
 
             <!-- ⑤全データを削除 -->
             <rect x="950" y="140" width="210" height="140" rx="14" fill="var(--card)" stroke="var(--line)"></rect>
-            <text x="1055" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">⑤ 全データを</text>
-            <text x="1055" y="202" text-anchor="middle" font-size="15" fill="var(--ink)">いったん全部削除</text>
-            <text x="1055" y="226" text-anchor="middle" font-size="13" fill="var(--ink-soft)">(ラクサーチ内だけ)</text>
+            <text x="1055" y="172" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink)">⑤ 全データを</text>
+            <text x="1055" y="194" text-anchor="middle" font-size="14" fill="var(--ink)">いったん全部削除</text>
+            <text x="1055" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent)">※(ラクサーチ内だけ)</text>
+            <text x="1055" y="240" text-anchor="middle" font-size="12" fill="var(--ink-soft)">→フリマウォッチは無事</text>
           </svg>
           <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin-top:8px;">①フリマウォッチの一覧を「全データ」へ読み込む→②型番を確認・仮登録→③たまったら書き出してフリマウォッチへ手動アップロード→④フリマウォッチ側で定期整理→⑤「全データ」を削除し、また①へ、という循環(初めて使う時もこの①からで大丈夫です)</figcaption>
         </figure>
         <p style="margin-top:8px; font-size:13.5px; color:var(--ink-soft);">⑤で全部削除してから①に戻るのは、フリマウォッチ側ですでに削除した項目が古い情報として残ったままだと、実際は未登録なのに「登録済みです」と誤って表示してしまうためです。この「全部削除」はラクサーチ内のローカルな写しを消すだけで、フリマウォッチ側のデータには一切影響しません。</p>
+      </div>
+      <div class="feat" style="grid-column: 1 / -1;">
+        <div class="ico">📦</div>
+        <h3>仕入れ記録:仕入れから売却・利益計算まで(フリマウォッチとは無関係の独立機能)</h3>
+        <p style="margin:0 0 10px; font-size:12px; background:var(--card-2); border:1px solid var(--line); border-radius:8px; padding:9px 12px;">この機能はフリマウォッチと<strong>一切連携しておらず、完全に独立</strong>しています。型番・金額はすべて手入力で、外部サイトから自動で価格を取得することもありません。メルカリ・ラクマ・ヤフオク・Yahoo!フリマなど、どこで売る商品でも記録できます。</p>
+        <p>型番・仕入れ金額・出品価格・数量を記録しておくだけの、シンプルな仕入れ帳です。売れたら<strong>🏷売却情報を追記するだけで、送料やサイト手数料を差し引いた利益・利益率まで自動で計算</strong>されます。在庫の状態(在庫〜完了)も入力内容から自動で判定され、一覧はステータスごとに色分けして表示されます。</p>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🏷 出品価格・売却情報を入れるだけで、利益を自動計算</h4>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;"><strong>出品価格</strong>は「今まさにこの金額で出品している」ことを記録しておける参考資料です(任意・利益計算には一切使いません)。売れたら、<strong>販売価格・送料・サイト手数料・発送日</strong>を入力欄に追記するだけ。入力するそばから<strong>利益・利益率がその場でプレビュー</strong>されるので、計算結果を別途確かめる必要はありません。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">送料は金額を直接入力するほか、<strong>販売サイト+サイズを選ぶだけで匿名配送の料金表から自動入力</strong>もできます(200サイズを超える大型商品は個別見積もりになるため手動入力)。<strong>サイト手数料も、販売サイトを選ぶだけで自動入力</strong>されます(メルカリ・ヤフオク・ラクマ新規=10%、Yahoo!フリマ=5%)。手数料が一定でないAmazon・その他や、ラクマの実績に応じた4.5〜9%の場合は、4〜30%を1%刻みで選ぶか自由に数値を入力できます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);"><strong>取引終了日(任意)</strong>も記録できます。フリマサイトの評価完了・取引完了を残しておきたい方向けの項目で、後述の集計には使いません(集計の基準は常に発送日です)。</p>
+            <p style="margin-top:10px; font-size:12.5px; background:var(--gold-soft); border:1px solid var(--gold); color:var(--ink); border-radius:8px; padding:9px 12px;">⚠️ 発送日・取引終了日を入力する場合は、確定申告資料としての正確さを保つため、<strong>販売価格・送料・サイト手数料もあわせて必須</strong>になります(販売価格だけを単独で入力するのは自由です)。また、<strong>取引終了日を入力する場合は発送日も必須</strong>です(集計が発送日基準のため、発送日が無いと「完了」なのに集計に含まれない記録になってしまうのを防ぐためです)。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 320" role="img" aria-label="売却情報入力欄。販売価格、送料(自動または手動)、サイト手数料、発送日を入れると、利益と利益率がその場でプレビューされる" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="300" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🏷 売却情報(売れたら入力)</text>
+              <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+
+              <text x="30" y="66" font-size="11" fill="var(--ink-soft)">販売価格</text>
+              <rect x="22" y="72" width="200" height="30" rx="7" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="34" y="92" font-size="14" font-family="DotGothic16, monospace" font-weight="700" fill="var(--ink)">¥8,500</text>
+              <text x="246" y="66" font-size="11" fill="var(--ink-soft)">送料(自動)</text>
+              <rect x="238" y="72" width="200" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="250" y="92" font-size="13" fill="var(--ink)">ゆうパケット ¥210</text>
+
+              <text x="30" y="120" font-size="11" fill="var(--ink-soft)">サイト手数料</text>
+              <rect x="22" y="126" width="200" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="34" y="146" font-size="13" fill="var(--ink)">メルカリ 10%</text>
+              <text x="246" y="120" font-size="11" fill="var(--ink-soft)">発送日</text>
+              <rect x="238" y="126" width="200" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="250" y="146" font-size="13" fill="var(--ink)">2026/09/10</text>
+
+              <rect x="22" y="172" width="416" height="112" rx="12" fill="var(--good)" fill-opacity="0.12" stroke="var(--good)" stroke-width="2"></rect>
+              <text x="38" y="198" font-size="12.5" fill="var(--ink-soft)">仕入 ¥3,200 ・送料 ¥210 ・手数料 ¥850</text>
+              <text x="38" y="228" font-size="15" font-weight="700" fill="var(--good)">利益 ¥4,240</text>
+              <text x="38" y="252" font-size="13" font-weight="700" fill="var(--good)">利益率 49.9%</text>
+              <text x="38" y="272" font-size="11" fill="var(--ink-soft)">※入力するたびその場で自動再計算</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:340px;">販売価格・送料・サイト手数料・発送日を入れると、下の利益ボックスがその場で自動更新される</figcaption>
+          </figure>
+        </div>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🚦 状態は5段階で自動判定・色分け表示</h4>
+        <p style="margin:0 0 10px;">ステータスを手動で切り替える手間はありません。<strong>入力済みの項目から自動的に判定</strong>され、一覧は色分けして表示されます。途中の段階を飛ばして入力しても、正しく判定されます。</p>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; max-width:560px; border-collapse:collapse; font-size:12.5px;">
+            <tr style="background:var(--card-2);"><th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">状態</th><th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">条件</th></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--ink-soft); margin-right:6px;"></span>在庫</td><td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">出品価格・販売価格ともに未入力</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#2F6FED; margin-right:6px;"></span>出品中</td><td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">出品価格は入力済み・販売価格は未入力</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--gold); margin-right:6px;"></span>未発送</td><td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">販売価格は入力済み・発送日は未入力</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#E8730C; margin-right:6px;"></span>発送済み(取引未終了)</td><td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">発送日は入力済み・取引終了日は未入力</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--good); margin-right:6px;"></span>完了</td><td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">取引終了日まで入力済み</td></tr>
+          </table>
+        </div>
+        <p style="margin:10px 0 0; font-size:12.5px; color:var(--ink-soft);">判定は「取引終了日」→「発送日」→「販売価格」→「出品価格」の順で優先されます。出品価格は、販売価格が入力された時点で判定上は無視されます。</p>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🗑 複数選択・期間指定でまとめて削除</h4>
+        <p style="margin:0; font-size:13.5px; color:var(--ink-soft);">1件ずつの削除はもちろん、チェックで選んだ複数件の削除、「月」「年」単位で期間を指定しての一括削除にも対応。仕入れ記録は確定申告にも使う大事なデータのため、1件削除・複数削除・全部削除いずれも<strong>誤操作を防ぐ確認ステップ</strong>を経てから実行されます。</p>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📊 集計は「発送日」を基準に</h4>
+        <p style="margin:0;">合計仕入れ金額・合計数量・件数は登録日を基準に集計しますが、<strong>合計利益・合計送料・合計サイト手数料だけは発送日を基準</strong>に集計します。会計上、売上は商品を引き渡した(発送した)時点で確定するという考え方に基づくもので、販売価格だけ入力されていてまだ発送していない記録は、発送するまでこれらの集計にはまだ含まれません。</p>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📄 CSV・🖨 PDF書き出し / 📂 CSV読み込み</h4>
+        <p style="margin:0;">全項目(取引終了日を含む)を含む<strong>CSV書き出し</strong>のほか、<strong>PDF書き出しは通常版・利益計算込み版の2パターン</strong>を用意。利益計算込み版は、確定申告の資料としてもそのまま使えます。</p>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">仕入れ記録のデータはお使いのパソコン内だけに保存されるため、パソコンを買い替えても自動では引き継がれません。<strong>CSV読み込み</strong>を使えば、書き出しておいたCSVを新しいパソコンに取り込むだけで、これまでの記録をそのまま復元できます。</p>
       </div>
       <div class="feat">
         <div class="ico">✂️</div>
@@ -1147,6 +1160,94 @@
       <details class="qa"><summary>何台のパソコンで使えますか?</summary><div class="a">1つのご契約につき、<strong>同時に利用できるのは1台</strong>です。ただし、パソコンを乗り換えて使うこと自体は自由にできます。別のパソコンで同じメールアドレスを認証すると、そちらが新しい1台として登録され、元のパソコンは自動的に使えなくなります(一般的なパソコンの切り替え方式です)。<br><br>ただし、データによって同期の仕組みが異なります。<strong>定型文・検索サイト(フォルダー)の設定はGoogleアカウントに紐づくデータとして自動的に同期</strong>されます。一方、<strong>クリップボード履歴、およびフリマウォッチの「ため込みリスト」「全データ」は端末ごとの保存(自動同期なし)</strong>のため、乗り換え先では最初は空の状態から始まります。フリマウォッチのデータを乗り換え先にも反映したい場合は、CSV書き出し→乗り換え先で読み込み、という形で手動で橋渡ししていただく必要があります(詳しくは説明書をご覧ください)。</div></details>
       <details class="qa"><summary>解約するとどうなりますか?</summary><div class="a"><a href="https://billing.stripe.com/p/login/cNieVcdoHgrfcB6cv96oo00" target="_blank" rel="noopener" style="color:var(--accent); font-weight:700;">マイページ</a>からいつでも解約できます(ご契約時のメールアドレスを入力するだけです)。スマートフォンアプリのサブスクリプションと同じく、解約後もその請求期間の終了日(例:●月●日まで有効)まで引き続き有料機能をご利用いただけ、以降の請求は発生しません。日割りでの返金は行っておりません。<br><br><strong>解約後も、無料でこれまで通り使えるもの:</strong>①ページを右クリックして出す「ラクサーチ」検索(一度に開けるのは最大4サイトまで)、②拡張機能の設定画面を開いて、検索に使うサイトのON/OFFや並び順を変えること、③設定画面(⚙️設定・使い方)を開いて見ること(新しく追加したり内容を書き換えたりはできなくなります)。<br><strong>解約すると使えなくなるもの:</strong> それ以外のほぼすべての機能です。たとえば、文字をダブルクリック/トリプルクリックするだけの自動選択・コピー、選択した文字にメニューが出てくる「ミニメニュー」、フリマウォッチの重複チェック・自動通知・仮登録・CSV書き出し/読み込み、ツールバーのボタンからの各種操作、検索サイトや定型文の追加・編集などが対象です。<br><strong>今まで作ったデータは消えません。</strong>定型文、検索サイトの設定、クリップボード履歴、フリマウォッチのため込みリスト・全データは、解約してもパソコンの中にそのまま残ります。もう一度契約していただければ、消えることなく続きからすぐに使えます。</div></details>
       <details class="qa"><summary>無料お試し期間はありますか?</summary><div class="a">はい。有料プランは初回登録から14日間無料でお試しいただけ、期間終了後に自動で月額2,480円(税込)のお支払いに切り替わります。無料期間中の解約は費用がかかりません。また、右クリックの「ラクサーチ」機能は、契約の有無にかかわらずどなたでも無料でお使いいただけます。</div></details>
+      <details class="qa"><summary>支払い方法は何が使えますか?</summary><div class="a">Stripeを通じたクレジットカード決済に対応しています。</div></details>
+      <details class="qa"><summary>パソコンを買い替えたら、データはどうなりますか?</summary><div class="a">データの種類によって挙動が異なります。<strong>定型文・ラクサーチホームのサイト一覧はGoogleアカウントに紐づいて自動同期</strong>されるので、新しいパソコンでもそのまま使えます。一方、<strong>クリップボード履歴・フリマウォッチのため込みリスト/全データ・仕入れ記録は、そのパソコンだけのローカル保存</strong>のため自動では引き継がれません。フリマウォッチ・仕入れ記録はCSVの書き出し→新しいパソコンで読み込み、という形で手動移行できます。</div></details>
+      <details class="qa"><summary>認証の切り替えはすぐ反映されますか?</summary><div class="a">認証状況は自動的に再確認されますが、間隔は数時間〜24時間に1回程度です。すぐ反映させたい場合は、切り替え後に使わなくなった方のパソコンでChromeを再起動するか、拡張機能の設定画面で改めて「認証する」を押すと、その場で反映されます。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🖱️ ミニメニュー・自動選択</h3>
+      <details class="qa"><summary>ダブルクリックで反応する文字の種類は決まっていますか?</summary><div class="a">初期状態では半角英数字とハイフンだけが対象です。漢字・ひらがな・カタカナ、全角文字は対象外です。設定で「ひらがな・カタカナも含める」をONにすると対象が広がりますが、漢字は常に対象外のままです。</div></details>
+      <details class="qa"><summary>型番に「/」や「+」が含まれていると、選択範囲はどうなりますか?</summary><div class="a">半角英数字とハイフン以外の記号(/、+、(、)、スペースなど)はすべて区切りとして扱われ、その手前で選択が止まります。例えば「GV-USB3/HD」をダブルクリックすると「GV-USB3」までしか選択されません。記号を含めて丸ごと選びたい時は、手動でドラッグして範囲選択してください。</div></details>
+      <details class="qa"><summary>ダブルクリックとトリプルクリックは何が違いますか?</summary><div class="a">ダブルクリックは型番らしき部分(半角英数字・ハイフンの塊)だけを自動選択します。トリプルクリックは文字種を問わず、クリックした段落・タイトルのブロックを丸ごとコピーします。売れた商品のタイトル全体をコピーしたい時などはトリプルクリックが向いています。</div></details>
+      <details class="qa"><summary>ミニメニューを一時的に出したくない時は?</summary><div class="a">右クリックの「🔕一時停止/再開」や、ツールバー・ミニメニューの「⚙️ミニメニュー簡易設定」から、いつでもすぐにON/OFFを切り替えられます。「ミニメニューの自動表示」と「自動コピー」は別々に一時停止できます。</div></details>
+      <details class="qa"><summary>深堀検索は複数の型番を同時に覚えておけますか?</summary><div class="a">いいえ、深堀検索が記憶するのは直前の1件だけです。複数の型番をそれぞれ個別に覚えておきたい場合は、クリップボード履歴をお使いください(履歴・ピン留めの各項目が、それぞれ自分の内容を個別に記憶します)。</div></details>
+      <details class="qa"><summary>Googleスプレッドシートでは使えますか?</summary><div class="a">スプレッドシートの表(セルが並ぶ画面)はCanvas(絵)として描画されているため、ダブルクリックでの型番自動選択は動作しません。セルをダブルクリックして編集モード(カーソルが点滅する状態)にすれば、その中の文字は通常の入力欄と同じ扱いになり、動作する場合があります。なお右クリックメニューの項目が二重に表示されることがありますが、これはGoogle側の仕様によるもので、どちらを押しても同じ動作です。</div></details>
+      <details class="qa"><summary>画像をコピーした直後にダブルクリックすると何が起きますか?</summary><div class="a">クリップボードの中身は「最後に行った操作」で必ず上書きされる仕組み(Windows・ブラウザ共通)のため、画像がテキストで上書きされて消えてしまいます。画像を貼り付けたい作業の直前は、自動コピーを一時的にOFFにするか、ダブルクリックを避けてください。</div></details>
+      <details class="qa"><summary>ミニメニューの表示位置は変更できますか?</summary><div class="a">はい。設定画面のプレビュー欄でミニメニューをドラッグすると、次回から常にそのズレを反映した位置に表示されます。「初期位置に戻す」でいつでも元に戻せます。</div></details>
+      <details class="qa"><summary>タブを切り替えてもミニメニューを表示したままにできますか?</summary><div class="a">初期設定ではタブを切り替えると自動的に閉じますが、設定でONにすれば切り替えても残るようにできます。</div></details>
+      <details class="qa"><summary>手動のドラッグ選択と、ダブルクリックは何が違いますか?</summary><div class="a">ダブルクリックは型番らしき部分だけを自動判定しますが、手動のドラッグ選択は選んだ範囲がそのまま反映されます。スペースを含む商品名など、決まった範囲を確実に検索・コピーしたい時は手動選択が向いています。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">📋 クリップボード履歴・定型文・入力補助</h3>
+      <details class="qa"><summary>クリップボード履歴には何でも記録されますか?</summary><div class="a">いいえ。記録されるのは、ラクサーチのミニメニュー・ツールバーメニューの「コピー」「切り取り」「ピン留め」、入力欄を丸ごと切り取り、定型文の挿入・コピーを使った時だけです。キーボードのCtrl+C/Ctrl+Xでの通常コピーや、他のアプリ・他の拡張機能でのコピーは記録されません。</div></details>
+      <details class="qa"><summary>クリップボード履歴は何件まで保存されますか?</summary><div class="a">ピン留めしていない履歴は20〜200件の間で設定でき(初期値60件)、超えると古いものから自動で消えます。📌ピン留めはこの件数に含まれず、別に300件までの上限があります。</div></details>
+      <details class="qa"><summary>クリップボード履歴のウィンドウが見当たらなくなりました。</summary><div class="a">元のページをクリックすると、独立したWindowsウィンドウのため後ろに隠れることがあります(Windowsの標準動作で、閉じているわけではありません)。タスクバーの「クリップボード履歴」アイコンをクリックすれば、すぐに前面に戻ります。</div></details>
+      <details class="qa"><summary>入力欄を丸ごと切り取る時、確認は出ますか?</summary><div class="a">クリップボード履歴・定型文・入力パッドの3つのボタンから実行した場合は、誤操作防止のため一度確認が出ます。右クリック・ツールバーメニュー・ショートカットキーから実行した場合は、すでに操作を選ぶひと手間があるため、確認なしで即座に実行されます。</div></details>
+      <details class="qa"><summary>定型文は何件まで登録できますか?</summary><div class="a">定型文は最大300件、フォルダは最大20個までです。1件あたりの文字数は題名と本文を合わせて2,000文字までです。</div></details>
+      <details class="qa"><summary>定型文はパソコンを変えても引き継がれますか?</summary><div class="a">はい。定型文・検索サイトの設定はGoogleアカウントに紐づいて自動的に同期されます。バックアップの書き出し・読み込み(JSON形式)にも対応しています。</div></details>
+      <details class="qa"><summary>電卓はどこで使えますか?</summary><div class="a">①右クリック・ツールバー・ミニメニュー・ショートカットから開く単体の電卓(計算履歴つき)、②フリマウォッチ確認・登録パネルの中(計算結果を上限・下限欄へそのまま反映可能)、③クリップボード履歴ウィンドウの中、の3箇所で使えます。</div></details>
+      <details class="qa"><summary>貼り付けの時に一瞬別のウィンドウが出るのは不具合ですか?</summary><div class="a">いいえ、不具合ではありません。Chromeの仕組み上、クリップボードを安全に読み取るために必要な標準的な方法です。中身はほぼ空白で、読み取った内容が外部に送信されることは一切なく、読み取り終わればすぐ自動で閉じます。</div></details>
+      <details class="qa"><summary>「現在のコピー」表示とは何ですか?</summary><div class="a">コピー・切り取りに成功するたびに、画面右下に今クリップボードに入っている内容を表示する機能です。最後の操作で必ず上書きされるクリップボードの仕組み上、別の場所でコピーしたことに気づかず古い内容を貼ってしまう事故を防げます。表示が消えるまでの秒数は設定で調整できます(初期値5秒、0で消えない)。</div></details>
+      <details class="qa"><summary>「操作結果の通知」と「現在のコピー」表示は同じものですか?</summary><div class="a">別の設定です。「操作結果の通知」は「コピーしました」等の一瞬だけ出る確認表示、「現在のコピー」表示は今クリップボードに入っている内容を秒数の間ずっと表示し続ける常時インジケーターです。それぞれ個別にON/OFFできます。</div></details>
+      <details class="qa"><summary>クリップボード履歴を消しても、後で復元できますか?</summary><div class="a">🗑削除・🗑すべてクリアで手動削除した場合や、保存件数の上限を超えて自動的に消えた場合、復元はできません。大事な履歴は📌ピン留めしておくことをおすすめします。</div></details>
+      <details class="qa"><summary>入力パッドは日本語入力(IME)の設定と関係ありますか?</summary><div class="a">入力パッドは、日本語入力のON/OFF切り替えが面倒な場面や記号を探す手間を省くための、数字・英字・かな・カナ・記号を切り替え式で入力できるパッドです。IME自体の設定には影響しません。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🔍 フリマウォッチ関連機能</h3>
+      <details class="qa"><summary>「ため込みリスト」と「全データ」はどう違いますか?</summary><div class="a">「ため込みリスト」はまだCSVに書き出していない登録したてのデータで、最大100件まで保管でき、型番・上限・下限を後から編集できます。「全データ」は書き出し後の記録とCSV読み込みの記録をまとめた一覧で、最大10万件まで保存でき、削除だけができ内容の編集はできません。</div></details>
+      <details class="qa"><summary>重複判定はどこまで厳密ですか?</summary><div class="a">前後の空白を除いた完全一致で判定します。英数字の大文字・小文字は区別しませんが、ひらがな/カタカナ、全角/半角はそのまま区別します。上限・下限の金額は判定に使わず、型番だけで比較します。</div></details>
+      <details class="qa"><summary>「AH-D5200」と「AH-D5200 新品」は重複と判定されますか?</summary><div class="a">されません。型番の後ろに状態・付属品・色・サイズなどの説明が付くと、1文字でも違えば別物として扱われます。選択する範囲を毎回そろえることが、重複チェックを正しく機能させるコツです。</div></details>
+      <details class="qa"><summary>フリマウォッチへの登録は自動で反映されますか?</summary><div class="a">いいえ。ラクサーチでの「登録」はあくまで内部の仮登録で、フリマウォッチ本体には自動送信されません。CSVとして書き出し、フリマウォッチの「アラートのインポート」画面へご自身でアップロードする必要があります。</div></details>
+      <details class="qa"><summary>「全データ」を一部だけ削除することはできますか?</summary><div class="a">できません。「全データ」は全部削除以外の削除手段をあえて用意していません。一部だけ消してもフリマウォッチ本体には反映されず、「消した=片付いた」という誤解につながるためです。中身を減らしたい時は、フリマウォッチ側で整理してから全部削除→読み込み直す、という循環をお使いください。</div></details>
+      <details class="qa"><summary>1日に書き出せる件数に制限はありますか?</summary><div class="a">あります。「選択分を書き出す」「ため込み中すべて」の合計で1日4,900件までです(フリマウォッチ側の実際の上限5,000件から、安全のための余裕を引いた数です)。日付が変わると0件からやり直しになります。CSVの読み込みはこの制限の対象外で、何度でも行えます。</div></details>
+      <details class="qa"><summary>CSVを読み込む時、フリマウォッチのどの列が使われますか?</summary><div class="a">型番はkwsTitle列(空の場合のみkws列で代用)、金額はpmin(下限)・pmax(上限)列を読み取ります。除外ワード・通知設定・自動購入設定などそれ以外の列は一切読み込まれません。</div></details>
+      <details class="qa"><summary>同じCSVを間違えて2回読み込んでしまったら、データが重複しますか?</summary><div class="a">型番による統合は行わないため、同じ内容でも読み込むたびにそのまま追加されます。ただし、読み込もうとした内容が1行残らず全データにすでに完全一致で存在する場合だけ、「もう一度読み込もうとしていませんか?」という確認が表示されます。</div></details>
+      <details class="qa"><summary>「重複していた型番」機能は何をチェックしていますか?</summary><div class="a">フリマウォッチのCSVを読み込んだ時に、同じ型番がファイル内に複数回出てきていないかを自動でチェックし、型番と出現回数を記録する機能です。フリマウォッチ本体には無い、ラクサーチだけの独自機能です。</div></details>
+      <details class="qa"><summary>フリマウォッチの自動通知はどんな時に出ますか?</summary><div class="a">型番をコピーした瞬間に、その型番がすでにため込みリストや全データに登録済みかを自動でチェックし、登録済みなら価格帯つきで知らせます。右クリックメニュー・ツールバー・ミニメニュー・ショートカットキーからいつでもON/OFFを切り替えられます。</div></details>
+      <details class="qa"><summary>型番が長いと一覧でどう表示されますか?</summary><div class="a">半角英数字で目安28文字(全角混在なら目安13〜14文字)を超えると、末尾が「…」に省略されます。省略された型番にカーソルを乗せると、吹き出しで全文が確認できます。</div></details>
+      <details class="qa"><summary>フリマウォッチと仕入れ記録を同時に登録できますか?</summary><div class="a">できます。同じパネルの中に両方の入力欄があり、上限を入れればフリマウォッチへ、仕入れ金額を入れれば仕入れ記録へ、両方入れれば両方に登録されます。片方しか使わない場合は、設定でパネルから非表示にすることもできます。</div></details>
+      <details class="qa"><summary>ため込みリスト・全データのデータはどこに保存されますか?</summary><div class="a">すべてお使いのパソコン内(ローカルストレージ)だけに保存され、開発者を含めどこにも送信・収集されません。CSVの読み込み・書き出しもパソコン内で完結する処理です。</div></details>
+      <details class="qa"><summary>フリマウォッチの仕様が変わったら、この機能は使えなくなりますか?</summary><div class="a">この機能はフリマウォッチ側のCSV形式を前提にしているため、フリマウォッチの仕様変更により、対応状況が向上することも、逆に一部ご利用いただけなくなることもあります。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🛒 仕入れ記録</h3>
+      <details class="qa"><summary>仕入れ記録はフリマウォッチを使っていなくても使えますか?</summary><div class="a">はい。仕入れ記録はフリマウォッチとは完全に別のデータとして保存される独立機能なので、フリマウォッチのCSVを一度も読み込んでいなくてもそのまま使えます。</div></details>
+      <details class="qa"><summary>数量の上限はありますか?</summary><div class="a">1件あたり最大9,999個まで入力できます。未入力の場合は自動的に1になります。</div></details>
+      <details class="qa"><summary>販売サイトの一覧に無いサイトは登録できますか?</summary><div class="a">はい。一覧の一番下の「+ サイトを追加」から、自由にサイト名を登録できます。一度登録すれば、以降は他のサイトと同じように一覧から選ぶだけで済み、毎回手入力する必要はありません。送料の自動入力・サイト手数料の自動入力は、料金が一定でないため対象外です。</div></details>
+      <details class="qa"><summary>追加したサイトを削除・名前変更できますか?</summary><div class="a">一覧に出てくる追加済みサイトの「×」から削除できます(メルカリ等の元からある選択肢は削除できません)。名前を直接変更する機能はありませんが、削除してから「+ サイトを追加」で登録し直せば、同じことができます。すでにそのサイト名で保存されている記録は削除の影響を受けず、そのまま残ります。</div></details>
+      <details class="qa"><summary>販売価格を入れると、出品価格の表示はどうなりますか?</summary><div class="a">販売価格を入力した行は、一覧の出品価格の表示が消えます(見込み金額と実際に売れた金額が並んで紛らわしいのを防ぐためで、出品価格のデータ自体は編集画面で引き続き確認・書き換えできます)。</div></details>
+      <details class="qa"><summary>出品価格とは何ですか?「出品中」ステータスとの関係は?</summary><div class="a">出品価格は「今まさにこの金額で出品している」ことを記録しておける、任意の参考資料です。利益計算・集計には一切使いません。一覧の「出品中(青)」ステータスは、この出品価格が入力されているかどうかで判定されます(販売価格が入力された時点で、出品中の判定には使われなくなります)。</div></details>
+      <details class="qa"><summary>5段階のステータスは手動で切り替える必要がありますか?</summary><div class="a">いいえ、自動で判定されます。優先順位は「取引終了日」→「発送日」→「販売価格」→「出品価格」で、途中の段階を飛ばして直接「完了」にしても問題ありません。</div></details>
+      <details class="qa"><summary>発送日を入力しようとしたらエラーが出ました。なぜですか?</summary><div class="a">発送日または取引終了日を入力する場合は、確定申告資料としての正確さを保つため、販売価格・送料・サイト手数料もあわせて入力する必要があります(販売価格だけを単独で入力するのは自由です)。サイト手数料のプルダウンは初期状態では何も選ばれていないため、必ずどれか1つを選んでください。</div></details>
+      <details class="qa"><summary>サイト手数料の自動入力を、販売サイトを変更しても更新したい・したくない場合は?</summary><div class="a">自動入力された値のままなら、販売サイトを変更するたびに新しいサイトの分に更新され続けます。一方、プルダウンからご自身でいずれかの%を選ぶと、それ以降は販売サイトを変更しても上書きされなくなります(誤って意図しない%のまま保存してしまうのを防ぐためです)。この「固定」を解除して自動入力に戻したい場合は、手数料を一度「選択してください」(空欄)に戻してください。</div></details>
+      <details class="qa"><summary>取引終了日を入力しようとしたら発送日も求められました。なぜですか?</summary><div class="a">合計利益・合計送料・合計サイト手数料の集計は発送日を基準にしているため、発送日を省略して取引終了日だけで「完了」にしてしまうと、一覧では完了と表示されているのに集計にはその記録が一切含まれない、という見た目と集計がズレた状態になってしまいます。これを防ぐため、取引終了日を入力する場合は発送日も必ず入力する仕様にしています(発送日だけを入力して取引終了日は省略するのは自由です)。</div></details>
+      <details class="qa"><summary>合計利益はいつの記録が対象になりますか?</summary><div class="a">発送日を基準に集計します。販売価格だけ入力されていて、まだ発送日を入れていない記録(未発送)は、会計上まだ売上未確定として、発送するまで合計利益・合計送料・合計サイト手数料には含まれません。一方、合計仕入れ金額・合計数量・件数は登録日を基準に集計します。</div></details>
+      <details class="qa"><summary>取引終了日とは何ですか?</summary><div class="a">フリマサイトの評価完了・取引完了のタイミングを記録として残しておける、任意の項目です。集計には一切使われません(集計の基準は常に発送日です)。</div></details>
+      <details class="qa"><summary>キャンセルになった場合はどうすればよいですか?</summary><div class="a">販売価格欄を空にすれば、自動的に「在庫」または「出品中」の状態に戻ります。</div></details>
+      <details class="qa"><summary>集計はどんな単位で見られますか?</summary><div class="a">今日・今週(日曜始まり)・今月・今年・全期間のほか、実際に記録がある月・年を個別に選んで確認できます。合計仕入れ金額・合計数量・件数(登録日基準)と、合計送料・合計サイト手数料・合計利益(発送日基準)が表示され、出品価格は集計に含まれません。</div></details>
+      <details class="qa"><summary>特定の月だけ記録をまとめて削除できますか?</summary><div class="a">「この期間を削除」を使えば、今選んでいる期間(相対期間・月・年指定のどれでも)の記録をまとめて削除できます(全部削除と同じ2段階確認です)。</div></details>
+      <details class="qa"><summary>仕入れ記録は何件まで保存できますか?</summary><div class="a">フリマウォッチの全データと同じく、最大10万件まで保存できます。</div></details>
+      <details class="qa"><summary>PDFレポートにはどんな種類がありますか?</summary><div class="a">「通常」「利益計算込み」の2パターンから選んで書き出せます。ブラウザの印刷機能でそのまま印刷・PDF保存でき、確定申告の資料としてもお使いいただけます。</div></details>
+      <details class="qa"><summary>仕入れ記録のデータもパソコン間で自動的に引き継がれますか?</summary><div class="a">いいえ、このパソコンだけに保存されるため自動では引き継がれません。CSVを書き出しておき、新しいパソコンで「CSVを読み込む(仕入れ記録へ)」から読み込むことで復元できます。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🔎 ラクサーチホーム・検索サイト管理</h3>
+      <details class="qa"><summary>対応しているサイトの数は?</summary><div class="a">フリマ・オークション本体、買取・リユース店、一般通販・家電量販店、検索・情報系など、42サイトを標準搭載しています(詳しくは機能セクションの対応サイト一覧をご覧ください)。</div></details>
+      <details class="qa"><summary>一度に検索できるサイト数に上限はありますか?</summary><div class="a">フォルダごとに最大8個までチェックできます(無料の「🟥ラクサーチ」は最大4個まで)。フォルダが違えば、それぞれ別に8個までチェックできます。</div></details>
+      <details class="qa"><summary>たくさんのサイトを一度に開くと、認証画面が出ることがあると聞きました。</summary><div class="a">あまりに多くのサイトへ同時にアクセスすると、サイトによっては自動アクセスと判定され、reCAPTCHA等の認証画面が表示されることがあります。まずGoogle検索1つで様子を見る→ラクサーチ(4サイト)で確認→ラクサーチホームで絞り込んで検索、という段階的な使い方がおすすめです。</div></details>
+      <details class="qa"><summary>🔒マークが付いたサイトは編集できますか?</summary><div class="a">URLの変更はできますが、名前の変更・削除はできません。自分で追加したサイトには🔒マークが付かず、自由に編集・削除できます。</div></details>
+      <details class="qa"><summary>「ラクサーチホーム」フォルダ自体を削除・改名できますか?</summary><div class="a">削除・名前の変更はできませんが、他のフォルダと同じように並び替えは自由にできます。整理したい場合は「他フォルダへ複製」でコピーを作れます。</div></details>
+      <details class="qa"><summary>サイト一覧のデータはパソコン間で引き継がれますか?</summary><div class="a">はい、定型文と同じくGoogleアカウントに紐づいて自動的に同期されます。バックアップの書き出し・読み込み(JSON)にも対応しています。</div></details>
+      <details class="qa"><summary>フォルダやサイトは何個まで登録できますか?</summary><div class="a">フォルダは(ラクサーチホームを除いて)最大8個、各フォルダでチェックできるサイトは最大8個までです。</div></details>
+      <details class="qa"><summary>サイトのURLが動かなくなった場合はどうすればいいですか?</summary><div class="a">サイト側の仕様変更でURLが変わることがあります。サイトをタップして編集画面を開き、URL中の{q}(検索文字列が入る位置)を確認しながら書き換えてみてください。</div></details>
+      <details class="qa"><summary>「🟥ラクサーチ」と「ラクサーチホーム」は何が違いますか?</summary><div class="a">「🟥ラクサーチ」は右クリックメニューから誰でも無料で使える、10サイトの中から選ぶシンプルな機能です。「ラクサーチホーム」は月額プラン向けの機能で、フォルダ管理・42サイト対応・最大8サイト同時チェックなど、より高度にサイトを管理できます。</div></details>
+
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🔔 通知・データ保存・トラブルシューティング</h3>
+      <details class="qa"><summary>拡張機能のデータはどこに保存されますか?</summary><div class="a">定型文・検索サイトの設定はGoogleアカウントに紐づく同期ストレージに、クリップボード履歴・フリマウォッチのデータ・仕入れ記録はパソコンごとのローカルストレージに保存されます。設定画面の「保存容量の確認」で、それぞれの使用量をいつでも確認できます。</div></details>
+      <details class="qa"><summary>ショートカットキーはどこで設定しますか?</summary><div class="a"><code>chrome://extensions/shortcuts</code>から、20個の機能すべてにキーボードショートカットを割り当てられます。初期状態ではどのキーも設定されていません。</div></details>
+      <details class="qa"><summary>ショートカットキーを設定したのに反応しません。</summary><div class="a">設定したキーが、Chrome本体や見ているサイト自身がすでに使っているキーと被っている場合、そちらの動作が優先されます。別のサイトや空白のページで試すか、被っていなさそうな別のキーの組み合わせに変えてみてください。</div></details>
+      <details class="qa"><summary>ツールバーメニューのアイコンが見当たりません。</summary><div class="a">初期状態ではパズルのピースアイコン🧩の中に隠れています。アイコンを右クリックして「固定」を選ぶと、ツールバーに常時表示されるようになります。</div></details>
+      <details class="qa"><summary>右クリックメニューやツールバーメニューの項目は減らせますか?</summary><div class="a">はい。使わない項目はチェックを外して非表示にでき、⠿をドラッグして並び替えもできます。</div></details>
+      <details class="qa"><summary>通知の表示位置は調整できますか?</summary><div class="a">はい。画面上部中央の通知の高さ、ミニメニューの通知の位置ズラしなど、それぞれ数値で細かく調整できます。</div></details>
+      <details class="qa"><summary>すべての通知をまとめてOFFにできますか?</summary><div class="a">「操作結果の通知」をOFFにすると、コピー・切り取り等の一瞬だけの確認表示がまとめて出なくなります。ただし「現在のコピー」表示、ミニメニューの自動表示、フリマウォッチの自動通知は、それぞれ別の設定で個別にON/OFFする必要があります。</div></details>
+      <details class="qa"><summary>拡張機能を使うと、閲覧しているページの内容が外部に送信されますか?</summary><div class="a">いいえ。検索に使った文字列、コピー履歴、定型文、フリマウォッチ・仕入れ記録のデータなどは、すべてお使いのパソコン内(および一部はGoogleアカウントに紐づく同期領域)にのみ保存され、開発者のサーバーには一切送信されません。</div></details>
+      <details class="qa"><summary>有料プランを解約すると、設定やデータは消えますか?</summary><div class="a">消えません。定型文・ラクサーチホームのサイト一覧・クリップボード履歴・各種設定は、解約後もすべてそのまま端末に残ります。再度契約すれば、元の状態のまますぐに使い始められます。</div></details>
+      <details class="qa"><summary>拡張機能をアップデートすると、設定は引き継がれますか?</summary><div class="a">はい、Chrome拡張機能のアップデートは既存のデータ・設定に影響しません。</div></details>
     </div>
   </div>
 </section>
@@ -1180,7 +1281,7 @@
         <div class="contact-error" id="contactError" hidden></div>
         <button type="button" class="btn-primary" id="contactSubmitBtn" onclick="submitContactForm()">送信する</button>
       </form>
-      <div class="contact-success" id="contactSuccess" hidden>✅ お問い合わせを受け付けました。ご記入いただいたメールアドレスに確認メールをお送りしました。</div>
+      <div class="contact-success" id="contactSuccess" hidden>✅ お問い合わせを受け付けました。ご記入いただいたメールアドレスに確認メールをお送りしました。<br><span style="font-size:12px; opacity:0.85;">メールが届かない場合は、迷惑メールフォルダもご確認ください。</span></div>
     </details>
   </div>
 </section>
@@ -1242,7 +1343,7 @@
       </ul>
       <p>前項各号のいずれかに違反した場合、当方は事前の通知なく本サービスの利用を停止し、契約を解除できるものとします。この場合、既にお支払いいただいた利用料金の返金は行いません。</p>
       <h3>第6条(免責事項)</h3>
-      <p>当方は、本サービスに起因して生じた損害について、故意または重過失による場合を除き責任を負いません。連携先サイトの仕様変更により機能が動作しなくなる場合があります。</p>
+      <p>当方は、本サービスに起因して生じた損害について、故意または重過失による場合を除き責任を負いません。連携先サイトの仕様変更により機能が動作しなくなる場合があります。また、本サービスの各機能(通知・フリマウォッチ関連機能を含む)は、より良いサービス提供のため、事前の予告なく追加・変更・削除される場合があります。</p>
     </div>
 
     <div id="privacy" class="legaldoc">
@@ -1302,7 +1403,7 @@
     </div>
   </div>
 </div>
-<div class="checkout-success-banner" id="checkoutSuccessBanner" hidden>✅ お申し込みありがとうございます!ご登録のメールアドレスに確認のご案内をお送りします。</div>
+<div class="checkout-success-banner" id="checkoutSuccessBanner" hidden>✅ お申し込みありがとうございます!ご登録のメールアドレスに確認のご案内をお送りします。<br><span style="font-size:12px; font-weight:400; opacity:0.9;">メールが届かない場合は、迷惑メールフォルダもご確認ください。</span></div>
 
 <script>
   function openCheckoutModal() {
