@@ -1270,6 +1270,7 @@
             <option value="other">その他</option>
           </select>
         </div>
+        <div id="supportInfoStatus" style="font-size:12.5px; color:var(--good, #2e7d32); margin:-10px 0 14px; display:none;"></div>
         <div class="field">
           <label for="contactEmail">メールアドレス(返信用)</label>
           <input type="email" id="contactEmail" placeholder="name@example.com" autocomplete="email">
@@ -1350,7 +1351,7 @@
       <h2 class="disp">プライバシーポリシー</h2>
       <p>安藤剛は、ラクサーチの提供にあたり取得する情報を、以下のとおり取り扱います。</p>
       <h3>拡張機能が扱う情報</h3>
-      <p>定型文・検索サイト設定はGoogleアカウントに紐づくchrome.storage.syncに、クリップボード履歴・フリマウォッチの「ため込みリスト」「全データ」等は端末ごとのchrome.storage.localに保存されます。クリップボード履歴は、本サービス自身の「コピー」「切り取り」「📌ピン留め」操作、および定型文の挿入・コピー操作を通じた内容のみを記録し、Ctrl+Cや他アプリでのコピーは含みません(保存先の詳細は次項「取得しない情報」を参照)。</p>
+      <p>定型文・検索サイト設定はGoogleアカウントに紐づくchrome.storage.syncに、クリップボード履歴・フリマウォッチの「ため込みリスト」「全データ」等は端末ごとのchrome.storage.localに保存されます。クリップボード履歴は、本サービス自身の「コピー」「切り取り」「📌ピン留め」操作、および定型文の挿入・コピー操作を通じた内容のみを記録し、Ctrl+Cや他アプリでのコピーは含みません(保存先の詳細は次項「取得しない情報」を参照)。また、本サイトの「お問い合わせ」フォームを開くと、拡張機能がインストールされている場合に限り、拡張機能のバージョン・Chromeのバージョン・OS・主要な設定のON/OFF状態・直近のエラーログを不具合対応のために自動的に取得します(メールアドレス等の個人情報や、閲覧内容・検索文字列は一切含まれません)。</p>
       <h3>有料プランで取得する情報</h3>
       <p>メールアドレス、決済情報(カード番号自体はStripe, Inc.が処理し当方は保持しません。カードのブランド・下4桁・請求先住所(入力された場合)・アクセス時のIPアドレスの記録はStripe, Inc.側で保持されます)、契約状況、不正な共有利用防止のための端末識別子を取得します。</p>
       <h3>取得しない情報</h3>
@@ -1481,6 +1482,40 @@
     }
   })();
 
+  // 【2026-09-13追加】不具合報告の「二度手間」対策(ユーザー相談・本格版で合意)。
+  // ラクサーチ拡張機能がインストールされていれば、externally_connectable経由でサポート用情報
+  // (バージョン・主要設定・直近のエラーログ)を自動取得し、コピー操作なしで問い合わせに添える。
+  // 拡張機能が入っていない場合は静かに諦める(エラー表示はしない。閲覧者は拡張機能未インストール
+  // の可能性が高いため)。メールアドレス等の個人情報はこの情報には一切含まれない。
+  var RAKUSEARCH_EXTENSION_ID = "jeooibjgeecfpaaekkmkhhmpnicgflfo";
+  var rakusearchSupportInfoText = null;
+  function updateSupportInfoStatus() {
+    var statusEl = document.getElementById("supportInfoStatus");
+    var typeEl = document.getElementById("contactType");
+    if (!statusEl || !typeEl) return;
+    if (rakusearchSupportInfoText && typeEl.value === "bugfix") {
+      statusEl.textContent = "✓ 拡張機能からサポート用情報を自動で取得しました(送信に含まれます)";
+      statusEl.hidden = false;
+    } else {
+      statusEl.hidden = true;
+    }
+  }
+  (function fetchRakusearchSupportInfo() {
+    if (typeof chrome === "undefined" || !chrome.runtime || !chrome.runtime.sendMessage) return;
+    try {
+      chrome.runtime.sendMessage(RAKUSEARCH_EXTENSION_ID, { action: "getSupportInfo" }, function (response) {
+        if (chrome.runtime.lastError) return; // 拡張機能が入っていない、または許可がない場合
+        if (response && response.ok && response.text) {
+          rakusearchSupportInfoText = response.text;
+          updateSupportInfoStatus();
+        }
+      });
+    } catch (e) {
+      // sendMessage自体が例外を投げる環境(拡張機能API非対応ブラウザ等)は何もしない
+    }
+  })();
+  document.getElementById("contactType").addEventListener("change", updateSupportInfoStatus);
+
   async function submitContactForm() {
     var type = document.getElementById("contactType").value;
     var emailInput = document.getElementById("contactEmail");
@@ -1506,7 +1541,7 @@
       var res = await fetch("https://gnaccktgjrupjbadzgez.supabase.co/functions/v1/submit-contact-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: type, email: email, message: message })
+        body: JSON.stringify({ type: type, email: email, message: message, supportInfo: rakusearchSupportInfoText || null })
       });
       var data = await res.json();
       if (data && data.success) {
