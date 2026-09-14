@@ -1278,7 +1278,7 @@
         </div>
         <div class="field">
           <label for="contactMessage">お問い合わせ内容</label>
-          <textarea id="contactMessage" placeholder="不具合の場合は、発生した操作の手順も書いていただけると助かります"></textarea>
+          <textarea id="contactMessage" placeholder="発生した操作の手順や、いつ頃発生したかを書いていただけると助かります"></textarea>
         </div>
         <div class="contact-error" id="contactError" hidden></div>
         <button type="button" class="btn-primary" id="contactSubmitBtn" onclick="submitContactForm()">送信する</button>
@@ -1546,7 +1546,11 @@
     var statusEl = document.getElementById("supportInfoStatus");
     var typeEl = document.getElementById("contactType");
     if (!statusEl || !typeEl) return;
-    if (rakusearchSupportInfoText && typeEl.value === "bugfix") {
+    // 【不具合修正・2026-09-14】送信データ自体はお問い合わせの種類に関わらず常に含めているのに、
+    // この表示だけ「不具合の報告」の時しか出ない作りになっていて、「機能の要望」等を選ぶと
+    // 実際には送られているのに送られていないように見える不整合があった(ユーザー指摘)。
+    // 表示も実際の送信内容(全種類で送信)に合わせる。
+    if (rakusearchSupportInfoText) {
       statusEl.textContent = "✓ 拡張機能からサポート用情報を自動で取得しました(送信に含まれます)";
       statusEl.hidden = false;
     } else {
@@ -1568,6 +1572,25 @@
     }
   })();
   document.getElementById("contactType").addEventListener("change", updateSupportInfoStatus);
+
+  // 【不具合修正・2026-09-14】お問い合わせ内容欄のplaceholderが常に「不具合の場合は...」で
+  // 固定されており、「機能の要望」等を選んでも不具合向けの文言のままだった(ユーザー指摘:
+  // 「お問い合わせの種類とお問い合わせ内容、合わせて欲しい」)。選んだ種類に応じて
+  // placeholderを切り替える。
+  var CONTACT_MESSAGE_PLACEHOLDERS = {
+    bugfix: "発生した操作の手順や、いつ頃発生したかを書いていただけると助かります",
+    feature: "どんな機能があると助かるか、具体的に教えてください",
+    howto: "分からない操作や、やりたいことを具体的に教えてください",
+    other: "お問い合わせ内容を具体的にご記入ください"
+  };
+  function updateContactMessagePlaceholder() {
+    var typeEl = document.getElementById("contactType");
+    var messageInput = document.getElementById("contactMessage");
+    if (!typeEl || !messageInput) return;
+    messageInput.placeholder = CONTACT_MESSAGE_PLACEHOLDERS[typeEl.value] || CONTACT_MESSAGE_PLACEHOLDERS.other;
+  }
+  document.getElementById("contactType").addEventListener("change", updateContactMessagePlaceholder);
+  updateContactMessagePlaceholder();
 
   async function submitContactForm() {
     var type = document.getElementById("contactType").value;
