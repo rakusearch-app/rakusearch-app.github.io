@@ -1407,6 +1407,58 @@
 <div class="checkout-success-banner" id="checkoutSuccessBanner" hidden>✅ お申し込みありがとうございます!ご登録のメールアドレスに確認のご案内をお送りします。<br><span style="font-size:12px; font-weight:400; opacity:0.9;">メールが届かない場合は、迷惑メールフォルダもご確認ください。</span></div>
 
 <script>
+  // 【2026-09-14追加】拡張機能側と同じ考え方で、サイト自身のJSエラーも記録する
+  // (ユーザー指摘: 「サイトのログ機能、ログ機能他にもれはないかな？ユーザーIDもサーバーも
+  // ないので確認できないから徹底的にわかるようにしたです」)。サーバー側にデータベースが
+  // 無いため、localStorageに直近件数だけ保存しておき、お問い合わせフォーム送信時に
+  // (拡張機能から取得したsupportInfoとは別枠で)一緒に送信する。個人情報・ページの入力内容は
+  // 一切含めない(エラーメッセージと発生ページだけ)。
+  (function () {
+    var SITE_ERROR_LOG_KEY = "rakusearchSiteErrorLog";
+    var SITE_ERROR_LOG_MAX = 20;
+    function appendSiteErrorLog(message) {
+      try {
+        var raw = localStorage.getItem(SITE_ERROR_LOG_KEY);
+        var log = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(log)) log = [];
+        log.push({ time: Date.now(), path: location.pathname + location.hash, message: String(message).slice(0, 800) });
+        if (log.length > SITE_ERROR_LOG_MAX) log = log.slice(-SITE_ERROR_LOG_MAX);
+        localStorage.setItem(SITE_ERROR_LOG_KEY, JSON.stringify(log));
+      } catch (e) {
+        // localStorageが使えない環境(プライベートブラウジング等)では諦める
+      }
+    }
+    var originalConsoleError = window.console && window.console.error;
+    if (originalConsoleError) {
+      console.error = function () {
+        originalConsoleError.apply(console, arguments);
+        var message = Array.prototype.map.call(arguments, function (a) {
+          return a instanceof Error ? (a.stack || a.message) : (typeof a === "object" && a !== null ? JSON.stringify(a) : String(a));
+        }).join(" ");
+        appendSiteErrorLog(message);
+      };
+    }
+    window.addEventListener("error", function (e) {
+      console.error("[uncaught]", e.message, "@", (e.filename || location.href) + ":" + e.lineno);
+    });
+    window.addEventListener("unhandledrejection", function (e) {
+      var reason = e.reason;
+      console.error("[unhandledrejection]", reason && reason.stack ? reason.stack : reason);
+    });
+    window.getRakusearchSiteErrorLog = function () {
+      try {
+        var raw = localStorage.getItem(SITE_ERROR_LOG_KEY);
+        var log = raw ? JSON.parse(raw) : [];
+        return Array.isArray(log) ? log : [];
+      } catch (e) {
+        return [];
+      }
+    };
+    window.clearRakusearchSiteErrorLog = function () {
+      try { localStorage.removeItem(SITE_ERROR_LOG_KEY); } catch (e) {}
+    };
+  })();
+
   function openCheckoutModal() {
     var overlay = document.getElementById("checkoutOverlay");
     var input = document.getElementById("checkoutEmailInput");
@@ -1537,16 +1589,27 @@
     }
     btn.disabled = true;
     btn.textContent = "送信中...";
+    // 【2026-09-14追加】サイト自身のJSエラーログ(localStorageに蓄積済み)も、拡張機能から
+    // 取得したsupportInfoとは別枠でまとめて送る。サーバー側にデータベースが無く、
+    // ユーザーごとの状況を後から確認する手段が無いため、報告のタイミングで分かる限りの
+    // 情報を残す狙い。
+    var siteErrorLog = window.getRakusearchSiteErrorLog ? window.getRakusearchSiteErrorLog() : [];
+    var siteErrorLogText = siteErrorLog.length === 0
+      ? null
+      : siteErrorLog.slice(-5).reverse().map(function (entry) {
+          return "[" + new Date(entry.time).toLocaleString("ja-JP") + "][" + entry.path + "] " + entry.message;
+        }).join("\n");
     try {
       var res = await fetch("https://gnaccktgjrupjbadzgez.supabase.co/functions/v1/submit-contact-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: type, email: email, message: message, supportInfo: rakusearchSupportInfoText || null })
+        body: JSON.stringify({ type: type, email: email, message: message, supportInfo: rakusearchSupportInfoText || null, siteErrorLog: siteErrorLogText })
       });
       var data = await res.json();
       if (data && data.success) {
         document.getElementById("contactForm").hidden = true;
         document.getElementById("contactSuccess").hidden = false;
+        if (window.clearRakusearchSiteErrorLog) window.clearRakusearchSiteErrorLog();
         return;
       }
       err.textContent = "エラーが発生しました。しばらくしてからもう一度お試しください。";
