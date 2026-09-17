@@ -1002,8 +1002,61 @@
         <p style="margin:10px 0 0; font-size:12.5px; color:var(--ink-soft);">判定は「取引終了日」→「発送日」→「販売価格」→「出品価格」の順で優先されます。出品価格は、販売価格が入力された時点で判定上は無視されます。</p>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📦 「在庫」「販売済み」タブで一覧を整理</h4>
-        <p style="margin:0;">一覧は<strong>すべて</strong>・<strong>在庫(在庫・出品中・未発送)</strong>・<strong>販売済み(発送済み・完了)</strong>の3つのタブに分かれています。検索・ページ送り・複数選択は、開いているタブの中だけが対象です(型番がどちらのタブにあるか分からない時は、すべてタブで検索すれば一度で見つかります)。編集して発送日を入れたりキャンセルしたりしてステータスが変わって保存すると、<strong>その行はいったん今のタブに残って6秒間ハイライトで光り、その後静かに正しいタブへ移ります</strong>(まとめて何件も処理する時に画面が動いて邪魔にならないための工夫です)。</p>
-        <p style="margin-top:10px;">📦在庫タブのすぐ下には<strong>在庫サマリー</strong>(在庫数・在庫仕入金額・在庫出品金額の見込み)が常時表示されます。検索やタブの切り替えとは無関係に、常に「今この瞬間の在庫状況」を示す数字です。出品価格は任意入力の項目のため、在庫出品金額(見込み)だけは出品価格を入力済みの在庫の分だけを合計します(在庫数・在庫仕入金額には出品価格の有無に関わらずすべての在庫が含まれます)。</p>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;">一覧は<strong>すべて</strong>・<strong>在庫(在庫・出品中・未発送)</strong>・<strong>販売済み(発送済み・完了)</strong>の3つのタブに分かれています。検索・ページ送り・複数選択は、開いているタブの中だけが対象です(型番がどちらのタブにあるか分からない時は、すべてタブで検索すれば一度で見つかります)。編集して発送日を入れたりキャンセルしたりしてステータスが変わって保存すると、<strong>その行はいったん今のタブに残って6秒間ハイライトで光り、その後静かに正しいタブへ移ります</strong>(まとめて何件も処理する時に画面が動いて邪魔にならないための工夫です)。</p>
+            <p style="margin-top:10px;">📦在庫タブのすぐ下には<strong>在庫サマリー</strong>(在庫数・在庫仕入金額・在庫出品金額の見込み)が常時表示されます。検索やタブの切り替えとは無関係に、常に「今この瞬間の在庫状況」を示す数字です。出品価格は任意入力の項目のため、在庫出品金額(見込み)だけは出品価格を入力済みの在庫の分だけを合計します(在庫数・在庫仕入金額には出品価格の有無に関わらずすべての在庫が含まれます)。</p>
+          </div>
+          <div style="display:grid; gap:16px;">
+            <figure style="margin:0;">
+              <svg viewBox="0 0 460 320" role="img" aria-label="編集して保存すると、いったん同じタブでハイライトし、6秒後に静かに正しいタブへ移る" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
+                <rect x="10" y="10" width="440" height="300" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+                <rect x="26" y="26" width="110" height="30" rx="15" fill="var(--card-2)"></rect>
+                <text x="81" y="46" font-size="10.5" text-anchor="middle" fill="var(--ink-soft)">🗂 すべて 13</text>
+                <rect x="146" y="26" width="110" height="30" rx="15" fill="var(--accent)"></rect>
+                <text x="201" y="46" font-size="10.5" text-anchor="middle" font-weight="700" fill="#fff">📦 在庫 3</text>
+                <rect x="266" y="26" width="150" height="30" rx="15" fill="var(--card-2)"></rect>
+                <text x="341" y="46" font-size="10.5" text-anchor="middle" fill="var(--ink-soft)">✅ 販売済み 10</text>
+                <rect x="26" y="72" width="408" height="44" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
+                <text x="42" y="92" font-size="12" font-weight="700" fill="var(--ink)">ICF-CA5V</text>
+                <text x="42" y="108" font-size="10" fill="var(--ink-soft)">在庫 ・仕入¥5,000</text>
+                <rect x="26" y="124" width="408" height="44" rx="10" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"></rect>
+                <text x="42" y="144" font-size="12" font-weight="700" fill="var(--ink)">SL-CT520</text>
+                <text x="42" y="160" font-size="10" fill="var(--ink-soft)">発送済み(取引未終了)に変更・保存しました</text>
+                <text x="410" y="147" font-size="10" text-anchor="end" fill="var(--gold)">6秒間 ✨</text>
+                <rect x="26" y="176" width="408" height="44" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
+                <text x="42" y="196" font-size="12" font-weight="700" fill="var(--ink)">DVP-FX780</text>
+                <text x="42" y="212" font-size="10" fill="var(--ink-soft)">⚠ 未発送 ・仕入¥7,000</text>
+                <text x="230" y="234" font-size="10" text-anchor="middle" fill="var(--gold)">↓ 6秒後に静かに移動</text>
+                <rect x="26" y="248" width="408" height="46" rx="10" fill="var(--card-2)" stroke="var(--good)" stroke-width="2"></rect>
+                <text x="38" y="268" font-size="11.5" fill="var(--good)">✅ 販売済みタブに、SL-CT520が音も無く移動</text>
+                <text x="38" y="284" font-size="10" fill="var(--ink-soft)">画面が動かないので、続けて何件も処理しやすい</text>
+              </svg>
+              <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:340px;">保存直後は同じタブに残ってハイライトし、6秒後に静かに正しいタブへ移動する</figcaption>
+            </figure>
+            <figure style="margin:0;">
+              <svg viewBox="0 0 460 300" role="img" aria-label="在庫サマリー。在庫数・在庫仕入金額・在庫出品金額(見込み)が常時表示される" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
+                <rect x="10" y="10" width="440" height="280" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+                <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">📦 在庫サマリー(常時表示)</text>
+                <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+                <rect x="22" y="60" width="128" height="66" rx="10" fill="var(--card-2)"></rect>
+                <text x="34" y="80" font-size="10.5" fill="var(--ink-soft)">在庫数</text>
+                <text x="34" y="104" font-size="18" font-weight="700" fill="var(--ink)">4個</text>
+                <rect x="166" y="60" width="128" height="66" rx="10" fill="var(--card-2)"></rect>
+                <text x="178" y="80" font-size="10.5" fill="var(--ink-soft)">在庫仕入金額</text>
+                <text x="178" y="104" font-size="16" font-weight="700" fill="var(--ink)">¥27,000</text>
+                <rect x="310" y="60" width="128" height="66" rx="10" fill="var(--card-2)"></rect>
+                <text x="322" y="76" font-size="9.5" fill="var(--ink-soft)">在庫出品金額</text>
+                <text x="322" y="88" font-size="9.5" fill="var(--ink-soft)">(見込み)</text>
+                <text x="322" y="112" font-size="16" font-weight="700" fill="var(--ink)">¥54,000</text>
+                <rect x="22" y="142" width="416" height="52" rx="10" fill="var(--gold-soft)" stroke="var(--gold)"></rect>
+                <text x="34" y="164" font-size="11" fill="var(--ink)">※出品価格が未入力の在庫も、在庫数・在庫仕入金額には</text>
+                <text x="34" y="182" font-size="11" fill="var(--ink)">すべて含まれます(出品金額の見込みだけ入力済み分を合計)。</text>
+              </svg>
+              <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:340px;">在庫数・在庫仕入金額・在庫出品金額(見込み)を、期間の選択とは無関係に常時表示</figcaption>
+            </figure>
+          </div>
+        </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🗑 複数選択・期間指定でまとめて削除</h4>
         <p style="margin:0; font-size:13.5px; color:var(--ink-soft);">1件ずつの削除はもちろん、チェックで選んだ複数件の削除、「月」「年」単位で期間を指定しての一括削除にも対応。仕入れ記録は確定申告にも使う大事なデータのため、1件削除・複数削除・全部削除いずれも<strong>誤操作を防ぐ確認ステップ</strong>を経てから実行されます。</p>
@@ -1028,9 +1081,33 @@
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">📋</div>
         <h3>年末棚卸</h3>
-        <p>確定申告の「期末棚卸高」を出すための機能です。仕入れ記録の登録日・発送日という<strong>すでに記録済みの過去の日付</strong>から、その年の12/31時点で在庫だった記録を逆算して求めるため、<strong>確認するタイミング(1月でも、確定申告の時期の2〜3月でも)に関わらず同じ結果</strong>になります。「棚卸しをする瞬間を逃すと二度と正確な数字が取れない」という他社ツールにありがちな制約がありません。</p>
-        <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);">ダッシュボードを開くたびに、まだ棚卸が無い過去の年が無いか自動で確認し、あれば自動で計算・保存します。評価方法は<strong>最終仕入原価法</strong>で固定です。確定後に元の仕入れ記録を編集・追加しても内容は自動では書き換わりませんが、変わったことには必ず気づけるよう、確定時の内容と今の記録を比べて違いがあれば警告し、明示的に「更新する」操作をした時だけ内容を書き換えます(税務調査等で気づかないうちに数字が変わっていた、ということがないようにするためです)。</p>
-        <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);"><strong>CSV</strong>は確定済みの全年分をまとめて1つのファイルに、<strong>PDF</strong>は年を選んで1年分ずつ、型番・ステータス・数量・仕入金額・登録日の明細と合計をレポートとして書き出せます。</p>
+        <div class="clipfeat-split">
+          <div>
+            <p>確定申告の「期末棚卸高」を出すための機能です。仕入れ記録の登録日・発送日という<strong>すでに記録済みの過去の日付</strong>から、その年の12/31時点で在庫だった記録を逆算して求めるため、<strong>確認するタイミング(1月でも、確定申告の時期の2〜3月でも)に関わらず同じ結果</strong>になります。「棚卸しをする瞬間を逃すと二度と正確な数字が取れない」という他社ツールにありがちな制約がありません。</p>
+            <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);">ダッシュボードを開くたびに、まだ棚卸が無い過去の年が無いか自動で確認し、あれば自動で計算・保存します。評価方法は<strong>最終仕入原価法</strong>で固定です。確定後に元の仕入れ記録を編集・追加しても内容は自動では書き換わりませんが、変わったことには必ず気づけるよう、確定時の内容と今の記録を比べて違いがあれば警告し、明示的に「更新する」操作をした時だけ内容を書き換えます(税務調査等で気づかないうちに数字が変わっていた、ということがないようにするためです)。</p>
+            <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);"><strong>CSV</strong>は確定済みの全年分をまとめて1つのファイルに、<strong>PDF</strong>は年を選んで1年分ずつ、型番・ステータス・数量・仕入金額・登録日の明細と合計をレポートとして書き出せます。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 300" role="img" aria-label="確定した後に仕入れ記録が変わると、内容が変わったことを警告し、明示的に更新するまで数字は変わらない" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="280" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">📋 年末棚卸(確定申告の期末棚卸高)</text>
+              <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+              <rect x="22" y="58" width="416" height="70" rx="10" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"></rect>
+              <text x="34" y="80" font-size="12" font-weight="700" fill="var(--ink)">2025年12月31日 確定分</text>
+              <text x="34" y="98" font-size="10.5" fill="var(--ink-soft)">評価方法: 最終仕入原価法・2点(確定時)</text>
+              <text x="400" y="80" font-size="12" font-weight="700" text-anchor="end" fill="var(--ink-soft)" text-decoration="line-through">¥15,000</text>
+              <text x="34" y="118" font-size="11" fill="var(--gold)">⚠ 確定時から変わっています → 現在3点・¥22,000</text>
+              <rect x="22" y="138" width="416" height="32" rx="16" fill="var(--gold)"></rect>
+              <text x="230" y="159" font-size="12" font-weight="700" text-anchor="middle" fill="#fff">この内容(¥22,000)に更新する</text>
+              <rect x="22" y="184" width="416" height="94" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="38" y="206" font-size="11.5" font-weight="700" fill="var(--ink)">仕組み: 過去の日付から逆算するだけ</text>
+              <text x="38" y="226" font-size="10.5" fill="var(--ink-soft)">登録日・発送日という記録済みの過去日付から、12/31時点の</text>
+              <text x="38" y="242" font-size="10.5" fill="var(--ink-soft)">在庫を毎回計算し直すので、確認するのが1月でも3月でも</text>
+              <text x="38" y="258" font-size="10.5" fill="var(--ink-soft)">同じ結果。「その瞬間を逃すと直せない」という制約がない。</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:340px;">確定後に内容が変わると警告し、「更新する」を押すまで数字は変わらない</figcaption>
+          </figure>
+        </div>
       </div>
       <div class="feat">
         <div class="ico">✂️</div>
