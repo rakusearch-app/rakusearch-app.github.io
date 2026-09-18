@@ -948,6 +948,54 @@
         <p style="margin:0 0 10px; font-size:12px; background:var(--card-2); border:1px solid var(--line); border-radius:8px; padding:9px 12px;">この機能はフリマウォッチと<strong>一切連携しておらず、完全に独立</strong>しています。型番・金額はすべて手入力で、外部サイトから自動で価格を取得することもありません。メルカリ・ラクマ・ヤフオク・Yahoo!フリマなど、どこで売る商品でも記録できます。</p>
         <p>型番・仕入れ金額・出品価格・数量を記録しておくだけの、シンプルな仕入れ帳です。売れたら<strong>🏷売却情報を追記するだけで、送料やサイト手数料を差し引いた利益・利益率まで自動で計算</strong>されます。在庫の状態(在庫〜完了)も入力内容から自動で判定され、一覧はステータスごとに色分けして表示されます。</p>
 
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔁 仕入れから確定申告まで、ひとつの流れで</h4>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;">最初の一歩は、フリマ確認・登録パネル(またはダッシュボードの在庫管理)の<strong>「➕新規作成」</strong>から型番と仕入れ金額を入力するだけ。あとは商品が進む段階に合わせて、その時わかった情報を追記していくだけで、状態(ステータス)は自動で進んでいきます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">商品ごとの記録とは別に、<strong>💰経費(月次)</strong>で梱包資材費・通信費などの毎月の出費をまとめて記録でき、年末には<strong>📋年末棚卸</strong>が期末棚卸高を自動で計算します。どちらも下で詳しく説明します。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 460" role="img" aria-label="新規作成で仕入れ記録・在庫記録として登録し、出品価格で出品記録、売却情報で発送記録・販売記録へと進み、経費と年末棚卸が並行して支える一連の流れ" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="440" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+
+              <rect x="26" y="26" width="408" height="46" rx="10" fill="var(--accent)"></rect>
+              <text x="46" y="45" font-size="12" font-weight="700" fill="#fff">📝 新規作成(型番+仕入れ金額)</text>
+              <text x="46" y="61" font-size="10" fill="#fff" fill-opacity="0.9">仕入れ記録・在庫記録として登録</text>
+              <path d="M 230 72 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,86 236,86 230,96" fill="var(--line)"></polygon>
+
+              <rect x="26" y="98" width="408" height="46" rx="10" fill="var(--card-2)"></rect>
+              <text x="46" y="117" font-size="12" font-weight="700" fill="var(--ink)">📦 在庫</text>
+              <text x="46" y="133" font-size="10" fill="var(--ink-soft)">出品価格・販売価格ともに未入力</text>
+              <path d="M 230 144 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,158 236,158 230,168" fill="var(--line)"></polygon>
+
+              <rect x="26" y="170" width="408" height="46" rx="10" fill="var(--card-2)"></rect>
+              <text x="46" y="189" font-size="12" font-weight="700" fill="var(--ink)">🏷 出品中(出品記録)</text>
+              <text x="46" y="205" font-size="10" fill="var(--ink-soft)">出品価格を追記(参考記録・任意)</text>
+              <path d="M 230 216 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,230 236,230 230,240" fill="var(--line)"></polygon>
+
+              <rect x="26" y="242" width="408" height="46" rx="10" fill="var(--gold-soft)" stroke="var(--gold)"></rect>
+              <text x="46" y="261" font-size="12" font-weight="700" fill="var(--ink)">💰 未発送(販売記録)</text>
+              <text x="46" y="277" font-size="10" fill="var(--ink-soft)">売却情報(販売価格・送料・手数料)を追記→利益を自動計算</text>
+              <path d="M 230 288 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,302 236,302 230,312" fill="var(--line)"></polygon>
+
+              <rect x="26" y="314" width="408" height="46" rx="10" fill="var(--card-2)"></rect>
+              <text x="46" y="333" font-size="12" font-weight="700" fill="var(--ink)">🚚 発送済み(発送記録)</text>
+              <text x="46" y="349" font-size="10" fill="var(--ink-soft)">発送日を追記(集計はこの日付が基準)</text>
+              <path d="M 230 360 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,374 236,374 230,384" fill="var(--line)"></polygon>
+
+              <rect x="26" y="386" width="408" height="46" rx="10" fill="var(--card-2)" stroke="var(--good)" stroke-width="2"></rect>
+              <text x="46" y="405" font-size="12" font-weight="700" fill="var(--good)">✅ 完了</text>
+              <text x="46" y="421" font-size="10" fill="var(--ink-soft)">取引終了日を追記</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">新規作成から完了まで、追記した内容に応じて状態が自動で進む(下のステータス表と対応)</figcaption>
+          </figure>
+        </div>
+
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🏷 出品価格・売却情報を入れるだけで、利益を自動計算</h4>
         <div class="clipfeat-split">
           <div>
