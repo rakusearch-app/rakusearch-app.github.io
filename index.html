@@ -957,6 +957,7 @@
             <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);"><strong>取引終了日(任意)</strong>も記録できます。フリマサイトの評価完了・取引完了を残しておきたい方向けの項目で、後述の集計には使いません(集計の基準は常に発送日です)。</p>
             <p style="margin-top:10px; font-size:12.5px; background:var(--gold-soft); border:1px solid var(--gold); color:var(--ink); border-radius:8px; padding:9px 12px;">⚠️ 発送日・取引終了日を入力する場合は、確定申告資料としての正確さを保つため、<strong>販売価格・送料・サイト手数料もあわせて必須</strong>になります(販売価格だけを単独で入力するのは自由です)。また、<strong>取引終了日を入力する場合は発送日も必須</strong>です(集計が発送日基準のため、発送日が無いと「完了」なのに集計に含まれない記録になってしまうのを防ぐためです)。</p>
           </div>
+          <div style="display:grid; gap:16px;">
           <figure style="margin:0;">
             <svg viewBox="0 0 460 320" role="img" aria-label="売却情報入力欄。販売価格、送料(自動または手動)、サイト手数料、発送日を入れると、利益と利益率がその場でプレビューされる" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
               <rect x="10" y="10" width="440" height="300" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
@@ -985,6 +986,30 @@
             </svg>
             <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">販売価格・送料・サイト手数料・発送日を入れると、下の利益ボックスがその場で自動更新される</figcaption>
           </figure>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 260" role="img" aria-label="販売サイトとサイズを選ぶだけで、送料とサイト手数料が匿名配送の料金表から自動入力される" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="240" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🚚 送料・サイト手数料は選ぶだけ</text>
+              <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+              <text x="34" y="70" font-size="10.5" fill="var(--ink-soft)">販売サイト</text>
+              <rect x="22" y="76" width="190" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="34" y="96" font-size="12" fill="var(--ink)">メルカリ</text>
+              <text x="246" y="70" font-size="10.5" fill="var(--ink-soft)">サイズ</text>
+              <rect x="238" y="76" width="190" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="250" y="96" font-size="12" fill="var(--ink)">宅急便60サイズ</text>
+              <path d="M 230 114 v 16" stroke="var(--gold)" stroke-width="2" fill="none"></path>
+              <polygon points="224,128 236,128 230,138" fill="var(--gold)"></polygon>
+              <rect x="22" y="142" width="190" height="52" rx="10" fill="var(--card-2)" stroke="var(--good)" stroke-width="2"></rect>
+              <text x="34" y="164" font-size="10.5" fill="var(--good)">送料(自動)</text>
+              <text x="34" y="184" font-size="14" font-weight="700" fill="var(--good)">¥750</text>
+              <rect x="238" y="142" width="190" height="52" rx="10" fill="var(--card-2)" stroke="var(--good)" stroke-width="2"></rect>
+              <text x="250" y="164" font-size="10.5" fill="var(--good)">サイト手数料(自動)</text>
+              <text x="250" y="184" font-size="14" font-weight="700" fill="var(--good)">10%</text>
+              <text x="230" y="222" font-size="10.5" text-anchor="middle" fill="var(--ink-soft)">200サイズを超える大型商品は個別見積もりのため手動入力</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">販売サイト+サイズを選ぶだけで、送料・サイト手数料が自動入力される</figcaption>
+          </figure>
+          </div>
         </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🚦 状態は5段階で自動判定・色分け表示</h4>
@@ -1054,6 +1079,30 @@
                 <text x="34" y="182" font-size="11" fill="var(--ink)">すべて含まれます(出品金額の見込みだけ入力済み分を合計)。</text>
               </svg>
               <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">在庫数・在庫仕入金額・在庫出品金額(見込み)を、期間の選択とは無関係に常時表示</figcaption>
+            </figure>
+            <figure style="margin:0;">
+              <svg viewBox="0 0 460 260" role="img" aria-label="チェックで選んだ複数件の削除、または月・年単位で期間を指定しての一括削除ができる" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+                <rect x="10" y="10" width="440" height="240" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+                <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🗑 複数選択・期間指定でまとめて削除</text>
+                <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+                <rect x="22" y="58" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+                <rect x="34" y="67" width="16" height="16" rx="3" fill="var(--accent)"></rect>
+                <path d="M 37 75 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
+                <text x="60" y="80" font-size="12" fill="var(--ink)">ICF-CA5V</text>
+                <rect x="22" y="98" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+                <rect x="34" y="107" width="16" height="16" rx="3" fill="var(--accent)"></rect>
+                <path d="M 37 115 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
+                <text x="60" y="120" font-size="12" fill="var(--ink)">SL-CT520</text>
+                <rect x="22" y="140" width="200" height="32" rx="16" fill="var(--accent)"></rect>
+                <text x="122" y="161" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">選択を削除(2件)</text>
+                <line x1="22" y1="186" x2="438" y2="186" stroke="var(--line)" stroke-dasharray="4 4"></line>
+                <text x="34" y="206" font-size="10.5" fill="var(--ink-soft)">期間を指定</text>
+                <rect x="22" y="212" width="190" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+                <text x="34" y="232" font-size="12" fill="var(--ink)">2025年9月</text>
+                <rect x="238" y="212" width="190" height="30" rx="7" fill="var(--gold)"></rect>
+                <text x="333" y="232" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">この期間を削除</text>
+              </svg>
+              <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">チェックした複数件、または月・年単位の期間指定でまとめて削除できる</figcaption>
             </figure>
           </div>
         </div>
