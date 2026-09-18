@@ -696,7 +696,7 @@
           </div>
           <div style="display:flex; flex-direction:column; gap:16px;">
           <figure style="margin:0;">
-            <svg viewBox="0 0 460 382" role="img" aria-label="クリップボード履歴の画面。ピン留めタブと最近のコピータブを切り替えられ、各履歴に挿入・コピー・ピン留め・削除・詳細の5ボタンと、詳細を開くとGoogle検索・ラクサーチ・ラクサーチホーム・説明書を検索・フォルダー・フリマ確認登録・修正・定型文として保存の8ボタンが並ぶ" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
+            <svg viewBox="0 0 460 382" role="img" aria-label="クリップボード履歴の画面。ピン留めタブと最近のコピータブを切り替えられ、各履歴に挿入・コピー・ピン留め・削除・詳細の5ボタンと、詳細を開くとGoogle検索・ラクサーチ・ラクサーチホーム・説明書を検索・フォルダー・フリマ確認登録・修正・定型文として保存の8ボタンが並ぶ" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
               <rect x="10" y="10" width="440" height="362" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
               <text x="30" y="38" font-size="15" font-weight="700" fill="var(--ink)">📋 クリップボード履歴</text>
               <line x1="22" y1="50" x2="438" y2="50" stroke="var(--line)"></line>
@@ -747,7 +747,7 @@
                 <text x="315.5" y="322.5" text-anchor="middle" font-size="11.5" fill="var(--ink)">📋→定型文として保存</text>
               </g>
             </svg>
-            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:340px;">タブでピン留め・履歴を切り替え。「▼詳細」を開くと、検索・フリマ確認・修正・定型文保存まで各履歴からワンクリックで実行できる</figcaption>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">タブでピン留め・履歴を切り替え。「▼詳細」を開くと、検索・フリマ確認・修正・定型文保存まで各履歴からワンクリックで実行できる</figcaption>
           </figure>
           <figure style="margin:0;">
             <svg viewBox="0 0 460 280" role="img" aria-label="フリマウォッチ確認・登録パネル。型番を入力すると未登録ですと表示され、下限・上限(上限は必須)を入れて登録する、または閉じるボタンが並ぶ" style="width:100%; max-width:340px; height:auto; display:block; margin:0 auto;">
@@ -1030,9 +1030,7 @@
         <div class="clipfeat-split">
           <div>
             <p style="margin:0;">一覧は<strong>すべて</strong>・<strong>在庫(在庫・出品中・未発送)</strong>・<strong>販売済み(発送済み・完了)</strong>の3つのタブに分かれています。検索・ページ送り・複数選択は、開いているタブの中だけが対象です(型番がどちらのタブにあるか分からない時は、すべてタブで検索すれば一度で見つかります)。編集して発送日を入れたりキャンセルしたりしてステータスが変わって保存すると、<strong>その行はいったん今のタブに残って6秒間ハイライトで光り、その後静かに正しいタブへ移ります</strong>(まとめて何件も処理する時に画面が動いて邪魔にならないための工夫です)。</p>
-            <p style="margin-top:10px;">📦在庫タブのすぐ下には<strong>在庫サマリー</strong>(在庫数・在庫仕入金額・在庫出品金額の見込み)が常時表示されます。検索やタブの切り替えとは無関係に、常に「今この瞬間の在庫状況」を示す数字です。出品価格は任意入力の項目のため、在庫出品金額(見込み)だけは出品価格を入力済みの在庫の分だけを合計します(在庫数・在庫仕入金額には出品価格の有無に関わらずすべての在庫が含まれます)。</p>
           </div>
-          <div style="display:grid; gap:16px;">
             <figure style="margin:0;">
               <svg viewBox="0 0 460 320" role="img" aria-label="編集して保存すると、いったん同じタブでハイライトし、6秒後に静かに正しいタブへ移る" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
                 <rect x="10" y="10" width="440" height="300" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
@@ -1059,7 +1057,13 @@
               </svg>
               <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">保存直後は同じタブに残ってハイライトし、6秒後に静かに正しいタブへ移動する</figcaption>
             </figure>
-            <figure style="margin:0;">
+        </div>
+
+        <div class="clipfeat-split" style="margin-top:16px;">
+          <div>
+            <p style="margin:0;">📦在庫タブのすぐ下には<strong>在庫サマリー</strong>(在庫数・在庫仕入金額・在庫出品金額の見込み)が常時表示されます。検索やタブの切り替えとは無関係に、常に「今この瞬間の在庫状況」を示す数字です。出品価格は任意入力の項目のため、在庫出品金額(見込み)だけは出品価格を入力済みの在庫の分だけを合計します(在庫数・在庫仕入金額には出品価格の有無に関わらずすべての在庫が含まれます)。</p>
+          </div>
+          <figure style="margin:0;">
               <svg viewBox="0 0 460 300" role="img" aria-label="在庫サマリー。在庫数・在庫仕入金額・在庫出品金額(見込み)が常時表示される" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
                 <rect x="10" y="10" width="440" height="280" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
                 <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">📦 在庫サマリー(常時表示)</text>
@@ -1079,36 +1083,39 @@
                 <text x="34" y="182" font-size="11" fill="var(--ink)">すべて含まれます(出品金額の見込みだけ入力済み分を合計)。</text>
               </svg>
               <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">在庫数・在庫仕入金額・在庫出品金額(見込み)を、期間の選択とは無関係に常時表示</figcaption>
-            </figure>
-            <figure style="margin:0;">
-              <svg viewBox="0 0 460 260" role="img" aria-label="チェックで選んだ複数件の削除、または月・年単位で期間を指定しての一括削除ができる" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
-                <rect x="10" y="10" width="440" height="240" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
-                <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🗑 複数選択・期間指定でまとめて削除</text>
-                <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
-                <rect x="22" y="58" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
-                <rect x="34" y="67" width="16" height="16" rx="3" fill="var(--accent)"></rect>
-                <path d="M 37 75 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
-                <text x="60" y="80" font-size="12" fill="var(--ink)">ICF-CA5V</text>
-                <rect x="22" y="98" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
-                <rect x="34" y="107" width="16" height="16" rx="3" fill="var(--accent)"></rect>
-                <path d="M 37 115 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
-                <text x="60" y="120" font-size="12" fill="var(--ink)">SL-CT520</text>
-                <rect x="22" y="140" width="200" height="32" rx="16" fill="var(--accent)"></rect>
-                <text x="122" y="161" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">選択を削除(2件)</text>
-                <line x1="22" y1="186" x2="438" y2="186" stroke="var(--line)" stroke-dasharray="4 4"></line>
-                <text x="34" y="206" font-size="10.5" fill="var(--ink-soft)">期間を指定</text>
-                <rect x="22" y="212" width="190" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
-                <text x="34" y="232" font-size="12" fill="var(--ink)">2025年9月</text>
-                <rect x="238" y="212" width="190" height="30" rx="7" fill="var(--gold)"></rect>
-                <text x="333" y="232" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">この期間を削除</text>
-              </svg>
-              <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">チェックした複数件、または月・年単位の期間指定でまとめて削除できる</figcaption>
-            </figure>
-          </div>
+          </figure>
         </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🗑 複数選択・期間指定でまとめて削除</h4>
-        <p style="margin:0; font-size:13.5px; color:var(--ink-soft);">1件ずつの削除はもちろん、チェックで選んだ複数件の削除、「月」「年」単位で期間を指定しての一括削除にも対応。仕入れ記録は確定申告にも使う大事なデータのため、1件削除・複数削除・全部削除いずれも<strong>誤操作を防ぐ確認ステップ</strong>を経てから実行されます。</p>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0; font-size:13.5px; color:var(--ink-soft);">1件ずつの削除はもちろん、チェックで選んだ複数件の削除、「月」「年」単位で期間を指定しての一括削除にも対応。仕入れ記録は確定申告にも使う大事なデータのため、1件削除・複数削除・全部削除いずれも<strong>誤操作を防ぐ確認ステップ</strong>を経てから実行されます。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 260" role="img" aria-label="チェックで選んだ複数件の削除、または月・年単位で期間を指定しての一括削除ができる" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="240" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🗑 複数選択・期間指定でまとめて削除</text>
+              <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
+              <rect x="22" y="58" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <rect x="34" y="67" width="16" height="16" rx="3" fill="var(--accent)"></rect>
+              <path d="M 37 75 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
+              <text x="60" y="80" font-size="12" fill="var(--ink)">ICF-CA5V</text>
+              <rect x="22" y="98" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <rect x="34" y="107" width="16" height="16" rx="3" fill="var(--accent)"></rect>
+              <path d="M 37 115 l 4 4 l 8 -9" stroke="#fff" stroke-width="2" fill="none"></path>
+              <text x="60" y="120" font-size="12" fill="var(--ink)">SL-CT520</text>
+              <rect x="22" y="140" width="200" height="32" rx="16" fill="var(--accent)"></rect>
+              <text x="122" y="161" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">選択を削除(2件)</text>
+              <line x1="22" y1="186" x2="438" y2="186" stroke="var(--line)" stroke-dasharray="4 4"></line>
+              <text x="34" y="206" font-size="10.5" fill="var(--ink-soft)">期間を指定</text>
+              <rect x="22" y="212" width="190" height="30" rx="7" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="34" y="232" font-size="12" fill="var(--ink)">2025年9月</text>
+              <rect x="238" y="212" width="190" height="30" rx="7" fill="var(--gold)"></rect>
+              <text x="333" y="232" font-size="11.5" text-anchor="middle" font-weight="700" fill="#fff">この期間を削除</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">チェックした複数件、または月・年単位の期間指定でまとめて削除できる</figcaption>
+          </figure>
+        </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📅 登録日はあとから編集できる</h4>
         <p style="margin:0;">仕入れ金額を間違えて登録してしまった、実際に仕入れた日と登録した日がずれている、といった場合のために、<strong>登録日も✏️編集からいつでも書き換え</strong>られます。選べるのは<strong>今日までの日付</strong>で、未来の日付は選べません。登録日を変更すると、一覧の並び順・下記の集計も新しい日付を基準に正しく移動します。</p>
