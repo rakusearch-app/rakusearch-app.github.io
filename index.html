@@ -951,7 +951,7 @@
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">📦</div>
         <h3>在庫管理:仕入れから売却・利益計算まで(フリマウォッチとは無関係の独立機能)</h3>
-        <p style="margin:0 0 10px; font-size:12px; background:var(--card-2); border:1px solid var(--line); border-radius:8px; padding:9px 12px;">この機能はフリマウォッチと<strong>一切連携しておらず、完全に独立</strong>しています。型番・金額はすべて手入力で、外部サイトから自動で価格を取得することもありません。<strong>仕入れ記録・集計・経費・棚卸に特化した機能で、実際の出品・価格の調整・発送・評価などは、それぞれのアプリ・サイト側で行ってください。</strong>メルカリ・ラクマ・ヤフオク・Yahoo!フリマなど、どこで売る商品でも記録できます。</p>
+        <p style="margin:0 0 10px; font-size:12px; background:var(--card-2); border:1px solid var(--line); border-radius:8px; padding:9px 12px;">この機能はフリマウォッチと<strong>一切連携しておらず、完全に独立</strong>しています。型番は、ページ上で選んでコピーすればそのまま入力欄に入ります。<strong>金額(仕入れ金額など)は、外部サイトから自動で取得することはなく、すべて手入力です。</strong><strong>仕入れ記録・集計・経費・棚卸に特化した機能で、実際の出品・価格の調整・発送・評価などは、それぞれのアプリ・サイト側で行ってください。</strong>メルカリ・ラクマ・ヤフオク・Yahoo!フリマなど、どこで売る商品でも記録できます。</p>
         <p>型番・仕入れ金額・出品価格・数量を記録しておくだけの、シンプルな仕入れ帳です。売れたら<strong>🏷売却情報を追記するだけで、送料やサイト手数料を差し引いた利益・利益率まで自動で計算</strong>されます。在庫の状態(在庫〜完了)も入力内容から自動で判定され、一覧はステータスごとに色分けして表示されます。</p>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔍 フリマ確認・登録パネルは、仕入れ記録の入り口でもある</h4>
@@ -1242,7 +1242,7 @@
         <div class="clipfeat-split">
           <div>
             <p>確定申告の「期末棚卸高」を出すための機能です。在庫管理の登録日・発送日という<strong>すでに記録済みの過去の日付</strong>から、その年の12/31時点で在庫だった記録を逆算して求めるため、<strong>確認するタイミング(1月でも、確定申告の時期の2〜3月でも)に関わらず同じ結果</strong>になります。「棚卸しをする瞬間を逃すと二度と正確な数字が取れない」という他社ツールにありがちな制約がありません。</p>
-            <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);">ダッシュボードを開くたびに、まだ棚卸が無い過去の年が無いか自動で確認し、あれば自動で計算・保存します。評価方法は<strong>最終仕入原価法</strong>で固定です。確定後に元の在庫管理を編集・追加しても内容は自動では書き換わりませんが、変わったことには必ず気づけるよう、確定時の内容と今の記録を比べて違いがあれば警告し、明示的に「更新する」操作をした時だけ内容を書き換えます(税務調査等で気づかないうちに数字が変わっていた、ということがないようにするためです)。</p>
+            <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);">この時点の棚卸(<strong>仮確定</strong>)は、ダッシュボードを開くたびに、まだ棚卸が無い過去の年が無いか自動で確認し、あれば自動で計算・保存する<strong>安全対策</strong>です。内容を直してからやり直したい時は、いつでも手動でも仮確定し直せます。評価方法は<strong>最終仕入原価法</strong>で固定です。確定後に元の在庫管理を編集・追加しても内容は自動では書き換わりませんが、変わったことには必ず気づけるよう、確定時の内容と今の記録を比べて違いがあれば警告し、明示的に「更新する」操作をした時だけ内容を書き換えます(税務調査等で気づかないうちに数字が変わっていた、ということがないようにするためです)。</p>
             <p style="margin-top:10px; font-size:13.5px; color:var(--ink-soft);"><strong>CSV</strong>は確定済みの全年分をまとめて1つのファイルに、<strong>PDF</strong>は年を選んで1年分ずつ、型番・ステータス・数量・仕入金額・登録日の明細と合計をレポートとして書き出せます。</p>
           </div>
           <figure style="margin:0;">
@@ -1264,6 +1264,49 @@
               <text x="38" y="258" font-size="10.5" fill="var(--ink-soft)">同じ結果。「その瞬間を逃すと直せない」という制約がない。</text>
             </svg>
             <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">確定後に内容が変わると警告し、「更新する」を押すまで数字は変わらない</figcaption>
+          </figure>
+        </div>
+
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔒 仮確定 → 本確定で、確定申告の数字を完全に固定</h4>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;">仮確定は、内容が変わればいつでもやり直せる<strong>見込みの数字</strong>です。確定申告に出す段階になったら、<strong>本確定</strong>で完全に固定します。本確定は<strong>取り消せません</strong>が、押し間違いを防ぐため、5つの手順を順番にしか進められません。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">本確定すると、その年に登録した記録は<strong>型番・仕入れ金額・数量・登録日の変更、削除ができなくなります</strong>(売却情報の入力は引き続きできます)。<strong>売れた記録は、確定した売上・利益の数字を残して削除</strong>され、保存が軽くなります。その年の<strong>経費(月次)</strong>も、追加・変更ができなくなります。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">本確定した後に、間違い・キャンセル・紛失などで記録が不要になった時は、削除の代わりに<strong>除籍</strong>で棚卸から外せます(下記)。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 400" role="img" aria-label="仮確定は自動で行われる見込みの数字。確定申告の段階で本確定すると完全に固定され、削除・変更ができなくなる。不要な記録は除籍で外す" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="380" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+
+              <rect x="26" y="26" width="408" height="46" rx="10" fill="var(--accent)"></rect>
+              <text x="46" y="45" font-size="12" font-weight="700" fill="#fff">🗂 仮確定(自動・安全対策)</text>
+              <text x="46" y="61" font-size="10" fill="#fff" fill-opacity="0.9">開くたびに自動で計算・保存。手動でもやり直せる</text>
+              <path d="M 230 72 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,86 236,86 230,96" fill="var(--line)"></polygon>
+
+              <rect x="26" y="98" width="408" height="46" rx="10" fill="var(--card-2)"></rect>
+              <text x="46" y="117" font-size="12" font-weight="700" fill="var(--ink)">🔍 内容を確認</text>
+              <text x="46" y="133" font-size="10" fill="var(--ink-soft)">削除する記録・確定する売上と利益・棚卸を表示</text>
+              <path d="M 230 144 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,158 236,158 230,168" fill="var(--line)"></polygon>
+
+              <rect x="26" y="170" width="408" height="46" rx="10" fill="var(--card-2)"></rect>
+              <text x="46" y="189" font-size="12" font-weight="700" fill="var(--ink)">📄 控えを書き出す</text>
+              <text x="46" y="205" font-size="10" fill="var(--ink-soft)">控えCSVと確定データJSONを保存してから進む</text>
+              <path d="M 230 216 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,230 236,230 230,240" fill="var(--line)"></polygon>
+
+              <rect x="26" y="242" width="408" height="46" rx="10" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"></rect>
+              <text x="46" y="261" font-size="12" font-weight="700" fill="var(--ink)">🔒 本確定する(取り消し不可)</text>
+              <text x="46" y="277" font-size="10" fill="var(--ink-soft)">年を入力して実行。以後、削除・型番等の変更は不可</text>
+              <path d="M 230 288 v 16" stroke="var(--line)" stroke-width="2" fill="none"></path>
+              <polygon points="224,302 236,302 230,312" fill="var(--line)"></polygon>
+
+              <rect x="26" y="314" width="408" height="46" rx="10" fill="var(--card-2)" stroke="var(--ink-soft)" stroke-dasharray="4 4"></rect>
+              <text x="46" y="333" font-size="12" font-weight="700" fill="var(--ink)">🚫 (必要な時だけ)除籍</text>
+              <text x="46" y="349" font-size="10" fill="var(--ink-soft)">不要になった記録は、削除の代わりに棚卸から外す</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">仮確定(自動)→本確定(手動・取り消し不可)で数字を固定。不要な記録は除籍で外せる</figcaption>
           </figure>
         </div>
       </div>
