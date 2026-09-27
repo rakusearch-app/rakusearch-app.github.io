@@ -1191,7 +1191,7 @@
           <figure style="margin:0;">
             <svg viewBox="0 0 460 260" role="img" aria-label="チェックで選んだ複数件をまとめて削除できる。本確定した年の記録が含まれていると削除できず、除籍を使うよう案内される" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
               <rect x="10" y="10" width="440" height="240" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
-              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🗑 複数選択・期間指定でまとめて削除</text>
+              <text x="30" y="36" font-size="14" font-weight="700" fill="var(--ink)">🗑 複数選択でまとめて削除</text>
               <line x1="22" y1="46" x2="438" y2="46" stroke="var(--line)"></line>
               <rect x="22" y="58" width="416" height="34" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
               <rect x="34" y="67" width="16" height="16" rx="3" fill="var(--accent)"></rect>
@@ -1232,9 +1232,65 @@
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">同じ月を選んで保存すると内容が上書きされるので、月の途中で何度でも金額を更新できます。「その他経費」には内容メモも残せるので、後で見返した時に何にいくら使ったか迷いません。項目ごとに<strong>📌固定費</strong>のチェックを入れて保存すると、その金額を毎月自動で入力してくれるようになります(システム利用料など、毎月ほぼ同じ金額の項目向け)。まだ保存していない月を開いた時だけ自動入力され、すでに保存済みの月には反映されません。年ごとにグループ化した一覧から、<strong>CSV書き出し</strong>(全年分をまとめて1ファイル)や、<strong>年単位のPDFレポート</strong>(勘定科目別の年間合計つき)も書き出せます。</p>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🗑 除籍:削除できない記録の安全弁</h4>
-        <p style="margin:0;">本確定した年の記録は、確定した数字を守るため、削除できません。間違い・キャンセル・紛失・テストデータなど、不要になった記録は、削除の代わりに<strong>除籍</strong>できます。</p>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">理由は「なくなった・使えなくなった」「仕入れが無かったことにする」「事業以外に使った・渡した」の3グループ・20種類から選び、除籍した日とメモを記録します。記録そのものは消さずに、その日以降の棚卸から外れるだけです。</p>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);"><strong>損益(売上・利益)・仕入れ金額・確定した年の数字は、除籍しても変わりません。</strong>税務上の扱い(損失にするかなど)は、ご自身や税理士さんのご判断です。除籍した記録は「除籍済み」タブでいつでも確認・(確定前の年なら)元に戻すことができ、CSV・PDFでもまとめて書き出せます。</p>
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;">本確定した年の記録は、確定した数字を守るため、削除できません。間違い・キャンセル・紛失・テストデータなど、不要になった記録は、削除の代わりに<strong>除籍</strong>できます。編集画面の<strong>「除籍する…」</strong>から呼び出せます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">理由は「なくなった・使えなくなった」「仕入れが無かったことにする」「事業以外に使った・渡した」の3グループ・20種類から選び、除籍した日とメモを記録します。記録そのものは消さずに、その日以降の棚卸から外れるだけです。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);"><strong>損益(売上・利益)・仕入れ金額・確定した年の数字は、除籍しても変わりません。</strong>税務上の扱い(損失にするかなど)は、ご自身や税理士さんのご判断です。除籍した記録は「除籍済み」タブでいつでも確認・(確定前の年なら)元に戻すことができ、CSV・PDFでもまとめて書き出せます。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 500" role="img" aria-label="除籍ダイアログ。なくなった・使えなくなった(赤)、仕入れが無かったことにする(グレー)、事業以外に使った・渡した(金)の3グループから理由を選び、除籍した日とメモを入れて、この内容で除籍するボタンを押す" style="width:100%; max-width:420px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="472" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="30" y="36" font-size="15" font-weight="700" fill="var(--ink)">🗑 除籍する</text>
+              <text x="30" y="54" font-size="11" fill="var(--ink-soft)">BI-85T・仕入れ ¥10,000・数量1</text>
+              <line x1="22" y1="64" x2="438" y2="64" stroke="var(--line)"></line>
+
+              <text x="30" y="84" font-size="12.5" font-weight="700" fill="var(--ink)">1. 理由を選ぶ</text>
+
+              <rect x="22" y="92" width="416" height="58" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+              <text x="34" y="110" font-size="11" font-weight="700" fill="var(--accent-deep)">なくなった・使えなくなった</text>
+              <rect x="34" y="118" width="50" height="22" rx="11" fill="var(--card)" stroke="var(--accent)"></rect>
+              <text x="59" y="132.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">廃棄</text>
+              <rect x="92" y="118" width="76" height="22" rx="11" fill="var(--card)" stroke="var(--accent)"></rect>
+              <text x="130" y="132.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">破損・故障</text>
+              <rect x="176" y="118" width="50" height="22" rx="11" fill="var(--card)" stroke="var(--accent)"></rect>
+              <text x="201" y="132.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">紛失</text>
+              <text x="240" y="132.5" font-size="10.5" fill="var(--ink-soft)">ほか9種類</text>
+
+              <rect x="22" y="160" width="416" height="66" rx="10" fill="var(--card-2)" stroke="var(--line)"></rect>
+              <text x="34" y="178" font-size="11" font-weight="700" fill="var(--ink)">仕入れが無かったことにする</text>
+              <text x="34" y="192" font-size="9" fill="var(--ink-soft)">本確定した年の記録に使います(確定前の年は削除できます)</text>
+              <rect x="34" y="200" width="96" height="22" rx="11" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="82" y="214.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">仕入れ先へ返品</text>
+              <rect x="138" y="200" width="86" height="22" rx="11" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="181" y="214.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">仕入れのキャンセル</text>
+              <text x="232" y="214.5" font-size="10.5" fill="var(--ink-soft)">ほか3種類</text>
+
+              <rect x="22" y="234" width="416" height="58" rx="10" fill="var(--gold-soft)" stroke="var(--gold)"></rect>
+              <text x="34" y="252" font-size="11" font-weight="700" fill="var(--gold)">事業以外に使った・渡した</text>
+              <rect x="34" y="260" width="70" height="22" rx="11" fill="var(--card)" stroke="var(--gold)"></rect>
+              <text x="69" y="274.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">自家使用</text>
+              <rect x="112" y="260" width="94" height="22" rx="11" fill="var(--card)" stroke="var(--gold)"></rect>
+              <text x="159" y="274.5" text-anchor="middle" font-size="10.5" fill="var(--ink)">私的な贈り物</text>
+              <text x="214" y="274.5" font-size="10.5" fill="var(--ink-soft)">ほか4種類</text>
+
+              <text x="30" y="316" font-size="12.5" font-weight="700" fill="var(--ink)">2. 除籍した日</text>
+              <rect x="22" y="324" width="200" height="32" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="34" y="345" font-size="12.5" fill="var(--ink)">2026/09/27</text>
+              <text x="232" y="345" font-size="9.5" fill="var(--ink-soft)">実際に廃棄・紛失などをした日</text>
+
+              <text x="30" y="374" font-size="12.5" font-weight="700" fill="var(--ink)">3. メモ(任意)</text>
+              <rect x="22" y="382" width="416" height="48" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="34" y="402" font-size="10.5" fill="var(--ink-soft)">例: 倉庫の盗難被害。警察に届出済み</text>
+
+              <rect x="22" y="446" width="260" height="32" rx="16" fill="var(--accent)"></rect>
+              <text x="152" y="467" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">この内容で除籍する</text>
+              <rect x="292" y="446" width="146" height="32" rx="16" fill="var(--card-2)" stroke="var(--line)"></rect>
+              <text x="365" y="467" text-anchor="middle" font-size="12" fill="var(--ink-soft)">やめる</text>
+            </svg>
+            <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:420px;">理由を3グループから選び、除籍した日とメモを入れて確定。記録は消えず、その日以降の棚卸から外れるだけ</figcaption>
+          </figure>
+        </div>
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">📋</div>
