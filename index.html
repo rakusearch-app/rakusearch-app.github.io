@@ -1213,37 +1213,68 @@
         </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔍 作成・削除できる・できないの境界線</h4>
-        <p style="margin:0;">判定基準は<strong>1つだけ</strong>です。<strong>「登録日」が、一番新しく本確定した年の12/31以前かどうか</strong>で決まります。<strong>売れているか・売れていないかは一切関係ありません。</strong>また、「本確定した年"だけ"」ではなく、<strong>その年とそれより前の年すべて</strong>が対象になります(本確定は古い年から順にしか行えないため、通常は連続してロックされます)。この境界より前の日付では、削除・変更だけでなく<strong>新規作成もできません</strong>(過去の確定済み日付を登録日にして新しく記録を作ることはできない、という意味です)。</p>
-        <div style="overflow-x:auto; margin-top:10px;">
-          <table style="width:100%; max-width:620px; border-collapse:collapse; font-size:12.5px;">
-            <tr style="background:var(--card-2);">
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">登録日の条件</th>
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">新規作成</th>
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">削除</th>
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">型番・仕入額・数量・登録日の変更</th>
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">売却情報(発送日・価格等)の入力</th>
-              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">代わりにできること</th>
-            </tr>
-            <tr>
-              <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31より後</strong>(まだ本確定していない年)</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">(そのまま新規作成・削除・編集できます)</td>
-            </tr>
-            <tr>
-              <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31以前</strong>(本確定した年、またはそれより前)</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる※</td>
-              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);"><strong>除籍</strong>で棚卸から外す(新規作成は不可)</td>
-            </tr>
-          </table>
-        </div>
-        <p style="margin-top:8px; font-size:11.5px; color:var(--ink-soft);">※発送日が本確定済みの年に入らない限り、売却情報(販売価格・送料・手数料・発送日)は入力できます(古い在庫が後で売れた時に記録できるようにするためです)。ただし発送日を本確定済みの年にすることはできません。</p>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">削除できる記録を削除しても、集計・棚卸はその都度残っている記録から計算し直されるため、数字が静かにズレることはありません。すでに仮確定済みの年だった場合は、見出しが黄色くなり「内容が変わっています」と警告が出て、明示的に「この内容に更新する」を押すまで仮確定時の数字は変わりません。</p>
+        <p style="margin:0;"><strong>かんたんに言うと:</strong>確定申告に出す<strong>前</strong>の記録は自由に直したり消したりできます。確定申告に出した<strong>後</strong>の記録は、数字を守るため触れません(消したい時は<strong>除籍</strong>を使います)。</p>
+        <figure style="margin:16px 0 4px;">
+          <svg viewBox="0 0 900 300" role="img" aria-label="確定申告に出す前の記録は新規作成・削除・変更が自由。出した後の記録はどれもできず、除籍だけができる" style="width:100%; min-width:640px; height:auto; display:block; margin:0 auto;">
+            <rect x="10" y="10" width="430" height="280" rx="16" fill="var(--card)" stroke="var(--good)" stroke-width="2"></rect>
+            <text x="30" y="42" font-size="16" font-weight="700" fill="var(--good)">🔓 確定申告に出す前</text>
+            <line x1="22" y1="56" x2="418" y2="56" stroke="var(--line)"></line>
+            <text x="30" y="92" font-size="14.5" fill="var(--ink)">✅ 新規作成</text>
+            <text x="30" y="132" font-size="14.5" fill="var(--ink)">✅ 削除</text>
+            <text x="30" y="172" font-size="14.5" fill="var(--ink)">✅ 型番・金額・数量・登録日の変更</text>
+            <text x="30" y="230" font-size="12" fill="var(--ink-soft)">今まで通り、自由に直したり</text>
+            <text x="30" y="248" font-size="12" fill="var(--ink-soft)">消したりできます。</text>
+
+            <rect x="460" y="10" width="430" height="280" rx="16" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></rect>
+            <text x="480" y="42" font-size="16" font-weight="700" fill="var(--accent)">🔒 確定申告に出した後</text>
+            <line x1="472" y1="56" x2="868" y2="56" stroke="var(--line)"></line>
+            <text x="480" y="92" font-size="14.5" fill="var(--ink)">🚫 新規作成</text>
+            <text x="480" y="132" font-size="14.5" fill="var(--ink)">🚫 削除</text>
+            <text x="480" y="172" font-size="14.5" fill="var(--ink)">🚫 型番・金額・数量・登録日の変更</text>
+            <rect x="480" y="200" width="330" height="60" rx="10" fill="var(--gold-soft)" stroke="var(--gold)"></rect>
+            <text x="495" y="223" font-size="12.5" font-weight="700" fill="var(--ink)">不要になったら、削除の代わりに</text>
+            <text x="495" y="243" font-size="12.5" font-weight="700" fill="var(--ink)">🗑「除籍」で棚卸から外せます</text>
+          </svg>
+          <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin-top:6px;">確定申告に出した後は、削除の代わりに除籍が使えます</figcaption>
+        </figure>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">🔒側の記録でも、「売れた時の情報(発送日・価格など)」だけは特別に書き足せます(発送日を確定申告済みの年にすることはできません)。まだ売れていない古い在庫が、後で売れた時のためです。</p>
+
+        <details style="margin-top:14px; border:1px solid var(--line); border-radius:10px; padding:2px 14px; background:var(--card-2);">
+          <summary style="cursor:pointer; font-size:13px; font-weight:700; padding:10px 0; color:var(--ink-soft);">🔍 もっと詳しく(正確な判定基準を見る)</summary>
+          <div style="padding-bottom:14px;">
+            <p style="margin:0; font-size:12.5px; color:var(--ink-soft);">判定基準は<strong>1つだけ</strong>です。<strong>「登録日」が、一番新しく本確定した年の12/31以前かどうか</strong>で決まります(「確定申告に出す」の正式名称が「本確定」です)。<strong>売れているか・売れていないかは一切関係ありません。</strong>また、「本確定した年"だけ"」ではなく、<strong>その年とそれより前の年すべて</strong>が対象になります(本確定は古い年から順にしか行えないため、通常は連続してロックされます)。</p>
+            <div style="overflow-x:auto; margin-top:10px;">
+              <table style="width:100%; max-width:620px; border-collapse:collapse; font-size:12.5px;">
+                <tr style="background:var(--card);">
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">登録日の条件</th>
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left; white-space:nowrap;">新規作成</th>
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left; white-space:nowrap;">削除</th>
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">型番・仕入額・数量・登録日の変更</th>
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">売却情報の入力</th>
+                  <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">代わりにできること</th>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31より後</strong></td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700; white-space:nowrap;">✅ できる</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700; white-space:nowrap;">✅ できる</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700; white-space:nowrap;">✅ できる</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700; white-space:nowrap;">✅ できる</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">(そのまま自由に)</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31以前</strong></td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700; white-space:nowrap;">🚫 できない</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700; white-space:nowrap;">🚫 できない</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700; white-space:nowrap;">🚫 できない</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700; white-space:nowrap;">✅ できる※</td>
+                  <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);"><strong>除籍</strong>(新規作成は不可)</td>
+                </tr>
+              </table>
+            </div>
+            <p style="margin-top:8px; font-size:11.5px; color:var(--ink-soft);">※発送日が本確定済みの年に入らない限り、売却情報(販売価格・送料・手数料・発送日)は入力できます。ただし発送日を本確定済みの年にすることはできません。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">削除できる記録を削除しても、集計・棚卸はその都度残っている記録から計算し直されるため、数字が静かにズレることはありません。すでに仮確定済みの年だった場合は、見出しが黄色くなり「内容が変わっています」と警告が出て、明示的に「この内容に更新する」を押すまで仮確定時の数字は変わりません。</p>
+          </div>
+        </details>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📅 登録日はあとから編集できる</h4>
         <p style="margin:0;">仕入れ金額を間違えて登録してしまった、実際に仕入れた日と登録した日がずれている、といった場合のために、<strong>登録日も✏️編集からいつでも書き換え</strong>られます。選べるのは<strong>今日までの日付</strong>で、未来の日付は選べません。登録日を変更すると、一覧の並び順・下記の集計も新しい日付を基準に正しく移動します。</p>
