@@ -1212,6 +1212,39 @@
           </figure>
         </div>
 
+        <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔍 作成・削除できる・できないの境界線</h4>
+        <p style="margin:0;">判定基準は<strong>1つだけ</strong>です。<strong>「登録日」が、一番新しく本確定した年の12/31以前かどうか</strong>で決まります。<strong>売れているか・売れていないかは一切関係ありません。</strong>また、「本確定した年"だけ"」ではなく、<strong>その年とそれより前の年すべて</strong>が対象になります(本確定は古い年から順にしか行えないため、通常は連続してロックされます)。この境界より前の日付では、削除・変更だけでなく<strong>新規作成もできません</strong>(過去の確定済み日付を登録日にして新しく記録を作ることはできない、という意味です)。</p>
+        <div style="overflow-x:auto; margin-top:10px;">
+          <table style="width:100%; max-width:620px; border-collapse:collapse; font-size:12.5px;">
+            <tr style="background:var(--card-2);">
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">登録日の条件</th>
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">新規作成</th>
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">削除</th>
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">型番・仕入額・数量・登録日の変更</th>
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">売却情報(発送日・価格等)の入力</th>
+              <th style="border:1px solid var(--line); padding:6px 10px; text-align:left;">代わりにできること</th>
+            </tr>
+            <tr>
+              <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31より後</strong>(まだ本確定していない年)</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);">(そのまま新規作成・削除・編集できます)</td>
+            </tr>
+            <tr>
+              <td style="border:1px solid var(--line); padding:6px 10px;">一番新しい本確定年の<strong>12/31以前</strong>(本確定した年、またはそれより前)</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--accent); font-weight:700;">🚫 できない</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--good); font-weight:700;">✅ できる※</td>
+              <td style="border:1px solid var(--line); padding:6px 10px; color:var(--ink-soft);"><strong>除籍</strong>で棚卸から外す(新規作成は不可)</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top:8px; font-size:11.5px; color:var(--ink-soft);">※発送日が本確定済みの年に入らない限り、売却情報(販売価格・送料・手数料・発送日)は入力できます(古い在庫が後で売れた時に記録できるようにするためです)。ただし発送日を本確定済みの年にすることはできません。</p>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">削除できる記録を削除しても、集計・棚卸はその都度残っている記録から計算し直されるため、数字が静かにズレることはありません。すでに仮確定済みの年だった場合は、見出しが黄色くなり「内容が変わっています」と警告が出て、明示的に「この内容に更新する」を押すまで仮確定時の数字は変わりません。</p>
+
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">📅 登録日はあとから編集できる</h4>
         <p style="margin:0;">仕入れ金額を間違えて登録してしまった、実際に仕入れた日と登録した日がずれている、といった場合のために、<strong>登録日も✏️編集からいつでも書き換え</strong>られます。選べるのは<strong>今日までの日付</strong>で、未来の日付は選べません。登録日を変更すると、一覧の並び順・下記の集計も新しい日付を基準に正しく移動します。</p>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">登録日は合計仕入れ金額・数量・件数の、発送日は合計利益・送料・サイト手数料の、それぞれ集計の起点になるため、編集画面ではこの2つの項目に<strong>青い枠</strong>を付けて区別しています。</p>
@@ -1589,6 +1622,7 @@
       <details class="qa"><summary>キャンセルになった場合はどうすればよいですか?</summary><div class="a">販売価格欄を空にすれば、自動的に「在庫」または「出品中」の状態に戻ります。</div></details>
       <details class="qa"><summary>集計はどんな単位で見られますか?</summary><div class="a">今日・今週(日曜始まり)・今月・今年・全期間のほか、実際に記録がある月・年を個別に選んで確認できます。合計仕入れ金額・合計数量・件数(登録日基準)と、合計送料・合計サイト手数料・合計利益(発送日基準)が表示され、出品価格は集計に含まれません。</div></details>
       <details class="qa"><summary>特定の月だけ記録をまとめて削除できますか?</summary><div class="a">期間を指定しての一括削除ボタンはありません(誤って大量に消してしまうのを防ぐためです)。一覧を検索・月や年の集計で絞り込んでから、対象をチェックで選び、「選択を削除」を使ってください。</div></details>
+      <details class="qa"><summary>どの記録が削除・新規作成できないか、どう判断すればいいですか?</summary><div class="a">判定基準は「登録日」が、一番新しく本確定した年の12/31以前かどうかの1つだけです。売れているか・売れていないかは判定に関係ありません。この日付以前の記録は、削除も、型番・仕入額・数量・登録日の変更も、その日付での新規作成もできません(売却情報の入力は、発送日が本確定済みの年に入らない限り可能です)。「本確定した年"だけ"」ではなく、本確定は古い年から順にしか行えないため、通常はその年より前もまとめてロック対象になります。削除できる記録を削除しても、集計・棚卸はその都度計算し直されるだけなので、数字が静かにズレることはありません(仮確定済みの年なら、内容が変わったことが警告で必ず分かります)。詳しくは上記「🔍 作成・削除できる・できないの境界線」の表をご覧ください。</div></details>
       <details class="qa"><summary>除籍とは何ですか?</summary><div class="a">本確定した年の記録は、確定した数字を守るため削除できません。間違い・キャンセル・紛失・テストデータなど不要になった記録は、削除の代わりに<strong>除籍</strong>できます。理由・除籍した日・メモを記録し、記録そのものは残したまま、その日以降の棚卸から外れます。損益・仕入れ金額・確定した年の数字は変わりません。変わるのは除籍した日以降の棚卸の在庫だけで、照合は「期首の在庫 + 仕入れ − 売れた分 − 除籍分 = 期末の在庫」になります。</div></details>
       <details class="qa"><summary>除籍した記録は元に戻せますか?</summary><div class="a">はい。「除籍済み」タブの「元に戻す」から、いつでも在庫に戻せます。ただし、除籍した日の年が本確定済みになった後は戻せません(確定した数字を守るためです)。</div></details>
       <details class="qa"><summary>在庫管理は何件まで保存できますか?</summary><div class="a">フリマウォッチの全データと同じく、最大10万件まで保存できます。</div></details>
