@@ -907,11 +907,183 @@
         </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">✅ 確認パネルと確認の記録(独自機能3)</h4>
-        <p style="margin:0;">フリマウォッチは通知が主役ですが、通知が来ない時に、読み込んだリスト(全データ)を見直して、残すもの・フリマウォッチ側で消すものを決めたいことがあります。そのための、確認専用の機能です。全データの<strong>1行ごとに、コピー・Google検索・ラクサーチ・ラクサーチホーム・フォルダー・説明書を検索の6つのボタン</strong>が付いています。コピーと説明書を検索を除く4つを押すと、その型番に<strong>最後に確認した時刻(例: 2026/10/05 13:24:08)</strong>が付き、確認済みの型番が一目で分かります。</p>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">時刻は、全データとは別に、型番ごとに記録します。全データを入れ替えても、同じ型番なら時刻が再表示されます。同じ型番を押し直すと、新しい時刻に更新されます。</p>
-        <p style="margin-top:10px; font-size:13px;"><strong>確認パネル</strong> — 全データの上にある確認専用の欄に、いま確認している型番と6つのボタン、<strong>前へ・次へ</strong>が1か所にまとまっています。一覧をスクロールせず、「次へ」を押していくだけで、順番に確認できます。位置は覚えているので、日をまたいでも続きから始められます。</p>
-        <p style="margin-top:10px; font-size:13px;"><strong>今回の洗い直し</strong> — 一通り確認し終えたあと、「今回の洗い直しを始め直す」を押すと、それまでの確認が「前回」扱いになります(時刻は消えません)。「今回確認済みを隠す」で、まだ見ていない型番だけに絞れます。進む順番は、「最初のページの上から下へ」「最後のページの下から上へ」から選べます。</p>
-        <p style="margin-top:10px; font-size:13px;"><strong>重複していた型番</strong> — 該当する行とパネルに「重複していた型番: ファイル内にN回」の印が付きます。「次へ」で飛ばす設定もあります。<strong>開いたタブを閉じる</strong> — 検索で開いたタブを、ボタン1つ(または次へ進む時に自動で)まとめて閉じます。</p>
+        <p style="margin:0;"><strong>フリマウォッチのリストは、あなたが時間をかけて集めた大切な資産です。</strong>ところが、通知だけではリストは活かしきれません。通知は新しく出た1件を知らせるだけで、これまでにためた何千件、何万件もの過去のリストは、見直さない限り眠ったままです。</p>
+        <p style="margin-top:10px;">過去のリストを毎日少しずつ確認し、洗い出す。<strong>要らないものは削除、直すものは編集、買えるものは仕入れ、入札したいものは入札予約。</strong>これを続ければ、リストは常に「今日、仕入れられる状態」に整い、毎日仕入れができるようになります。ラクサーチの確認機能は、この洗い出し作業を続けるためのものです。</p>
+        <figure style="margin:16px 0 4px; overflow-x:auto;">
+          <svg viewBox="0 0 1180 230" role="img" aria-label="通知だけでは新しく出た1件を知らせるだけで、ためた過去のリストは眠ったまま。毎日の洗い出しで過去のリストを少しずつ見直し、削除・編集・仕入れ・入札予約のどれかをすれば、毎日仕入れできる状態になる" style="width:100%; min-width:860px; height:auto; display:block; margin:0 auto;">
+            <defs>
+              <marker id="assetArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
+              </marker>
+            </defs>
+            <rect x="10" y="40" width="250" height="150" rx="14" fill="var(--card)" stroke="var(--line)" stroke-dasharray="6 5"></rect>
+            <text x="135" y="76" text-anchor="middle" font-size="18" font-weight="700" fill="var(--ink-soft)">通知だけ</text>
+            <text x="135" y="106" text-anchor="middle" font-size="14" fill="var(--ink-soft)">新しく出た1件を</text>
+            <text x="135" y="126" text-anchor="middle" font-size="14" fill="var(--ink-soft)">知らせるだけ</text>
+            <text x="135" y="158" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ためた過去のリストは</text>
+            <text x="135" y="176" text-anchor="middle" font-size="13" fill="var(--ink-soft)">眠ったまま</text>
+
+            <line x1="264" y1="115" x2="292" y2="115" stroke="var(--ink-soft)" stroke-width="2.5" marker-end="url(#assetArrow)"></line>
+
+            <rect x="296" y="40" width="270" height="150" rx="14" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5"></rect>
+            <text x="431" y="76" text-anchor="middle" font-size="18" font-weight="700" fill="var(--accent-deep)">毎日の洗い出し</text>
+            <text x="431" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">過去のリスト</text>
+            <text x="431" y="126" text-anchor="middle" font-size="14" fill="var(--ink)">(数千〜数万件)を</text>
+            <text x="431" y="146" text-anchor="middle" font-size="14" fill="var(--ink)">毎日少しずつ見直す</text>
+            <text x="431" y="174" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--accent-deep)">確認パネルで続けやすく</text>
+
+            <line x1="570" y1="115" x2="598" y2="115" stroke="var(--ink-soft)" stroke-width="2.5" marker-end="url(#assetArrow)"></line>
+
+            <rect x="602" y="40" width="290" height="150" rx="14" fill="var(--card)" stroke="var(--line)"></rect>
+            <text x="747" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">見て、その場で判断</text>
+            <rect x="618" y="82" width="126" height="40" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+            <text x="681" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">削除</text>
+            <rect x="750" y="82" width="126" height="40" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+            <text x="813" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">編集</text>
+            <rect x="618" y="130" width="126" height="40" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+            <text x="681" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">仕入れ</text>
+            <rect x="750" y="130" width="126" height="40" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+            <text x="813" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">入札予約</text>
+
+            <line x1="896" y1="115" x2="924" y2="115" stroke="var(--ink-soft)" stroke-width="2.5" marker-end="url(#assetArrow)"></line>
+
+            <rect x="928" y="40" width="242" height="150" rx="14" fill="var(--good)" fill-opacity="0.12" stroke="var(--good)" stroke-width="2.5"></rect>
+            <text x="1049" y="92" text-anchor="middle" font-size="18" font-weight="700" fill="var(--good)">毎日</text>
+            <text x="1049" y="118" text-anchor="middle" font-size="18" font-weight="700" fill="var(--good)">仕入れできる</text>
+            <text x="1049" y="144" text-anchor="middle" font-size="18" font-weight="700" fill="var(--good)">状態に</text>
+          </svg>
+          <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin-top:8px;">通知は「新しい1件」、確認は「ためた過去のリスト」を生かす作業。毎日少しずつ洗い出せば、リストが常に仕入れられる状態に整う</figcaption>
+        </figure>
+
+        <p style="margin-top:14px;">通知が来ない時にも、読み込んだリスト(全データ)を毎日見直して、残すもの・フリマウォッチ側で消すもの・仕入れるものを決めていく。そのための、確認専用の機能です。</p>
+
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;">全データの<strong>1行ごとに、コピー・Google検索・ラクサーチ・ラクサーチホーム・フォルダー・説明書を検索の6つのボタン</strong>が付いています。コピーと説明書を検索を除く4つを押すと、その型番に<strong>最後に確認した時刻(例: 2026/10/05 13:24:08)</strong>が付き、確認済みの型番が一目で分かります。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">時刻は、全データとは別に、型番ごとに記録します。全データを入れ替えても、同じ型番なら時刻が再表示されます。同じ型番を押し直すと、新しい時刻に更新されます。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 270" role="img" aria-label="全データの1行。型番の下にコピー・Google検索・ラクサーチ・ラクサーチホーム・フォルダー・説明書を検索の6つのボタンが並び、Google検索・ラクサーチ・ラクサーチホーム・フォルダーを押すと確認の時刻が付く。時刻は今回・前回・未確認の3つの状態で表示される" style="width:100%; max-width:430px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="250" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="26" y="40" font-size="19" font-family="DotGothic16, monospace" fill="var(--ink)">AB-1234</text>
+              <text x="130" y="40" font-size="13" fill="var(--ink-soft)">〜¥12,000</text>
+
+              <rect x="26" y="54" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="90" y="73" text-anchor="middle" font-size="12.5" fill="var(--ink)">📋 コピー</text>
+              <rect x="166" y="54" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="230" y="73" text-anchor="middle" font-size="12.5" fill="var(--ink)">🔍 Google検索</text>
+              <rect x="306" y="54" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="370" y="73" text-anchor="middle" font-size="12.5" fill="var(--ink)">🟥 ラクサーチ</text>
+              <rect x="26" y="90" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="90" y="109" text-anchor="middle" font-size="12" fill="var(--ink)">🔎 ラクサーチホーム</text>
+              <rect x="166" y="90" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="230" y="109" text-anchor="middle" font-size="12.5" fill="var(--ink)">📁 フォルダー</text>
+              <rect x="306" y="90" width="128" height="28" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="370" y="109" text-anchor="middle" font-size="12.5" fill="var(--ink)">📖 説明書を検索</text>
+              <text x="26" y="138" font-size="11.5" font-weight="700" fill="var(--accent)">赤い枠の4つを押すと、確認の時刻が付く</text>
+
+              <line x1="26" y1="150" x2="434" y2="150" stroke="var(--line)"></line>
+              <text x="26" y="170" font-size="12" fill="var(--ink-soft)">時刻の表示(型番ごとに記録)</text>
+              <rect x="26" y="180" width="46" height="20" rx="10" fill="var(--good)" fill-opacity="0.15" stroke="var(--good)"></rect>
+              <text x="49" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="var(--good)">今回</text>
+              <text x="84" y="195" font-size="13" font-family="DotGothic16, monospace" fill="var(--ink)">2026/10/05 14:22:02</text>
+              <rect x="26" y="206" width="46" height="20" rx="10" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="49" y="220" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-soft)">前回</text>
+              <text x="84" y="221" font-size="13" font-family="DotGothic16, monospace" fill="var(--ink-soft)">2026/09/30 10:03:41</text>
+              <rect x="26" y="232" width="56" height="20" rx="10" fill="var(--paper)" stroke="var(--line)" stroke-dasharray="3 3"></rect>
+              <text x="54" y="246" text-anchor="middle" font-size="12" fill="var(--ink-soft)">未確認</text>
+            </svg>
+            <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:430px;">1行ごとの6ボタン。4つ押すと確認の時刻が付き、今回・前回・未確認で一目で分かる</figcaption>
+          </figure>
+        </div>
+
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;"><strong>確認パネル</strong> — 全データの上にある確認専用の欄に、いま確認している型番と6つのボタン、<strong>前へ・次へ</strong>が1か所にまとまっています。一覧をスクロールせず、「次へ」を押していくだけで、順番に確認できます。位置は覚えているので、日をまたいでも続きから始められます。</p>
+            <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);"><strong>開いたタブを閉じる</strong>(パネルの中にもあります)で、検索で開いたタブをまとめて閉じられます。次へ進む時に自動で閉じる設定もあります(初期値はOFF)。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 290" role="img" aria-label="確認パネル。いま確認している型番と金額、確認の時刻、6つのボタン、前へ・次へ、開いたタブを閉じるボタンと自動で閉じるチェック、現在の位置が1か所にまとまっている" style="width:100%; max-width:430px; height:auto; display:block; margin:0 auto;">
+              <rect x="10" y="10" width="440" height="270" rx="16" fill="var(--card)" stroke="var(--accent)" stroke-width="2"></rect>
+              <text x="26" y="34" font-size="13" font-weight="700" fill="var(--accent)">確認パネル(ここだけで確認作業)</text>
+              <text x="26" y="66" font-size="23" font-family="DotGothic16, monospace" fill="var(--ink)">CD-5678</text>
+              <text x="26" y="86" font-size="12.5" fill="var(--ink-soft)">〜¥8,500 ・ 今回 2026/10/05 14:22:02</text>
+
+              <rect x="26" y="98" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="90" y="116" text-anchor="middle" font-size="12" fill="var(--ink)">📋 コピー</text>
+              <rect x="166" y="98" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="230" y="116" text-anchor="middle" font-size="12" fill="var(--ink)">🔍 Google検索</text>
+              <rect x="306" y="98" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="370" y="116" text-anchor="middle" font-size="12" fill="var(--ink)">🟥 ラクサーチ</text>
+              <rect x="26" y="130" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="90" y="148" text-anchor="middle" font-size="11.5" fill="var(--ink)">🔎 ラクサーチホーム</text>
+              <rect x="166" y="130" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="230" y="148" text-anchor="middle" font-size="12" fill="var(--ink)">📁 フォルダー</text>
+              <rect x="306" y="130" width="128" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="370" y="148" text-anchor="middle" font-size="12" fill="var(--ink)">📖 説明書を検索</text>
+
+              <rect x="26" y="172" width="76" height="30" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="64" y="192" text-anchor="middle" font-size="13" fill="var(--ink)">‹ 前へ</text>
+              <rect x="112" y="172" width="76" height="30" rx="6" fill="var(--accent)"></rect>
+              <text x="150" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">次へ ›</text>
+              <text x="434" y="187" text-anchor="end" font-size="12" fill="var(--ink-soft)">12/12ページの40行目(位置を記憶)</text>
+
+              <line x1="26" y1="214" x2="434" y2="214" stroke="var(--line)"></line>
+              <rect x="26" y="224" width="158" height="30" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="105" y="244" text-anchor="middle" font-size="12.5" fill="var(--ink)">開いたタブを閉じる(3)</text>
+              <rect x="198" y="231" width="16" height="16" rx="3" fill="var(--paper)" stroke="var(--ink-soft)"></rect>
+              <text x="222" y="244" font-size="12" fill="var(--ink-soft)">次へ進む時に自動で閉じる</text>
+              <text x="26" y="270" font-size="11.5" fill="var(--ink-soft)">次へ・前へだけで、順番に確認できる</text>
+            </svg>
+            <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:430px;">確認パネル。型番・6ボタン・前へ/次へ・開いたタブを閉じるが1か所に</figcaption>
+          </figure>
+        </div>
+
+        <div class="clipfeat-split">
+          <div>
+            <p style="margin:0;"><strong>今回の洗い直し</strong> — 一通り確認し終えたあと、「今回の洗い直しを始め直す」を押すと、それまでの確認が「前回」扱いになります(時刻は消えません)。「今回確認済みを隠す」で、まだ見ていない型番だけに絞れます。</p>
+            <p style="margin-top:10px; font-size:13px;"><strong>進む順番</strong>は、「最初のページの上から下へ」「最後のページの下から上へ」から選べます。</p>
+            <p style="margin-top:10px; font-size:13px;"><strong>重複していた型番</strong> — 該当する行とパネルに「重複していた型番: ファイル内にN回」の印が付きます。「次へ」で飛ばす設定もあります。</p>
+          </div>
+          <figure style="margin:0;">
+            <svg viewBox="0 0 460 262" role="img" aria-label="今回の洗い直し。始め直すと、今回確認済みの件数が0に戻り、これまでの確認は前回扱いになるが時刻は残る。進む順番は、最初のページの上から下へ、または最後のページの下から上へ選べる" style="width:100%; max-width:430px; height:auto; display:block; margin:0 auto;">
+              <defs>
+                <marker id="redoArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                  <path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"></path>
+                </marker>
+              </defs>
+              <rect x="10" y="10" width="440" height="242" rx="16" fill="var(--card)" stroke="var(--line)"></rect>
+              <text x="26" y="34" font-size="13" font-weight="700" fill="var(--ink)">今回の洗い直し</text>
+
+              <text x="26" y="54" font-size="12" fill="var(--ink-soft)">いま</text>
+              <rect x="26" y="60" width="120" height="32" rx="8" fill="var(--good)" fill-opacity="0.15" stroke="var(--good)"></rect>
+              <text x="86" y="81" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--good)">今回 10件</text>
+              <rect x="154" y="60" width="140" height="32" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="224" y="81" text-anchor="middle" font-size="12.5" fill="var(--ink-soft)">前回 120件</text>
+              <rect x="302" y="60" width="132" height="32" rx="8" fill="var(--paper)" stroke="var(--line)" stroke-dasharray="3 3"></rect>
+              <text x="368" y="81" text-anchor="middle" font-size="12.5" fill="var(--ink-soft)">未確認 870件</text>
+
+              <line x1="86" y1="98" x2="86" y2="126" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#redoArrow)"></line>
+              <text x="98" y="116" font-size="12" font-weight="700" fill="var(--accent)">「始め直す」を押すと</text>
+
+              <rect x="26" y="132" width="120" height="32" rx="8" fill="var(--paper)" stroke="var(--good)" stroke-dasharray="3 3"></rect>
+              <text x="86" y="153" text-anchor="middle" font-size="12.5" fill="var(--good)">今回 0件</text>
+              <rect x="154" y="132" width="140" height="32" rx="8" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="224" y="153" text-anchor="middle" font-size="12.5" fill="var(--ink-soft)">前回 130件</text>
+              <rect x="302" y="132" width="132" height="32" rx="8" fill="var(--paper)" stroke="var(--line)" stroke-dasharray="3 3"></rect>
+              <text x="368" y="153" text-anchor="middle" font-size="12.5" fill="var(--ink-soft)">未確認 870件</text>
+              <text x="154" y="182" font-size="11.5" fill="var(--ink-soft)">確認の時刻は消えない</text>
+
+              <line x1="26" y1="192" x2="434" y2="192" stroke="var(--line)"></line>
+              <text x="26" y="210" font-size="12" fill="var(--ink-soft)">進む順番(どちらか選べる)</text>
+              <rect x="26" y="218" width="198" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="125" y="236" text-anchor="middle" font-size="12" fill="var(--ink)">↓ 最初のページの上から下へ</text>
+              <rect x="234" y="218" width="200" height="26" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+              <text x="334" y="236" text-anchor="middle" font-size="12" fill="var(--ink)">↑ 最後のページの下から上へ</text>
+            </svg>
+            <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin:6px auto 0; max-width:430px;">始め直すと「今回」が0件に戻り、これまでは「前回」扱い。時刻は残る</figcaption>
+          </figure>
+        </div>
 
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔁 フリマウォッチとラクサーチ、正しい役割分担</h4>
         <p style="margin:0;"><strong>フリマウォッチが本来の情報源(マスター)で、ラクサーチの「全データ」はあくまで重複チェック用のローカルな写しです。</strong>そのため、<strong>①の「読み込み」から始めるサイクル</strong>で使うことをおすすめしています(初めて使う時も、2回目以降も、同じ①からで大丈夫です)。</p>
@@ -1680,6 +1852,7 @@
       <details class="qa"><summary>「重複していた型番」機能は何をチェックしていますか?</summary><div class="a">フリマウォッチのCSVを読み込んだ時に、同じ型番がファイル内に複数回出てきていないかを自動でチェックし、型番と出現回数を記録する機能です。フリマウォッチ本体には無い、ラクサーチだけの独自機能です。</div></details>
       <details class="qa"><summary>重複していた型番が多すぎて、フリマウォッチ側で1件ずつ消すのが大変です。楽にする方法はありますか?</summary><div class="a">フリマウォッチ自体に一括削除の機能が無い場合は、1件ずつ消すしかありませんが、ラクサーチの「重複していた型番」に、フリマウォッチで続けて重複を削除していく作業に最適な設定があります。一覧の上の「📋コピーしたら、○秒後にこの一覧から外す」にチェックを入れると(初期値はOFF、秒数は3〜6秒から選べます)、📋でコピーした型番が数秒後に自動で一覧から外れます。「コピー→フリマウォッチの検索欄に貼り付けて、重複分を削除→次の📋」と繰り返すだけで一覧が減っていき、どこまで終わったかが分かります。外れるまでの間は「元に戻す」で取り消せます。外れるのはラクサーチ内の一覧だけで、フリマウォッチ本体のデータは変わりません。なお、重複があっても、ラクサーチの「登録済みかどうかの確認」は正しく動きます。</div></details>
       <details class="qa"><summary>フリマウォッチの自動通知はどんな時に出ますか?</summary><div class="a">型番をコピーした瞬間に、その型番がすでにため込みリストや全データに登録済みかを自動でチェックし、登録済みなら価格帯つきで知らせます。右クリックメニュー・ツールバー・ミニメニュー・ショートカットキーからいつでもON/OFFを切り替えられます。</div></details>
+      <details class="qa"><summary>フリマウォッチの通知だけでは、リストを生かせませんか?</summary><div class="a">通知は、新しく出た1件を知らせる機能です。これまでにためた過去のリスト(数千〜数万件)は、見直さない限り眠ったままです。全データを毎日少しずつ確認し、要らないものは削除、直すものは編集、買えるものは仕入れ、入札したいものは入札予約と洗い出していくと、リストが常に「今日、仕入れられる状態」に整い、毎日仕入れができるようになります。確認パネルの「次へ」を押していくだけで、位置を覚えたまま順番に進められます。</div></details>
       <details class="qa"><summary>全データの「確認の時刻」は何ですか?全データを入れ替えると消えますか?</summary><div class="a">全データの各行にある、Google検索・ラクサーチ・ラクサーチホーム・フォルダーのどれかのボタンを押した時刻です(コピーと説明書を検索は付きません)。同じ型番を押し直すと、新しい時刻に更新されます。時刻は、全データとは別に、型番ごとに記録しているので、全データを全部削除して別のデータを読み込んでも、同じ型番なら時刻が再表示されます。押したが確認しなかった時は、行の「確認を取り消す」で、その型番だけ消せます。全部消したい時は、「確認の時刻を全部消す」(確認つき)です。</div></details>
       <details class="qa"><summary>「今回の洗い直し」とは何ですか?</summary><div class="a">全データを一通り確認し終えて、もう一度最初から確認し直したい時に使います。「今回の洗い直しを始め直す」を押すと、それまでの確認が「前回」扱いになり、「今回確認済み」の数が0に戻ります。時刻は消えないので、前回いつ確認したかも分かります。「今回確認済みを隠す」にチェックを入れると、未確認と前回確認の分だけが表示されます。</div></details>
       <details class="qa"><summary>確認パネルの「次へ」「前へ」は、どう動きますか?</summary><div class="a">確認パネルは、全データの上にある、確認作業用の欄です。いま確認している型番と6つのボタンが出ていて、「次へ」を押すと、選んだ向き(最初のページの上から下へ/最後のページの下から上へ)に次の型番へ進みます。「次へ」は、「今回確認済みを隠す」「重複していた型番の行を飛ばす」の設定に合わせて、該当する行を飛ばします。「前へ」は、設定に関係なく、1つ前の行にそのまま戻ります。ボタンを押さずに通り過ぎた型番は、未確認のままです。位置は覚えているので、次の日も続きから始められます。「最後に確認した型番へ移動」「次の未確認へ移動」で、一覧のその行へ移ることもできます。</div></details>
