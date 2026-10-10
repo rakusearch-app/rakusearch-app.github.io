@@ -137,6 +137,12 @@
     display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s ease, background 0.15s ease;
   }
   .btn-primary:hover { background: var(--accent-deep); transform: translateY(-2px); }
+  .btn-store {
+    background: transparent; color: var(--accent); padding: 13px 22px; border-radius: 10px; border: 2px solid var(--accent);
+    font-weight: 700; font-size: 15px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .btn-store:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
   .heronote { font-size: 13px; color: var(--ink-soft); }
   .heronote b { color: var(--good); }
 
@@ -419,9 +425,10 @@
       <p class="sub">メルカリ・ヤフオク・ラクマ・Amazon…出品や仕入れで見るサイトを、ひとつずつ検索し直すのはもう終わり。選択してワンクリックで、いつものサイトが<strong>最大8件まで同時に</strong>開きます。</p>
       <div class="heroctas">
         <a class="btn-primary" href="javascript:void(0)" onclick="openCheckoutModal()">初回14日間無料で試す →</a>
+        <a class="btn-store" href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener">Chromeウェブストアで入手</a>
         <span class="heronote">その後は月額2,480円。<b>右クリックの「ラクサーチ」はずっと無料</b>で使えます</span>
       </div>
-      <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、Chromeウェブストアからの拡張機能の追加(無料)が別途必要です。</p>
+      <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、<a href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Chromeウェブストアからの拡張機能の追加</a>(無料)が別途必要です。</p>
     </div>
     <div class="fanstage">
       <div class="tag t1" aria-hidden="true"><span class="site">メルカリ</span><span class="stat">14件</span></div>
@@ -1774,7 +1781,7 @@
           <li>1台の端末で利用可能(パソコンの切り替えは自由)</li>
         </ul>
         <a class="btn-primary" style="width:100%; justify-content:center;" href="javascript:void(0)" onclick="openCheckoutModal()">初回14日間無料で始める</a>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、Chromeウェブストアからの拡張機能の追加(無料)が別途必要です。</p>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、<a href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Chromeウェブストアからの拡張機能の追加</a>(無料)が別途必要です。</p>
       </div>
     </div>
     <p class="pricefoot">無料期間中に解約すれば費用は一切かかりません。無料期間終了後は自動的に月額2,480円(税込)のお支払いに切り替わり、以降はいつでも<a href="https://billing.stripe.com/p/login/cNieVcdoHgrfcB6cv96oo00" target="_blank" rel="noopener" style="color:var(--accent); font-weight:700;">マイページ</a>(<strong>決済代行会社Stripeが提供するページ</strong>。当サイトのページではありません)から解約できます。解約後は、その時点の請求期間の終了日まで引き続きご利用いただけます。<br><strong>パソコン版Google Chrome専用です。スマートフォンではご利用いただけません。</strong></p>
@@ -2252,7 +2259,8 @@
   // (バージョン・主要設定・直近のエラーログ)を自動取得し、コピー操作なしで問い合わせに添える。
   // 拡張機能が入っていない場合は静かに諦める(エラー表示はしない。閲覧者は拡張機能未インストール
   // の可能性が高いため)。メールアドレス等の個人情報はこの情報には一切含まれない。
-  var RAKUSEARCH_EXTENSION_ID = "jeooibjgeecfpaaekkmkhhmpnicgflfo";
+  // ストア版のID(公開版)を先に、作者の開発用のID(開発版)をあとで試す。どちらも入っていなければ静かに諦める。
+  var RAKUSEARCH_EXTENSION_IDS = ["eplnbolkoalcgjghacnbafbafpabemkp", "jeooibjgeecfpaaekkmkhhmpnicgflfo"];
   var rakusearchSupportInfoText = null;
   function updateSupportInfoStatus() {
     var statusEl = document.getElementById("supportInfoStatus");
@@ -2271,17 +2279,23 @@
   }
   (function fetchRakusearchSupportInfo() {
     if (typeof chrome === "undefined" || !chrome.runtime || !chrome.runtime.sendMessage) return;
-    try {
-      chrome.runtime.sendMessage(RAKUSEARCH_EXTENSION_ID, { action: "getSupportInfo" }, function (response) {
-        if (chrome.runtime.lastError) return; // 拡張機能が入っていない、または許可がない場合
-        if (response && response.ok && response.text) {
-          rakusearchSupportInfoText = response.text;
-          updateSupportInfoStatus();
-        }
-      });
-    } catch (e) {
-      // sendMessage自体が例外を投げる環境(拡張機能API非対応ブラウザ等)は何もしない
-    }
+    var tryId = function (i) {
+      if (i >= RAKUSEARCH_EXTENSION_IDS.length) return;
+      try {
+        chrome.runtime.sendMessage(RAKUSEARCH_EXTENSION_IDS[i], { action: "getSupportInfo" }, function (response) {
+          if (chrome.runtime.lastError) { tryId(i + 1); return; } // この拡張機能が入っていない、または許可がない場合は、次のIDを試す
+          if (response && response.ok && response.text) {
+            rakusearchSupportInfoText = response.text;
+            updateSupportInfoStatus();
+          } else {
+            tryId(i + 1);
+          }
+        });
+      } catch (e) {
+        // sendMessage自体が例外を投げる環境(拡張機能API非対応ブラウザ等)は何もしない
+      }
+    };
+    tryId(0);
   })();
   document.getElementById("contactType").addEventListener("change", updateSupportInfoStatus);
 
