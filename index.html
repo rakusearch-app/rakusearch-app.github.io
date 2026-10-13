@@ -370,7 +370,7 @@
   .checkout-success-banner {
     position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
     background: var(--good); color: #fff; padding: 12px 20px; border-radius: 10px;
-    font-size: 13.5px; font-weight: 700; box-shadow: var(--shadow); z-index: 200; max-width: 90vw; text-align: center;
+    font-size: 13.5px; font-weight: 700; box-shadow: var(--shadow); z-index: 200; width: max-content; max-width: min(92vw, 620px); text-align: center; cursor: pointer;
   }
 
   /* ---------- contact form ---------- */
@@ -2133,7 +2133,7 @@
     </div>
   </div>
 </div>
-<div class="checkout-success-banner" id="checkoutSuccessBanner" hidden>✅ お申し込みありがとうございます!ご登録のメールアドレスに確認のご案内をお送りします。<br><span style="font-size:12px; font-weight:400; opacity:0.9;">メールが届かない場合は、迷惑メールフォルダもご確認ください。</span></div>
+<div class="checkout-success-banner" id="checkoutSuccessBanner" hidden>✅ お申し込みありがとうございます!<br><span style="font-size:12px; font-weight:400; opacity:0.95;">拡張機能の「設定」→「ライセンス認証」で、お申し込みのメールアドレスを入力し、「認証コードを送る」を押してください(認証コードが、メールで届きます。届かない場合は、迷惑メールフォルダもご確認ください)。<br>拡張機能が未追加の方は、先に<a href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener" style="color:#fff; text-decoration:underline;">Chromeウェブストアから追加</a>してください。<br>(この表示は、タップすると閉じます)</span></div>
 
 <script>
   // 【2026-09-14追加】拡張機能側と同じ考え方で、サイト自身のJSエラーも記録する
@@ -2247,7 +2247,10 @@
   (function () {
     if (new URLSearchParams(location.search).get("checkout") === "success") {
       var banner = document.getElementById("checkoutSuccessBanner");
-      if (banner) banner.hidden = false;
+      if (banner) {
+        banner.hidden = false;
+        banner.addEventListener("click", function (e) { if (!(e.target && e.target.closest && e.target.closest("a"))) banner.hidden = true; });
+      }
     }
   })();
 
