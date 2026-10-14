@@ -249,6 +249,12 @@
   @media (max-width: 560px) { .featgrid { grid-template-columns: 1fr; } }
   .clipfeat-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px; align-items: start; margin-top: 10px; }
   @media (max-width: 760px) { .clipfeat-split { grid-template-columns: 1fr; } }
+  /* 【2026-10-14・スマホ】図は、横幅の固定(640〜960px)で、スマホでは右側が切れて見えていた。スマホでは、画面の幅に合わせて縮め、全体が見えるようにする(細かい字は、指で拡大して読める)。 */
+  @media (max-width: 760px) {
+    figure { overflow-x: visible !important; }
+    figure svg { min-width: 0 !important; width: 100% !important; height: auto !important; }
+    figure figcaption::after { content: "(図は、指で拡大して見られます)"; display: block; font-size: 11.5px; opacity: .75; margin-top: 2px; }
+  }
   .feat {
     background: var(--card); border: 1px solid var(--line); border-radius: 4px 4px 14px 14px;
     padding: 22px 20px 24px; position: relative; box-shadow: var(--shadow);
