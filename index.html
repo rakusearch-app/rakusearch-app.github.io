@@ -6,7 +6,7 @@
 <style>
   :root {
     --ink: #241B14;
-    --ink-soft: #6B5B45;
+    --ink-soft: #54463A;
     --paper: #F2E9D8;
     --card: #FBF5E9;
     --card-2: #EDE0C6;
@@ -56,7 +56,7 @@
   }
   :root[data-theme="light"] {
     --ink: #241B14;
-    --ink-soft: #6B5B45;
+    --ink-soft: #54463A;
     --paper: #F2E9D8;
     --card: #FBF5E9;
     --card-2: #EDE0C6;
@@ -84,6 +84,7 @@
     color: var(--ink);
     font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
     line-height: 1.75;
+    font-weight: 500; /* 2026-10-14: 細い字が、薄く見えるため、少し太く */
     -webkit-font-smoothing: antialiased;
   }
 
@@ -232,7 +233,7 @@
   .sectiontitle { text-align: left; margin-bottom: 40px; max-width: 60ch; }
   .sectiontitle .eyebrow { margin-bottom: 14px; }
   .sectiontitle h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 400; margin: 0 0 10px; }
-  .sectiontitle p { color: var(--ink-soft); margin: 0; font-size: 15px; }
+  .sectiontitle p { color: var(--ink-soft); margin: 0; font-size: 16.5px; }
 
   /* ---------- problem ---------- */
   .problem { background: var(--card-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -249,6 +250,9 @@
   @media (max-width: 560px) { .featgrid { grid-template-columns: 1fr; } }
   .clipfeat-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px; align-items: start; margin-top: 10px; }
   @media (max-width: 760px) { .clipfeat-split { grid-template-columns: 1fr; } }
+  /* 【2026-10-14】読みやすさ(スマホで見て「文字が小さく薄い」・PCでも少し小さいとの指摘)。説明文・注記の、インラインの小さな指定を、まとめて引き上げる。図(svg)の中は、対象外。 */
+  body :is([style*="font-size:11.5px"], [style*="font-size:12px"], [style*="font-size:12.5px"], [style*="font-size:13px"]):not(svg *) { font-size: 14px !important; }
+  body :is([style*="font-size:13.5px"]):not(svg *) { font-size: 15px !important; }
   /* 【2026-10-14・スマホ】図は、横幅の固定(640〜960px)で、スマホでは右側が切れて見えていた。スマホでは、画面の幅に合わせて縮め、全体が見えるようにする(細かい字は、指で拡大して読める)。 */
   @media (max-width: 760px) {
     figure { overflow-x: visible !important; }
@@ -270,7 +274,7 @@
     font-size: 19px; margin-bottom: 14px;
   }
   .feat h3 { font-size: 16.5px; margin: 0 0 8px; font-weight: 700; }
-  .feat p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+  .feat p { font-size: 15px; color: var(--ink-soft); margin: 0; }
   .feat .tagline { display: inline-block; margin-top: 12px; font-size: 11.5px; color: var(--gold); font-weight: 700; background: var(--gold-soft); padding: 3px 9px; border-radius: 999px; }
 
   /* ---------- site list (ラクサーチホーム) ---------- */
@@ -295,7 +299,7 @@
     display: grid; place-items: center;
   }
   .step h3 { font-size: 15.5px; margin: 4px 0 6px; }
-  .step p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+  .step p { font-size: 15px; color: var(--ink-soft); margin: 0; }
 
   /* ---------- pricing ---------- */
   .pricewrap { display: flex; justify-content: center; }
@@ -316,16 +320,16 @@
   .priceticket ul { list-style: none; padding: 0; margin: 0 0 26px; text-align: left; display: grid; gap: 10px; }
   .priceticket li { font-size: 14px; display: flex; gap: 8px; }
   .priceticket li::before { content: "✓"; color: var(--good); font-weight: 700; }
-  .pricefoot { text-align: center; font-size: 12.5px; color: var(--ink-soft); margin-top: 18px; }
+  .pricefoot { text-align: center; font-size: 14px; color: var(--ink-soft); margin-top: 18px; }
 
   /* ---------- faq ---------- */
   .faq { display: grid; gap: 12px; max-width: 760px; }
   .qa { border: 1px solid var(--line); border-radius: 10px; background: var(--card); overflow: hidden; }
-  .qa summary { cursor: pointer; padding: 16px 18px; font-weight: 700; font-size: 14.5px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .qa summary { cursor: pointer; padding: 16px 18px; font-weight: 700; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
   .qa summary::-webkit-details-marker { display: none; }
   .qa summary::after { content: "+"; color: var(--accent); font-family: "DotGothic16", monospace; font-size: 18px; flex: none; }
   .qa[open] summary::after { content: "–"; }
-  .qa .a { padding: 0 18px 18px; font-size: 13.5px; color: var(--ink-soft); }
+  .qa .a { padding: 0 18px 18px; font-size: 15px; line-height: 1.85; color: var(--ink-soft); }
 
   /* ---------- final cta ---------- */
   .finalcta { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 56px 40px; text-align: center; }
@@ -341,10 +345,10 @@
   .legal { padding: 56px 0; border-top: 1px solid var(--line); }
   .legal h2 { font-family: "Yusei Magic", sans-serif; font-weight: 400; font-size: 22px; margin: 0 0 6px; }
   .legal .warn { background: var(--gold-soft); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 12px 14px; font-size: 12.5px; margin: 14px 0 28px; }
-  .legaldoc { max-width: 68ch; margin: 0 auto; font-size: 13.5px; }
+  .legaldoc { max-width: 68ch; margin: 0 auto; font-size: 15px; }
   .legaldoc h3 { font-size: 15px; margin: 26px 0 6px; }
   .legaldoc p, .legaldoc li { color: var(--ink-soft); }
-  .legaldoc table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13px; }
+  .legaldoc table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px; }
   .legaldoc th, .legaldoc td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
   .legaldoc th { background: var(--card-2); width: 34%; }
   .legaltabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
