@@ -248,7 +248,9 @@
     .mkHeroSp .mk-menu .mk-it { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; font-size: 17px; font-weight: 700; }
     .mkHeroSp .mk-menu .mk-it + .mk-it { margin-top: 4px; }
     .mkHeroSp .mk-menu .mk-it.mk-on { background: var(--accent-soft); color: var(--accent-deep); }
-    .mkHeroSp .mk-menu .mk-ic { width: 26px; text-align: center; font-size: 19px; }
+    .mkHeroSp .mk-menu .mk-ic { flex: none; width: 40px; height: 40px; border-radius: 10px; background: #fff; border: 2px solid var(--ink); display: grid; place-items: center; }
+    .mkHeroSp .mk-menu .mk-ic svg { width: 26px; height: 26px; display: block; }
+    .mkHeroSp .mk-menu .mk-it.mk-on .mk-ic { border-color: var(--accent); }
     .mkHeroSp .mk-menu .mk-hmS { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin-top: 8px; }
     .mkHeroSp .mk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .mkHeroSp .mk-chip { background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
@@ -296,11 +298,15 @@
     .mkAlt .mkBand { border: 2px solid var(--good); border-radius: 12px; padding: 10px 12px; background: var(--paper); color: var(--good); font-weight: 800; font-size: 15px; line-height: 1.6; text-align: center; }
   }
 
-  .mkLb { position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, 0.62); display: flex; flex-direction: column; padding: 10px; }
-  .mkLb .mkLbClose { align-self: flex-end; background: var(--accent); color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; font-size: 15px; font-weight: 800; margin-bottom: 8px; font-family: inherit; }
-  .mkLb .mkLbBody { flex: 1; overflow: auto; background: var(--card); border-radius: 12px; padding: 12px; -webkit-overflow-scrolling: touch; }
+  .mkLb { position: fixed; inset: 0; z-index: 1000; background: rgba(20, 14, 8, 0.86); display: flex; flex-direction: column; padding: 10px; touch-action: pan-x pan-y; overscroll-behavior: contain; }
+  .mkLb .mkLbBar { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .mkLb .mkLbBtn { flex: 1; min-height: 52px; border: 0; border-radius: 14px; background: #fff; color: var(--ink); font-size: 18px; font-weight: 900; font-family: inherit; box-shadow: 0 2px 0 rgba(0,0,0,.25); -webkit-tap-highlight-color: transparent; }
+  .mkLb .mkLbBtn:active { transform: translateY(1px); box-shadow: none; }
+  .mkLb .mkLbBtn[disabled] { opacity: .35; }
+  .mkLb .mkLbClose { flex: none; min-height: 52px; border: 0; border-radius: 14px; background: var(--accent); color: #fff; font-size: 17px; font-weight: 900; padding: 0 16px; font-family: inherit; }
+  .mkLb .mkLbBody { flex: 1; overflow: auto; background: var(--card); border-radius: 12px; padding: 10px; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; overscroll-behavior: contain; }
   .mkLb .mkLbBody svg { display: block; max-width: none; }
-  .mkLb .mkLbNote { color: #fff; font-size: 13px; margin: 0 0 6px; opacity: .9; }
+  .mkLb .mkLbNote { color: #fff; font-size: 14px; margin: 0 0 8px; text-align: center; }
 
   @media (min-width: 761px) {
     .mkMore > summary, .mkSub > summary { display: none; }
@@ -551,11 +557,11 @@
       <div class="mk-step"><span class="mk-badge">② ミニメニュー</span>
         <div class="mk-ttl">選び直さず、そのまま押せる</div>
         <div class="mk-menu">
-          <div class="mk-it"><span class="mk-ic">🔍</span>Google検索</div>
-          <div class="mk-it mk-on"><span class="mk-ic">🟥</span>ラクサーチ</div>
-          <div class="mk-it"><span class="mk-ic">🔎</span>ラクサーチホーム</div>
-          <div class="mk-it"><span class="mk-ic">📁</span>フォルダー</div>
-          <div class="mk-it"><span class="mk-ic">🔍</span>フリマ確認・登録</div>
+          <div class="mk-it"><span class="mk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#241B14" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></span>Google検索</div>
+          <div class="mk-it mk-on"><span class="mk-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="#D2361F"/><circle cx="10.5" cy="10.5" r="4.6" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M14 14l5 5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></span>ラクサーチ</div>
+          <div class="mk-it"><span class="mk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#A5240F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="10" r="6"/><path d="M14 14.5l6.5 6.5"/><path d="M6.5 10l3-2.6 3 2.6"/></svg></span>ラクサーチホーム</div>
+          <div class="mk-it"><span class="mk-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6.5a2 2 0 0 1 2-2h5l2 2.5h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="#F2B84B" stroke="#7A5200" stroke-width="2" stroke-linejoin="round"/></svg></span>フォルダー</div>
+          <div class="mk-it"><span class="mk-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l3 3 5-6"/></svg></span>フリマ確認・登録</div>
           <div class="mk-hmS">👀 これは見本です(実際の画面イメージ)</div>
         </div>
       </div>
@@ -2704,7 +2710,8 @@
     Array.prototype.forEach.call(document.querySelectorAll(".mkMore, .mkSub"), function (d) { d.open = v; });
   }
 
-  // 図をタップで拡大
+  // 図をタップで拡大(大きなボタンで、大きく・小さく。ピンチなどの細かい操作は、いらない)
+  var ZOOMS = [1, 1.5, 2, 3];
   function zoomInit() {
     Array.prototype.forEach.call(document.querySelectorAll("figure svg"), function (svg) {
       if (svg.classList.contains("mkWideSvg")) return;
@@ -2714,34 +2721,51 @@
       if (fig) fig.classList.add("mkZoomFig");
       svg.addEventListener("click", function () {
         if (!mq.matches) return;
+        var level = 0;
+        var base = Math.max(240, window.innerWidth - 44);
         var ov = document.createElement("div");
         ov.className = "mkLb";
         ov.setAttribute("role", "dialog");
         ov.setAttribute("aria-label", "図の拡大");
-        var close = document.createElement("button");
-        close.type = "button";
-        close.className = "mkLbClose";
-        close.textContent = "✕ 閉じる";
+        var bar = document.createElement("div");
+        bar.className = "mkLbBar";
+        function mk(label, cls) { var b = document.createElement("button"); b.type = "button"; b.className = cls; b.textContent = label; return b; }
+        var minus = mk("－ 小さく", "mkLbBtn");
+        var plus = mk("＋ 大きく", "mkLbBtn");
+        var close = mk("✕ 閉じる", "mkLbClose");
+        bar.appendChild(minus); bar.appendChild(plus); bar.appendChild(close);
         var note = document.createElement("p");
         note.className = "mkLbNote";
-        note.textContent = "指で、左右・上下に、動かせます(ピンチで、さらに拡大もできます)";
         var body = document.createElement("div");
         body.className = "mkLbBody";
         var c = svg.cloneNode(true);
         c.removeAttribute("class");
         c.removeAttribute("style");
-        var w = Math.round(vb[2] * 1.2);
-        c.style.cssText = "width:" + w + "px;min-width:" + w + "px;height:auto;display:block;";
         body.appendChild(c);
+        function apply(keep) {
+          var cx = body.scrollWidth ? (body.scrollLeft + body.clientWidth / 2) / body.scrollWidth : 0;
+          var cy = body.scrollHeight ? (body.scrollTop + body.clientHeight / 2) / body.scrollHeight : 0;
+          var w = Math.round(base * ZOOMS[level]);
+          c.style.cssText = "width:" + w + "px;min-width:" + w + "px;height:auto;display:block;";
+          minus.disabled = level === 0;
+          plus.disabled = level === ZOOMS.length - 1;
+          note.textContent = level === 0 ? "「＋ 大きく」で、文字が大きくなります" : "指で、上下・左右に、動かせます(いま " + Math.round(ZOOMS[level] * 100) + "%)";
+          if (keep) { body.scrollLeft = cx * body.scrollWidth - body.clientWidth / 2; body.scrollTop = cy * body.scrollHeight - body.clientHeight / 2; }
+        }
+        minus.addEventListener("click", function () { if (level > 0) { level--; apply(true); } });
+        plus.addEventListener("click", function () { if (level < ZOOMS.length - 1) { level++; apply(true); } });
+        // ダブルタップでも、大きく/元に戻る
+        var lastTap = 0;
+        body.addEventListener("click", function () { var t = Date.now(); if (t - lastTap < 350) { level = level === 0 ? 2 : 0; apply(true); } lastTap = t; });
+        ov.appendChild(bar);
         ov.appendChild(note);
-        ov.appendChild(close);
         ov.appendChild(body);
         document.body.appendChild(ov);
         document.body.style.overflow = "hidden";
+        apply(false);
         function shut() { ov.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", onKey); }
         function onKey(e) { if (e.key === "Escape") shut(); }
         close.addEventListener("click", shut);
-        ov.addEventListener("click", function (e) { if (e.target === ov) shut(); });
         document.addEventListener("keydown", onKey);
       });
     });
