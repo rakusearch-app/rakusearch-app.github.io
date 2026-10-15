@@ -228,6 +228,9 @@
     .heroMiniMenu.show { transform: translate(18px, 36px) scale(1); }
   }
 
+  /* 【2026-10-15】白いマウスの絵文字(🖱)が、クリーム色の背景で薄く見えるため、濃い線のアイコンに */
+  .mkMouse { width: 1.15em; height: 1.15em; vertical-align: -0.22em; display: inline-block; }
+  .ico .mkMouse { width: 30px; height: 30px; vertical-align: middle; }
   /* ===== 【2026-10-15】スマホ向け(ユーザー要望: スマホで見にくい)。ヒーローの図・機能の折りたたみ・図の拡大・横長の図の差し替え ===== */
   .mkHeroSp, .mkAlt { display: none; }
   .mkMore > summary, .mkSub > summary { cursor: pointer; list-style: none; }
@@ -665,7 +668,7 @@
         </div>
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
-        <div class="ico">🖱️</div>
+        <div class="ico"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg></div>
         <h3>ミニメニュー(主力機能)</h3>
         <p><strong>文字を選んだ、その瞬間にメニューが出て、選び直さずそのまま検索できます。</strong>ページ上の型番やキーワードに対して、次の3つの選び方が使えます。</p>
 
@@ -682,7 +685,7 @@
             <text x="92" y="60" text-anchor="middle" font-size="14" fill="var(--ink-soft)">ページ上の文字</text>
             <rect x="33" y="70" width="120" height="32" rx="5" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
             <text x="93" y="92" text-anchor="middle" font-size="16" font-family="DotGothic16, monospace" fill="var(--ink)">ZQ-LM930</text>
-            <text x="92" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="var(--accent)">🖱️ ダブルクリック</text>
+            <text x="92" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="var(--accent)">👆 ダブルクリック</text>
 
             <!-- gap 175-230: 矢印185-220、ラベルは箱に触れない中央 -->
             <line x1="185" y1="95" x2="220" y2="95" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#mmArrow)"></line>
@@ -738,8 +741,8 @@
         </figure>
 
         <div style="margin-top:14px; display:grid; gap:10px;">
-          <p style="margin:0;"><strong>🖱️ ダブルクリック</strong> — 型番を自動選択すると同時に、自動でクリップボードにコピー。範囲をドラッグして選ぶ手間すら不要で、ダブルクリックひとつで「選択+コピー」が同時に完了します(英数字・ハイフンはもちろん、ひらがな・カタカナの表記ゆれも自動で吸収)。</p>
-          <p style="margin:0;"><strong>🖱️🖱️🖱️ トリプルクリック</strong>(3回連続クリック) — その段落・タイトルの文章を丸ごと自動でコピー。長い商品説明や発送先住所など、選択がしづらい範囲もワンクリック感覚でまとめてコピーできます。</p>
+          <p style="margin:0;"><strong><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ダブルクリック</strong> — 型番を自動選択すると同時に、自動でクリップボードにコピー。範囲をドラッグして選ぶ手間すら不要で、ダブルクリックひとつで「選択+コピー」が同時に完了します(英数字・ハイフンはもちろん、ひらがな・カタカナの表記ゆれも自動で吸収)。</p>
+          <p style="margin:0;"><strong><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> トリプルクリック</strong>(3回連続クリック) — その段落・タイトルの文章を丸ごと自動でコピー。長い商品説明や発送先住所など、選択がしづらい範囲もワンクリック感覚でまとめてコピーできます。</p>
           <p style="margin:0;"><strong>🖐️ 手動ドラッグ選択</strong> — 好きな範囲を自分で選んでも、同じようにメニューが出せます。</p>
         </div>
         <p style="margin-top:14px;">どの選び方でも、選んだ・コピーした直後にミニメニューが出現。「ラクサーチ」「説明書を検索」「Google検索」「ラクサーチホーム」「フォルダー」「コピー」「切り取り」「貼り付け」「📌ピン留め」「ラクサーチダッシュボード」など、使いたい機能をワンクリックで選ぶだけで、すぐに検索や入力補助が実行されます。</p>
@@ -765,7 +768,7 @@
             <text x="115" y="48" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ページA(メルカリ等)</text>
             <rect x="35" y="60" width="160" height="34" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2"></rect>
             <text x="115" y="83" text-anchor="middle" font-size="16" font-family="DotGothic16, monospace" fill="var(--ink)">ZQ-LM930</text>
-            <text x="115" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent)">🖱️ 選択して検索</text>
+            <text x="115" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent)">👆 選択して検索</text>
             <text x="115" y="140" text-anchor="middle" font-size="12" fill="var(--ink-soft)">(自動で記憶される)</text>
 
             <rect x="280" y="20" width="210" height="150" rx="12" fill="var(--card)" stroke="var(--line)"></rect>
@@ -1892,7 +1895,7 @@
         <h3>ショートカットキー</h3>
         <p><code>chrome://extensions/shortcuts</code>から、<strong>18個の機能すべてにキーボードショートカットを割り当てられます</strong>。マウスに手を伸ばさず、キー操作だけで検索から入力補助まで完結できます。</p>
         <div class="chiprow" style="margin-top:10px;">
-          <span class="chip">🟥 ラクサーチ</span><span class="chip">📖 説明書を検索</span><span class="chip">🔍 Google検索</span><span class="chip">🔎 ラクサーチホーム</span><span class="chip">📋 コピー</span><span class="chip">✂️ 切り取り</span><span class="chip">✂️ 入力欄を丸ごと切り取り</span><span class="chip">📥 貼り付け</span><span class="chip">📌 ピン留め</span><span class="chip">🔕 ミニメニュー一時停止/再開</span><span class="chip">🖱 ④自動コピーON/OFF</span><span class="chip">🖱 ⑤自動コピーON/OFF</span><span class="chip">🔕 ④⑤自動コピー一時停止/再開</span><span class="chip">✕ 開いたタブを閉じる</span><span class="chip">📋 ラクサーチダッシュボード</span><span class="chip">⚙️ 設定・使い方</span><span class="chip">🔍 フリマウォッチ確認・登録</span><span class="chip">🔍 フリマウォッチ自動通知ON/OFF</span>
+          <span class="chip">🟥 ラクサーチ</span><span class="chip">📖 説明書を検索</span><span class="chip">🔍 Google検索</span><span class="chip">🔎 ラクサーチホーム</span><span class="chip">📋 コピー</span><span class="chip">✂️ 切り取り</span><span class="chip">✂️ 入力欄を丸ごと切り取り</span><span class="chip">📥 貼り付け</span><span class="chip">📌 ピン留め</span><span class="chip">🔕 ミニメニュー一時停止/再開</span><span class="chip"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ④自動コピーON/OFF</span><span class="chip"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ⑤自動コピーON/OFF</span><span class="chip">🔕 ④⑤自動コピー一時停止/再開</span><span class="chip">✕ 開いたタブを閉じる</span><span class="chip">📋 ラクサーチダッシュボード</span><span class="chip">⚙️ 設定・使い方</span><span class="chip">🔍 フリマウォッチ確認・登録</span><span class="chip">🔍 フリマウォッチ自動通知ON/OFF</span>
         </div>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">初期状態ではどのキーも割り当てられていません(すべて「未設定」)。使いたい機能だけ、鉛筆マークをクリックして好きなキーの組み合わせ(例:Alt+M)を押せば設定完了です。設定はこのパソコンだけのものなので、乗り換え先でも使いたい場合は同じように設定してください。</p>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">⚠️ 設定したキーが、<strong>Chrome本体や見ているサイト自身がすでに使っているキーと被っている場合は、そちらの動作が優先され</strong>、このショートカットは反応しません。反応しない時は、まず違う箇所(別のサイトや空白のページなど)でお試しください。それでも反応しない場合は、被っていなさそうな別のキーの組み合わせに変えてみてください。</p>
@@ -2024,7 +2027,7 @@
       <details class="qa"><summary>認証の切り替えはすぐ反映されますか?</summary><div class="a">認証状況は自動的に再確認されますが、反映までに、しばらく時間がかかることがあります。すぐ反映させたい場合は、使わなくなった方のパソコンで、設定画面の「ライセンス認証」にある<strong>「今すぐ確認」ボタン</strong>を押してください(続けて押せるのは30秒に1回までです)。Chromeを再起動しても、反映されます。使えなくなった方のパソコンには「別のパソコンで認証されたため、この端末は使えなくなりました」と表示されます。もう一度そちらで使う場合は、設定画面で認証コードを送り直して、認証し直してください。</div></details>
       <details class="qa"><summary>認証コードのメールが届きません。どうすればいいですか?</summary><div class="a">次の順にご確認ください。<br>①<strong>迷惑メールフォルダ</strong>をご確認ください。<br>②ご契約のないメールアドレスには、認証コードは届きません。<strong>ご契約時にご入力したメールアドレス</strong>と同じか、ご確認ください。<br>③短時間に続けて送ることはできません。<strong>1分以上あけて</strong>から、もう一度「認証コードを送る」を押してください(コードの有効期限は10分です)。<br>④それでも届かない場合は、このページの「お問い合わせ」からご連絡ください。</div></details>
 
-      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🖱️ ミニメニュー・自動選択</h3>
+      <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ミニメニュー・自動選択</h3>
       <details class="qa"><summary>ダブルクリックで反応する文字の種類は決まっていますか?</summary><div class="a">初期状態では半角英数字とハイフンだけが対象です。漢字・ひらがな・カタカナ、全角文字は対象外です。設定で「ひらがな・カタカナも含める」をONにすると対象が広がりますが、漢字は常に対象外のままです。</div></details>
       <details class="qa"><summary>型番に「/」や「+」が含まれていると、選択範囲はどうなりますか?</summary><div class="a">半角英数字とハイフン以外の記号(/、+、(、)、スペースなど)はすべて区切りとして扱われ、その手前で選択が止まります。例えば「ZV-KSB9/HD」をダブルクリックすると「ZV-KSB9」までしか選択されません。記号を含めて丸ごと選びたい時は、手動でドラッグして範囲選択してください。</div></details>
       <details class="qa"><summary>ダブルクリックとトリプルクリックは何が違いますか?</summary><div class="a">ダブルクリックは型番らしき部分(半角英数字・ハイフンの塊)だけを自動選択します。トリプルクリックは文字種を問わず、クリックした段落・タイトルのブロックを丸ごとコピーします。売れた商品のタイトル全体をコピーしたい時などはトリプルクリックが向いています。</div></details>
