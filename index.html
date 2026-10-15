@@ -228,6 +228,84 @@
     .heroMiniMenu.show { transform: translate(18px, 36px) scale(1); }
   }
 
+  /* ===== 【2026-10-15】スマホ向け(ユーザー要望: スマホで見にくい)。ヒーローの図・機能の折りたたみ・図の拡大・横長の図の差し替え ===== */
+  .mkHeroSp, .mkAlt { display: none; }
+  .mkMore > summary, .mkSub > summary { cursor: pointer; list-style: none; }
+  .mkMore > summary::-webkit-details-marker, .mkSub > summary::-webkit-details-marker { display: none; }
+
+  @media (max-width: 860px) {
+    /* ヒーロー: 小さな付箋と枠の絵をやめて、3つの手順を、たてに大きく並べる */
+    .fanstage { display: none; }
+    .mkHeroSp { display: grid; gap: 2px; padding: 24px 0 6px; font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .mkHeroSp .mk-step { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 16px 16px; box-shadow: var(--shadow); position: relative; }
+    .mkHeroSp .mk-badge { position: absolute; top: -12px; left: 14px; background: var(--accent); color: #fff; font-weight: 900; font-size: 14px; padding: 2px 12px; border-radius: 999px; }
+    .mkHeroSp .mk-ttl { font-size: 16px; font-weight: 800; margin: 6px 0 10px; }
+    .mkHeroSp .mk-sel { display: inline-block; font-family: "DotGothic16", monospace; font-size: 30px; letter-spacing: .02em; background: var(--select-bg); color: #fff; padding: 4px 12px; border-radius: 6px; cursor: pointer; border: 0; -webkit-appearance: none; appearance: none; transition: background-color .25s ease; }
+    .mkHeroSp .mk-copied { display: inline-block; margin-left: 8px; background: var(--ink); color: var(--paper); font-size: 13.5px; font-weight: 800; padding: 3px 10px; border-radius: 999px; vertical-align: 4px; transition: opacity .25s ease; }
+    .mkHeroSp .mk-hint { margin-top: 10px; font-size: 15px; font-weight: 700; color: var(--gold); }
+    .mkHeroSp .mk-arrow { text-align: center; font-size: 15px; font-weight: 800; color: var(--accent-deep); padding: 8px 0 6px; line-height: 1.5; }
+    .mkHeroSp .mk-arrow b { display: block; font-size: 24px; line-height: 1; color: var(--accent); }
+    .mkHeroSp .mk-menu .mk-it { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; font-size: 17px; font-weight: 700; }
+    .mkHeroSp .mk-menu .mk-it + .mk-it { margin-top: 4px; }
+    .mkHeroSp .mk-menu .mk-it.mk-on { background: var(--accent-soft); color: var(--accent-deep); }
+    .mkHeroSp .mk-menu .mk-ic { width: 26px; text-align: center; font-size: 19px; }
+    .mkHeroSp .mk-menu .mk-hmS { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin-top: 8px; }
+    .mkHeroSp .mk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mkHeroSp .mk-chip { background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
+    .mkHeroSp .mk-chip .mk-s { font-size: 16.5px; font-weight: 800; white-space: nowrap; }
+    .mkHeroSp .mk-chip .mk-n { font-family: "DotGothic16", monospace; color: var(--good); font-size: 15px; white-space: nowrap; }
+    .mkHeroSp.mkPlay .mk-sel { animation: mkSel .9s ease; }
+    .mkHeroSp.mkPlay .mk-copied { animation: mkPop .9s ease; }
+    .mkHeroSp.mkPlay .mk-it.mk-on { animation: mkPulse 1.2s ease; }
+    @keyframes mkSel { 0% { background: transparent; color: var(--ink); } 40% { background: transparent; color: var(--ink); } 100% { background: var(--select-bg); color: #fff; } }
+    @keyframes mkPop { 0%, 45% { opacity: 0; transform: scale(.8); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes mkPulse { 0%, 55% { background: transparent; } 100% { background: var(--accent-soft); } }
+  }
+
+  @media (max-width: 760px) {
+    /* 機能の紹介: 見出し+要点の1段落だけ見せて、残りは「くわしく見る」で開く */
+    .mkMore { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 10px; }
+    .mkMore > summary { display: inline-block; background: var(--accent); color: #fff; font-weight: 800; font-size: 15px; padding: 9px 18px; border-radius: 999px; }
+    .mkMore[open] > summary { background: var(--card-2); color: var(--ink); }
+    .mkMore[open] > summary::before { content: "▲ "; }
+    .mkMore:not([open]) > summary::before { content: "▼ "; }
+    .mkMoreBody { margin-top: 12px; }
+    .mkSub { margin-top: 12px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--paper); padding: 0; }
+    .mkSub > summary { padding: 13px 14px; font-weight: 800; font-size: 15.5px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .mkSub > summary h4 { margin: 0 !important; font-size: 15.5px !important; line-height: 1.5; }
+    .mkSub > summary::after { content: "＋"; color: var(--accent); font-weight: 900; flex: none; }
+    .mkSub[open] > summary::after { content: "－"; }
+    .mkSubBody { padding: 0 14px 14px; }
+    .mkLead { font-size: 15px; }
+
+    /* 図: 画面の幅に縮める(タップで拡大)。横長の6図は、スマホ用のたての版に差し替える */
+    figure.mkZoomFig svg { cursor: zoom-in; }
+    figure.mkZoomFig figcaption::after { content: "(図を、タップすると、拡大します)"; display: block; font-size: 12px; opacity: .8; margin-top: 2px; }
+    figure svg.mkWideSvg { display: none !important; }
+    .mkAlt { display: grid; gap: 8px; margin: 6px 0; }
+    .mkAlt .mkRow { display: flex; gap: 10px; align-items: flex-start; background: var(--card); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px; }
+    .mkAlt .mkN { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 900; display: grid; place-items: center; font-size: 15px; }
+    .mkAlt .mkRow b { display: block; font-size: 16px; line-height: 1.5; }
+    .mkAlt .mkRow small { display: block; font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-top: 2px; }
+    .mkAlt .mkDown { text-align: center; color: var(--accent); font-weight: 900; line-height: 1; font-size: 20px; }
+    .mkAlt .mkBox { border: 2px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--card); }
+    .mkAlt .mkBox.mkGood { border-color: var(--good); }
+    .mkAlt .mkBox.mkStop { border-color: var(--accent); }
+    .mkAlt .mkBox b { display: block; font-size: 16px; margin-bottom: 6px; }
+    .mkAlt .mkBox div { font-size: 15px; line-height: 1.8; }
+    .mkAlt .mkBand { border: 2px solid var(--good); border-radius: 12px; padding: 10px 12px; background: var(--paper); color: var(--good); font-weight: 800; font-size: 15px; line-height: 1.6; text-align: center; }
+  }
+
+  .mkLb { position: fixed; inset: 0; z-index: 1000; background: rgba(0, 0, 0, 0.62); display: flex; flex-direction: column; padding: 10px; }
+  .mkLb .mkLbClose { align-self: flex-end; background: var(--accent); color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; font-size: 15px; font-weight: 800; margin-bottom: 8px; font-family: inherit; }
+  .mkLb .mkLbBody { flex: 1; overflow: auto; background: var(--card); border-radius: 12px; padding: 12px; -webkit-overflow-scrolling: touch; }
+  .mkLb .mkLbBody svg { display: block; max-width: none; }
+  .mkLb .mkLbNote { color: #fff; font-size: 13px; margin: 0 0 6px; opacity: .9; }
+
+  @media (min-width: 761px) {
+    .mkMore > summary, .mkSub > summary { display: none; }
+  }
+
   /* ---------- section shell ---------- */
   section { padding: 72px 0; }
   .sectiontitle { text-align: left; margin-bottom: 40px; max-width: 60ch; }
@@ -257,7 +335,6 @@
   @media (max-width: 760px) {
     figure { overflow-x: visible !important; }
     figure svg { min-width: 0 !important; width: 100% !important; height: auto !important; }
-    figure figcaption::after { content: "(図は、指で拡大して見られます)"; display: block; font-size: 11.5px; opacity: .75; margin-top: 2px; }
   }
   .feat {
     background: var(--card); border: 1px solid var(--line); border-radius: 4px 4px 14px 14px;
@@ -464,6 +541,39 @@
       </div>
       <div class="heroCopiedToast" id="heroCopiedToast">✓ コピーしました</div>
     </div>
+    <div class="mkHeroSp" id="mkHeroSp" aria-label="使い方の流れ(スマホ用の見本)">
+      <div class="mk-step"><span class="mk-badge">① 選ぶ</span>
+        <div class="mk-ttl">ページ上の型番を、ダブルクリック</div>
+        <button type="button" class="mk-sel" id="mkSel" aria-label="タップすると、選んでコピーされる様子をもう一度見られます">ZQ-LM930</button><span class="mk-copied">✓ 自動でコピー</span>
+        <div class="mk-hint">💡 青い型番を、タップすると、動きが見られます</div>
+      </div>
+      <div class="mk-arrow">すぐに、メニューが出る<b>▼</b></div>
+      <div class="mk-step"><span class="mk-badge">② ミニメニュー</span>
+        <div class="mk-ttl">選び直さず、そのまま押せる</div>
+        <div class="mk-menu">
+          <div class="mk-it"><span class="mk-ic">🔍</span>Google検索</div>
+          <div class="mk-it mk-on"><span class="mk-ic">🟥</span>ラクサーチ</div>
+          <div class="mk-it"><span class="mk-ic">🔎</span>ラクサーチホーム</div>
+          <div class="mk-it"><span class="mk-ic">📁</span>フォルダー</div>
+          <div class="mk-it"><span class="mk-ic">🔍</span>フリマ確認・登録</div>
+          <div class="mk-hmS">👀 これは見本です(実際の画面イメージ)</div>
+        </div>
+      </div>
+      <div class="mk-arrow">「ラクサーチ」を押すと<b>▼</b></div>
+      <div class="mk-step"><span class="mk-badge">③ 開く</span>
+        <div class="mk-ttl">売れるサイトが、一気に開く(最大8つ)</div>
+        <div class="mk-grid">
+          <div class="mk-chip"><span class="mk-s">メルカリ</span><span class="mk-n">14件</span></div>
+          <div class="mk-chip"><span class="mk-s">ヤフオク!</span><span class="mk-n">32件</span></div>
+          <div class="mk-chip"><span class="mk-s">ラクマ</span><span class="mk-n">9件</span></div>
+          <div class="mk-chip"><span class="mk-s">Amazon</span><span class="mk-n">21件</span></div>
+          <div class="mk-chip"><span class="mk-s">楽天市場</span><span class="mk-n">6件</span></div>
+          <div class="mk-chip"><span class="mk-s">Yahoo!フリマ</span><span class="mk-n">8件</span></div>
+          <div class="mk-chip"><span class="mk-s">ヨドバシ.com</span><span class="mk-n">5件</span></div>
+          <div class="mk-chip"><span class="mk-s">駿河屋</span><span class="mk-n">3件</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -554,7 +664,7 @@
         <p><strong>文字を選んだ、その瞬間にメニューが出て、選び直さずそのまま検索できます。</strong>ページ上の型番やキーワードに対して、次の3つの選び方が使えます。</p>
 
         <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 900 230" role="img" aria-label="ダブルクリックで型番を自動選択すると同時にコピーされ、その場にミニメニューが出現し、ワンクリックでラクサーチ・説明書検索・Google検索などが同時に開く一連の流れ" style="width:100%; min-width:820px; height:auto; display:block; margin:0 auto;">
+          <svg class="mkWideSvg" viewBox="0 0 900 230" role="img" aria-label="ダブルクリックで型番を自動選択すると同時にコピーされ、その場にミニメニューが出現し、ワンクリックでラクサーチ・説明書検索・Google検索などが同時に開く一連の流れ" style="width:100%; min-width:820px; height:auto; display:block; margin:0 auto;">
             <defs>
               <marker id="mmArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
                 <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
@@ -617,6 +727,7 @@
             </g>
             <text x="768" y="192" text-anchor="middle" font-size="14.5" font-weight="700" fill="var(--ink)">選んだ機能で即・検索</text>
           </svg>
+<div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>型番を、ダブルクリック</b><small>ページ上の文字が選ばれて、同時に、自動でコピーされます(✓)</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">2</span><div><b>その場に、ミニメニューが出る</b><small>Google検索・ラクサーチ・ラクサーチホーム・フォルダー・フリマ確認・登録</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">3</span><div><b>選ぶだけで、すぐに検索</b><small>🟥 ラクサーチ・📖 説明書を検索・🔍 Google検索・🔎 ラクサーチホーム… 選んだ機能で、即、検索します</small></div></div></div>
           <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin-top:6px;">ダブルクリック→自動コピー→ミニメニュー出現→ワンクリックで検索、までが選び直しなしの一連の流れ</figcaption>
         </figure>
 
@@ -635,7 +746,7 @@
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">「記憶している内容」は、ミニメニュー・ツールバーメニューでこの5つのいずれかを使って検索するたびに、その都度最新の内容に更新されます。ページを移動しても、文字を選び直す手間がずっと省けます。</p>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">⚠️ この深堀検索が覚えているのは<strong>直前の1件だけ</strong>です。複数の型番を並行して調べ直すことはできません。複数の型番をそれぞれ個別に覚えておいて、後から選んで深堀りしたい場合は、下記の<strong>クリップボード履歴</strong>をお使いください(履歴・ピン留めの各項目が、それぞれ自分の内容を個別に覚えています)。</p>
         <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 940 190" role="img" aria-label="ページ上で型番をコピー・検索すると、新しく開いたタブでは何も選択していなくても、ツールバーメニューのラクサーチなどをクリックするだけで同じ型番のまま検索を続けられる、という一連の流れ" style="width:100%; min-width:760px; height:auto; display:block; margin:0 auto;">
+          <svg class="mkWideSvg" viewBox="0 0 940 190" role="img" aria-label="ページ上で型番をコピー・検索すると、新しく開いたタブでは何も選択していなくても、ツールバーメニューのラクサーチなどをクリックするだけで同じ型番のまま検索を続けられる、という一連の流れ" style="width:100%; min-width:760px; height:auto; display:block; margin:0 auto;">
             <defs>
               <marker id="dsArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
                 <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
@@ -684,6 +795,7 @@
             <line x1="768" y1="95" x2="812" y2="95" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#dsArrow)"></line>
             <text x="790" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">同じ型番</text>
           </svg>
+<div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>ページA(メルカリ等)で、型番を選んで検索</b><small>選んだ型番は、自動で記憶されます</small></div></div><div class="mkDown">▼ 新しいタブへ</div><div class="mkRow"><span class="mkN">2</span><div><b>ページB(検索結果)では、何も選択しなくてOK</b><small>選び直しは、不要です</small></div></div><div class="mkDown">▼ クリック</div><div class="mkRow"><span class="mkN">3</span><div><b>ツールバーメニューの「ラクサーチ」などを押す</b><small>同じ型番のまま、続けて検索できます(🟥ラクサーチ・🔎ラクサーチホーム・📖説明書を検索・🔍Google検索・📁フォルダー)</small></div></div></div>
           <figcaption style="font-size:13px; color:var(--ink-soft); text-align:center; margin-top:8px;">ページAで型番をコピー・検索→新しいタブでは何も選択していなくても→ツールバーメニューをクリックするだけで→同じ型番のまま検索が続けられる、という流れ</figcaption>
         </figure>
       </div>
@@ -929,7 +1041,7 @@
           <p style="margin:0 0 8px; font-weight:700;">📍 確認パネルとグラフは、どこにあるの?</p>
           <p style="margin:0;">ツールバーのラクサーチのアイコンを押して、ダッシュボードを開きます。<strong>「フリマウォッチ向け補助ツール」</strong>→<strong>「全データ」</strong>を開くと、一番上に<strong>確認パネル</strong>があります。確認パネルの右側の枠に、日・週・月・年の<strong>グラフ</strong>と、ハムスターの<strong>さーちゃん</strong>・九官鳥の<strong>らくちぃ</strong>がいます(内容は、お楽しみです)。</p>
           <figure style="margin:12px 0 0; overflow-x:auto;">
-            <svg viewBox="0 0 900 462" role="img" aria-label="ラクサーチダッシュボードの画面。フリマウォッチ向け補助ツールの中の全データを開くと、一番上に確認パネルがあり、その右の枠に、日・週・月・年のグラフと、累計、九官鳥のらくちぃ、ハムスターのさーちゃんがいる。ご契約の方は、リスト(全データ)が0件でも、さーちゃんのお世話と遊ぶは、できる" style="width:100%; min-width:640px; height:auto; display:block; margin:0 auto; font-family:inherit;">
+            <svg class="mkWideSvg" viewBox="0 0 900 462" role="img" aria-label="ラクサーチダッシュボードの画面。フリマウォッチ向け補助ツールの中の全データを開くと、一番上に確認パネルがあり、その右の枠に、日・週・月・年のグラフと、累計、九官鳥のらくちぃ、ハムスターのさーちゃんがいる。ご契約の方は、リスト(全データ)が0件でも、さーちゃんのお世話と遊ぶは、できる" style="width:100%; min-width:640px; height:auto; display:block; margin:0 auto; font-family:inherit;">
               <rect x="8" y="8" width="884" height="446" rx="14" fill="var(--card)" stroke="var(--line)" stroke-width="2"></rect>
               <text x="26" y="34" font-size="13" font-weight="700" fill="var(--ink-soft)">ラクサーチダッシュボード(ツールバーのアイコンから開く)</text>
               <rect x="26" y="46" width="470" height="30" rx="8" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="1.5"></rect>
@@ -967,6 +1079,7 @@
               <text x="736" y="174" font-size="9.5" fill="var(--ink-soft)">累計(総カウント数)</text>
               <text x="868" y="188" text-anchor="end" font-size="15" font-weight="700" fill="var(--good)">86 件</text>
               <svg x="528" y="214" width="44" height="44" viewBox="0 0 48 48"><path d="M8 30 L1 41 L14 38 Z" fill="#17171a"/><ellipse cx="21" cy="31" rx="15.5" ry="11.5" fill="#17171a"/><path d="M8 28 Q17 21 30 26" stroke="#44506b" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="18" cy="31" rx="7" ry="3.4" transform="rotate(-18 18 31)" fill="#0d0d10"/><ellipse cx="16.5" cy="30.5" rx="3.8" ry="1.7" transform="rotate(-18 16.5 30.5)" fill="#fff"/><circle cx="29.5" cy="17.5" r="12" fill="#17171a"/><path d="M24 11 Q16.5 14 18.5 22 Q21 27.5 27 25.5 Q22.5 21 25.5 14.5 Z" fill="#fbbf24"/><path d="M37 12.5 Q47 13 48 18.5 Q47 24 37 24.5 Q36 18.5 37 12.5 Z" fill="#f97316"/><path d="M37 12.5 Q46 13 47.5 17.5 L37 18 Z" fill="#fdba74"/><circle cx="31" cy="16" r="3.6" fill="#fff"/><circle cx="31.9" cy="16" r="1.8" fill="#111"/><circle cx="32.5" cy="15.3" r=".7" fill="#fff"/><path d="M18 41.5 L18 46.5 M25 41.5 L25 46.5 M14.5 46.5 L21 46.5 M21.5 46.5 L28.5 46.5" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+<div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>ダッシュボードを開く</b><small>ツールバーのラクサーチのアイコンを押して、「フリマウォッチ向け補助ツール」を開きます</small></div></div><div class="mkRow"><span class="mkN">2</span><div><b>「全データ」の一番上が、確認パネル</b><small>型番・6つのボタン・前へ/次へが、1か所にまとまっています</small></div></div><div class="mkRow"><span class="mkN">3</span><div><b>その右の枠に、グラフとキャラクター</b><small>日・週・月・年のグラフと累計、九官鳥のらくちぃ、ハムスターのさーちゃん(お世話のボタンは6つ。ひとことの内容は、お楽しみです)</small></div></div><div class="mkBand">🐹 さーちゃんは、ご契約の方なら、リスト(全データ)が0件でも、お世話も「遊ぶ」も、できます</div></div>
               <text x="550" y="268" text-anchor="middle" font-size="10" fill="var(--ink-soft)">らくちぃ</text>
               <rect x="580" y="222" width="296" height="34" rx="8" fill="var(--paper)" stroke="var(--good)" stroke-width="1.5"></rect>
               <text x="594" y="244" font-size="12" fill="var(--ink-soft)">(ひとこと。内容は、お楽しみです)</text>
@@ -987,7 +1100,7 @@
         <p style="margin:0;"><strong>フリマウォッチのリストは、あなたが時間をかけて集めた大切な資産です。</strong>ところが、通知だけではリストは活かしきれません。通知は新しく出た1件を知らせるだけで、これまでにためた何千件、何万件もの過去のリストは、見直さない限り眠ったままです。</p>
         <p style="margin-top:10px;">過去のリストを毎日少しずつ確認し、洗い出す。<strong>要らないものは削除、直すものは編集、買えるものは仕入れ、入札したいものは入札予約。</strong>これを続ければ、リストは常に「今日、仕入れられる状態」に整い、毎日仕入れができるようになります。ラクサーチの確認機能は、この洗い出し作業を続けるためのものです。</p>
         <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 1180 230" role="img" aria-label="通知だけでは新しく出た1件を知らせるだけで、ためた過去のリストは眠ったまま。毎日の洗い出しで過去のリストを少しずつ見直し、削除・編集・仕入れ・入札予約のどれかをすれば、毎日仕入れできる状態になる" style="width:100%; min-width:860px; height:auto; display:block; margin:0 auto;">
+          <svg class="mkWideSvg" viewBox="0 0 1180 230" role="img" aria-label="通知だけでは新しく出た1件を知らせるだけで、ためた過去のリストは眠ったまま。毎日の洗い出しで過去のリストを少しずつ見直し、削除・編集・仕入れ・入札予約のどれかをすれば、毎日仕入れできる状態になる" style="width:100%; min-width:860px; height:auto; display:block; margin:0 auto;">
             <defs>
               <marker id="assetArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
                 <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
@@ -1029,6 +1142,7 @@
             <text x="1049" y="118" text-anchor="middle" font-size="18" font-weight="700" fill="var(--good)">仕入れできる</text>
             <text x="1049" y="144" text-anchor="middle" font-size="18" font-weight="700" fill="var(--good)">状態に</text>
           </svg>
+<div class="mkAlt"><div class="mkBox"><b>通知だけ</b><div>新しく出た1件を、知らせるだけ。ためた過去のリストは、眠ったまま。</div></div><div class="mkDown">▼</div><div class="mkBox mkStop"><b>毎日の洗い出し</b><div>過去のリスト(数千〜数万件)を、毎日少しずつ見直す。確認パネルで、続けやすく。</div></div><div class="mkDown">▼</div><div class="mkBox"><b>見て、その場で判断</b><div>削除・編集・仕入れ・入札予約</div></div><div class="mkDown">▼</div><div class="mkBox mkGood"><b>毎日、仕入れできる状態に</b></div></div>
           <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin-top:8px;">通知は「新しい1件」、確認は「ためた過去のリスト」を生かす作業。毎日少しずつ洗い出せば、リストが常に仕入れられる状態に整う</figcaption>
         </figure>
 
@@ -1178,7 +1292,7 @@
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔁 フリマウォッチとラクサーチ、正しい役割分担</h4>
         <p style="margin:0;"><strong>フリマウォッチが本来の情報源(マスター)で、ラクサーチの「全データ」はあくまで重複チェック用のローカルな写しです。</strong>そのため、<strong>①の「読み込み」から始めるサイクル</strong>で使うことをおすすめしています(初めて使う時も、2回目以降も、同じ①からで大丈夫です)。</p>
         <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 1180 300" role="img" aria-label="①フリマウォッチの一覧を全データへ読み込む→②型番を確認・仮登録→③たまったらCSV書き出しでフリマウォッチへアップロード→④フリマウォッチ側で定期整理→⑤全データを削除、という循環を①に戻ってまた繰り返す図" style="width:100%; min-width:960px; height:auto; display:block; margin:0 auto;">
+          <svg class="mkWideSvg" viewBox="0 0 1180 300" role="img" aria-label="①フリマウォッチの一覧を全データへ読み込む→②型番を確認・仮登録→③たまったらCSV書き出しでフリマウォッチへアップロード→④フリマウォッチ側で定期整理→⑤全データを削除、という循環を①に戻ってまた繰り返す図" style="width:100%; min-width:960px; height:auto; display:block; margin:0 auto;">
             <defs>
               <marker id="cycleArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
                 <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
@@ -1232,6 +1346,7 @@
             <text x="1055" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="var(--accent)">※(ラクサーチ内だけ)</text>
             <text x="1055" y="240" text-anchor="middle" font-size="12" fill="var(--ink-soft)">→フリマウォッチは無事</text>
           </svg>
+<div class="mkAlt"><div class="mkRow"><span class="mkN">①</span><div><b>フリマウォッチの一覧をエクスポート</b><small>→「全データ」へ読み込む(ラクサーチ内だけの写しです)</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">②</span><div><b>型番を確認して「ため込みリスト」に仮登録</b><small>(最大100件)</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">③</span><div><b>ため込みリストを書き出し、フリマウォッチへ手動アップロード</b><small>書き出し欄を開いて書き出します</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">④</span><div><b>フリマウォッチ側で、定期的に整理</b><small>(重複アラートを削除。フリマウォッチ内だけの作業です)</small></div></div><div class="mkDown">▼</div><div class="mkRow"><span class="mkN">⑤</span><div><b>全データを、いったん全部削除</b><small>(ラクサーチ内だけ。フリマウォッチは無事です)</small></div></div><div class="mkBand">↩ ①に戻って、繰り返します</div></div>
           <figcaption style="font-size:13.5px; color:var(--ink-soft); text-align:center; margin-top:8px;">①フリマウォッチの一覧を「全データ」へ読み込む→②型番を確認・仮登録→③たまったら書き出してフリマウォッチへ手動アップロード→④フリマウォッチ側で定期整理→⑤「全データ」を削除し、また①へ、という循環(初めて使う時もこの①からで大丈夫です)</figcaption>
         </figure>
         <p style="margin-top:8px; font-size:13.5px; color:var(--ink-soft);">⑤で全部削除してから①に戻るのは、フリマウォッチ側ですでに削除した項目が古い情報として残ったままだと、実際は未登録なのに「登録済みです」と誤って表示してしまうためです。この「全部削除」はラクサーチ内のローカルな写しを消すだけで、フリマウォッチ側のデータには一切影響しません。</p>
@@ -1503,7 +1618,7 @@
         <h4 style="font-size:14.5px; margin:26px 0 8px; font-weight:700;">🔍 作成・削除できる・できないの境界線</h4>
         <p style="margin:0;"><strong>かんたんに言うと:</strong><strong>本確定</strong>(確定申告に出す数字を固定する操作)をする<strong>前</strong>の記録は自由に直したり消したりできます。本確定した<strong>後</strong>の記録は、その数字を守るため触れません(消したい時は<strong>除籍</strong>を使います)。</p>
         <figure style="margin:16px 0 4px; overflow-x:auto;">
-          <svg viewBox="0 0 900 300" role="img" aria-label="本確定する前の記録は新規作成・削除・変更が自由。本確定した後の記録はどれもできず、除籍だけができる" style="width:100%; min-width:640px; height:auto; display:block; margin:0 auto;">
+          <svg class="mkWideSvg" viewBox="0 0 900 300" role="img" aria-label="本確定する前の記録は新規作成・削除・変更が自由。本確定した後の記録はどれもできず、除籍だけができる" style="width:100%; min-width:640px; height:auto; display:block; margin:0 auto;">
             <rect x="10" y="10" width="430" height="280" rx="16" fill="var(--card)" stroke="var(--good)" stroke-width="2"></rect>
             <text x="30" y="42" font-size="17.5" font-weight="700" fill="var(--good)">🔓 本確定する前</text>
             <line x1="22" y1="56" x2="418" y2="56" stroke="var(--line)"></line>
@@ -1523,6 +1638,7 @@
             <text x="495" y="223" font-size="14" font-weight="700" fill="var(--ink)">消したい時は、削除の代わりに</text>
             <text x="495" y="243" font-size="14" font-weight="700" fill="var(--ink)">🗑「除籍」で棚卸から外せます</text>
           </svg>
+<div class="mkAlt"><div class="mkBox mkGood"><b>🔓 本確定する前</b><div>✅ 新規作成<br>✅ 削除<br>✅ 型番・金額・数量・登録日の変更<br><small style="color:var(--ink-soft)">今まで通り、自由に直したり、消したりできます。</small></div></div><div class="mkBox mkStop"><b>🔒 本確定した後</b><div>🚫 新規作成<br>🚫 削除<br>🚫 型番・金額・数量・登録日の変更<br><small style="color:var(--ink-soft)">消したい時は、削除の代わりに、🗑「除籍」で棚卸から外せます。</small></div></div></div>
           <figcaption style="font-size:12px; color:var(--ink-soft); text-align:center; margin-top:6px;">本確定した後は、削除の代わりに除籍が使えます</figcaption>
         </figure>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">🔒側の記録でも、「売れた時の情報(発送日・価格など)」だけは特別に書き足せます(発送日を確定申告済みの年にすることはできません)。まだ売れていない古い在庫が、後で売れた時のためです。</p>
@@ -2514,4 +2630,150 @@
 })();
 </script>
 
+<script>
+/* 【2026-10-15】スマホ向け(幅760px以下): 機能の紹介を折りたたむ・図をタップで拡大・ヒーローの手順をタップで再生。PCの表示は変えない。 */
+(function () {
+  var mq = window.matchMedia("(max-width: 760px)");
+  var built = false;
+
+  function groupByH4(body) {
+    var h4s = body.querySelectorAll(":scope > h4");
+    if (h4s.length < 2) return;
+    var nodes = Array.prototype.slice.call(body.childNodes);
+    var cur = null;
+    nodes.forEach(function (n) {
+      if (n.nodeType === 1 && n.tagName === "H4") {
+        cur = document.createElement("details");
+        cur.className = "mkSub";
+        var sm = document.createElement("summary");
+        body.insertBefore(cur, n);
+        sm.appendChild(n);
+        cur.appendChild(sm);
+        var inner = document.createElement("div");
+        inner.className = "mkSubBody";
+        cur.appendChild(inner);
+        cur._inner = inner;
+      } else if (cur) {
+        cur._inner.appendChild(n);
+      }
+    });
+  }
+
+  function buildAccordion() {
+    if (built) return;
+    built = true;
+    Array.prototype.forEach.call(document.querySelectorAll("#features .featgrid > .feat"), function (feat) {
+      var h3 = null;
+      for (var i = 0; i < feat.children.length; i++) { if (feat.children[i].tagName === "H3") { h3 = feat.children[i]; break; } }
+      if (!h3) return;
+      var rest = [];
+      var seen = false;
+      for (var j = 0; j < feat.children.length; j++) {
+        if (seen) rest.push(feat.children[j]);
+        if (feat.children[j] === h3) seen = true;
+      }
+      if (!rest.length) return;
+      var lead = null;
+      if (rest[0].tagName === "P") {
+        lead = rest.shift();
+      } else {
+        var firstP = rest[0].querySelector && rest[0].querySelector("p");
+        if (firstP) {
+          lead = firstP;
+          feat.insertBefore(lead, rest[0]);
+        }
+      }
+      if (lead) lead.classList.add("mkLead");
+      rest = rest.filter(function (n) { return n.parentNode === feat; });
+      if (!rest.length) return;
+      var det = document.createElement("details");
+      det.className = "mkMore";
+      var sum = document.createElement("summary");
+      sum.textContent = "くわしく見る";
+      det.appendChild(sum);
+      var body = document.createElement("div");
+      body.className = "mkMoreBody";
+      rest.forEach(function (n) { body.appendChild(n); });
+      det.appendChild(body);
+      feat.appendChild(det);
+      groupByH4(body);
+    });
+  }
+
+  function openAll(v) {
+    Array.prototype.forEach.call(document.querySelectorAll(".mkMore, .mkSub"), function (d) { d.open = v; });
+  }
+
+  // 図をタップで拡大
+  function zoomInit() {
+    Array.prototype.forEach.call(document.querySelectorAll("figure svg"), function (svg) {
+      if (svg.classList.contains("mkWideSvg")) return;
+      var vb = (svg.getAttribute("viewBox") || "").split(/\s+/).map(Number);
+      if (!(vb[2] >= 200)) return;
+      var fig = svg.closest("figure");
+      if (fig) fig.classList.add("mkZoomFig");
+      svg.addEventListener("click", function () {
+        if (!mq.matches) return;
+        var ov = document.createElement("div");
+        ov.className = "mkLb";
+        ov.setAttribute("role", "dialog");
+        ov.setAttribute("aria-label", "図の拡大");
+        var close = document.createElement("button");
+        close.type = "button";
+        close.className = "mkLbClose";
+        close.textContent = "✕ 閉じる";
+        var note = document.createElement("p");
+        note.className = "mkLbNote";
+        note.textContent = "指で、左右・上下に、動かせます(ピンチで、さらに拡大もできます)";
+        var body = document.createElement("div");
+        body.className = "mkLbBody";
+        var c = svg.cloneNode(true);
+        c.removeAttribute("class");
+        c.removeAttribute("style");
+        var w = Math.round(vb[2] * 1.2);
+        c.style.cssText = "width:" + w + "px;min-width:" + w + "px;height:auto;display:block;";
+        body.appendChild(c);
+        ov.appendChild(note);
+        ov.appendChild(close);
+        ov.appendChild(body);
+        document.body.appendChild(ov);
+        document.body.style.overflow = "hidden";
+        function shut() { ov.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", onKey); }
+        function onKey(e) { if (e.key === "Escape") shut(); }
+        close.addEventListener("click", shut);
+        ov.addEventListener("click", function (e) { if (e.target === ov) shut(); });
+        document.addEventListener("keydown", onKey);
+      });
+    });
+  }
+
+  // ヒーロー: 青い型番をタップすると、選ぶ→コピー→メニューの流れを、もう一度見せる
+  function heroInit() {
+    var box = document.getElementById("mkHeroSp");
+    var sel = document.getElementById("mkSel");
+    if (!box || !sel) return;
+    sel.addEventListener("click", function () {
+      box.classList.remove("mkPlay");
+      void box.offsetWidth;
+      box.classList.add("mkPlay");
+      setTimeout(function () { box.classList.remove("mkPlay"); }, 1500);
+    });
+  }
+
+  function onChange() {
+    if (mq.matches) { buildAccordion(); }
+    else if (built) { openAll(true); }
+  }
+
+  function start() {
+    zoomInit();
+    heroInit();
+    onChange();
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
+})();
+</script>
 </body></html>
