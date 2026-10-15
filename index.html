@@ -114,7 +114,17 @@
     transition: transform 0.15s ease, background 0.15s ease;
   }
   .navcta:hover { background: var(--accent-deep); transform: translateY(-1px); }
-  @media (max-width: 640px) { .navlinks a:not(.navcta) { display: none; } }
+  /* 【2026-10-15】スマホ: 以前は、メニュー(機能・使い方・料金・よくある質問・お問い合わせ)が隠れていた。2段目に、並べて出す。 */
+  @media (max-width: 640px) {
+    .nav .wrap { flex-wrap: wrap; padding-top: 8px; padding-bottom: 6px; row-gap: 2px; }
+    .navlinks { display: contents; }
+    .navcta { order: 0; }
+    .nav .wrap::after { content: ""; order: 1; flex-basis: 100%; height: 0; } /* 1段目(ロゴ・今すぐ始める)と2段目(メニュー)の改行 */
+    .navlinks a:not(.navcta) { order: 2; flex: 0 0 auto; padding: 9px 2px; font-size: 14.5px; font-weight: 700; color: var(--ink); }
+    .faqSearch { top: 100px; }
+    section[id], div[id] { scroll-margin-top: 104px; }
+  }
+  @media (max-width: 360px) { .navlinks a:not(.navcta) { font-size: 13.5px; } }
 
   /* ---------- hero ---------- */
   .hero { padding: 64px 0 40px; overflow: visible; }
@@ -288,8 +298,11 @@
     .mkHeroSp .mk-menu .mk-hmS { font-size: 13.5px; color: var(--ink-soft); text-align: center; margin-top: 8px; }
     .mkHeroSp .mk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .mkHeroSp .mk-chip { background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
-    .mkHeroSp .mk-chip .mk-s { font-size: 16.5px; font-weight: 800; white-space: nowrap; }
+    .mkHeroSp .mk-chip .mk-s { font-size: 16.5px; font-weight: 800; overflow-wrap: anywhere; }
     .mkHeroSp .mk-chip .mk-n { font-family: "DotGothic16", monospace; color: var(--good); font-size: 15px; white-space: nowrap; }
+    .mkHeroSp .mk-chip { flex-wrap: wrap; min-width: 0; }
+    .hero .wrap > * { min-width: 0; }
+    .mkHeroSp { min-width: 0; }
     .mkHeroSp.mkPlay .mk-sel { animation: mkSel .9s ease; }
     .mkHeroSp.mkPlay .mk-copied { animation: mkPop .9s ease; }
     .mkHeroSp.mkPlay .mk-it.mk-on { animation: mkPulse 1.2s ease; }
