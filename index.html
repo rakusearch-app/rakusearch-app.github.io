@@ -838,7 +838,55 @@
           <p style="margin:0;"><strong>🖐️ 手動ドラッグ選択</strong> — 好きな範囲を自分で選んでも、同じようにメニューが出せます。</p>
         </div>
         <p style="margin-top:14px;">どの選び方でも、選んだ・コピーした直後にミニメニューが出現。「ラクサーチ」「説明書を検索」「Google検索」「ラクサーチホーム」「フォルダー」「コピー」「切り取り」「貼り付け」「📌ピン留め」「ラクサーチダッシュボード」など、使いたい機能をワンクリックで選ぶだけで、すぐに検索や入力補助が実行されます。</p>
-        <p style="margin-top:10px;">ダブルクリックで自動選択するか、手動のドラッグ選択だけに絞るかは設定で選べます。入力フォームの入力中など<strong>邪魔に感じる時は、右クリックの「🔕一時停止/再開」からすぐにオフ</strong>にできます(ミニメニューだけ・自動コピーだけ・両方、から選んで一時停止可能。ツールバーメニューの「⚙️ミニメニュー簡易設定」やショートカットキーからも同じように切替できます)。</p>
+        <p style="margin-top:10px;">ダブルクリックで自動選択するか、手動のドラッグ選択だけに絞るかは設定で選べます。入力フォームの入力中など<strong>邪魔に感じる時は、右クリックの「🔕一時停止/再開」からすぐにオフ</strong>にできます(ミニメニューだけ・自動コピーだけ・両方、から選んで一時停止可能。ツールバーメニューの「⚙️ミニメニュー簡易設定」やショートカットキーからも同じように切替できます)。<strong>2つを1回でまとめて止めたい時</strong>は、ツールバーのアイコンを右クリックして「🔕 まとめて一時停止/再開」を選ぶのが、いちばん手軽です(簡易設定の一番上のチェックや、ショートカットキーでも同じです)。止まっている間は、アイコンに「停止」(片方だけ止まっている時は「一部」)と表示されるので、止めたまま忘れる心配がありません。</p>
+        <figure style="margin:16px 0 4px; overflow-x:auto;">
+          <svg class="mkWideSvg" viewBox="0 0 940 200" role="img" aria-label="ツールバーのアイコンを右クリックして「まとめて一時停止/再開」を選ぶと、ミニメニューと自動コピーが同時に止まり、アイコンに「停止」と表示される。片方だけ止まっている時は「一部」と表示される。">
+            <defs>
+              <marker id="pauseArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+                <path d="M0,0 L8,4 L0,8 z" fill="var(--ink-soft)"></path>
+              </marker>
+            </defs>
+            <rect x="10" y="12" width="300" height="176" rx="12" fill="var(--card)" stroke="var(--line)"></rect>
+            <text x="30" y="40" font-size="13" fill="var(--ink-soft)">ツールバーのアイコンを右クリック</text>
+            <rect x="24" y="54" width="272" height="30" rx="6" fill="var(--paper)" stroke="var(--line)"></rect>
+            <text x="38" y="74" font-size="14" fill="var(--ink)">✅ 確認パネル(簡易)を開く</text>
+            <rect x="24" y="92" width="272" height="34" rx="6" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.5"></rect>
+            <text x="38" y="114" font-size="15" font-weight="700" fill="var(--accent)">🔕 まとめて一時停止/再開</text>
+            <text x="38" y="150" font-size="13" fill="var(--ink-soft)">オプション</text>
+            <text x="38" y="170" font-size="13" fill="var(--ink-soft)">Chrome から削除</text>
+            <line x1="318" y1="109" x2="372" y2="109" stroke="var(--ink-soft)" stroke-width="2" marker-end="url(#pauseArrow)"></line>
+            <text x="345" y="98" text-anchor="middle" font-size="12" fill="var(--ink-soft)">押す</text>
+            <rect x="384" y="12" width="546" height="176" rx="12" fill="var(--card)" stroke="var(--line)" stroke-dasharray="6 5"></rect>
+            <text x="657" y="40" text-anchor="middle" font-size="13" fill="var(--ink-soft)">止まっている間の、アイコンの印</text>
+            <g>
+              <rect x="430" y="62" width="56" height="56" rx="12" fill="#D2361F"></rect>
+              <circle cx="456" cy="88" r="11" fill="none" stroke="#fff" stroke-width="4"></circle>
+              <line x1="464" y1="97" x2="475" y2="108" stroke="#fff" stroke-width="5" stroke-linecap="round"></line>
+              <text x="458" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">通常</text>
+              <text x="458" y="168" text-anchor="middle" font-size="12" fill="var(--ink-soft)">(印なし)</text>
+            </g>
+            <g>
+              <rect x="590" y="62" width="56" height="56" rx="12" fill="#D2361F"></rect>
+              <circle cx="616" cy="88" r="11" fill="none" stroke="#fff" stroke-width="4"></circle>
+              <line x1="624" y1="97" x2="635" y2="108" stroke="#fff" stroke-width="5" stroke-linecap="round"></line>
+              <rect x="618" y="104" width="38" height="20" rx="4" fill="#5f5e5a"></rect>
+              <text x="637" y="119" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">停止</text>
+              <text x="618" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">まとめて停止中</text>
+              <text x="618" y="168" text-anchor="middle" font-size="12" fill="var(--ink-soft)">(2つとも止まっている)</text>
+            </g>
+            <g>
+              <rect x="770" y="62" width="56" height="56" rx="12" fill="#D2361F"></rect>
+              <circle cx="796" cy="88" r="11" fill="none" stroke="#fff" stroke-width="4"></circle>
+              <line x1="804" y1="97" x2="815" y2="108" stroke="#fff" stroke-width="5" stroke-linecap="round"></line>
+              <rect x="798" y="104" width="38" height="20" rx="4" fill="#854f0b"></rect>
+              <text x="817" y="119" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">一部</text>
+              <text x="798" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">片方だけ停止中</text>
+              <text x="798" y="168" text-anchor="middle" font-size="12" fill="var(--ink-soft)">(どちらか1つが止まっている)</text>
+            </g>
+          </svg>
+<div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>ツールバーのアイコンを右クリックして、「🔕 まとめて一時停止/再開」を選ぶ</b><small>ミニメニューと④⑤の自動コピーが、同時に止まります</small></div></div><div class="mkDown">▼ 止まっている間は</div><div class="mkRow"><span class="mkN">2</span><div><b>アイコンに「停止」と表示されます</b><small>片方だけ止まっている時は「一部」。もう一度選ぶと、元に戻ります</small></div></div></div>
+          <figcaption style="font-size:13px; color:var(--ink-soft); text-align:center; margin-top:8px;">アイコンを右クリック→「まとめて一時停止/再開」→止まっている間は、アイコンに「停止」(片方だけなら「一部」)と表示されます。</figcaption>
+        </figure>
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">🔁</div>
@@ -1975,7 +2023,7 @@
         <div class="ico">📖</div>
         <h3>説明書を検索</h3>
         <p>型番などを選んで実行すると、「選んだ文字+説明書」でGoogle検索を開きます。出品前に取扱説明書・付属品・スペック・発売時期をサッと確認したい時に。右クリック・ツールバー・ミニメニュー、どこからでも呼び出せます。深堀検索にも対応しているので、新しいタブでも型番を選び直さずに続けて調べられます。</p>
-        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">設定画面でチェックを入れた言葉があれば、説明書の検索と同時に「選んだ文字+○○」のタブも開けます。<strong>商標・知的財産・リコール・医療機器・不具合・故障</strong>の6つを既定で用意しており(出品前の確認用)、チェックの追加・削除・並び替えも自由です。ご自身でよく確認したい言葉(例:PSEマーク)を追加することもできます。既定はすべてOFFで、何もチェックしなければ今まで通り説明書の1タブだけが開きます。</p>
+        <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">設定画面でチェックを入れた言葉があれば、説明書の検索と同時に「選んだ文字+○○」のタブも開けます。<strong>商標・知的財産・リコール・医療機器・不具合・故障・リモコン・バッテリー・付属品・危険物</strong>の10語を既定で用意しており(出品前の確認用。リモコン・付属品は付属品の確認、バッテリー・危険物は取り扱いや発送の確認に)、チェックの追加・削除・並び替えも自由です。ご自身でよく確認したい言葉(例:PSEマーク)を追加することもできます。既定はすべてOFFで、何もチェックしなければ今まで通り説明書の1タブだけが開きます。いずれもGoogle検索を開くだけで、発送できるかどうかなどを判定するものではありません(各配送会社・各サイトの最新のルールをご確認ください)。</p>
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">🧩</div>
@@ -1989,7 +2037,7 @@
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">⌨️</div>
         <h3>ショートカットキー</h3>
-        <p><code>chrome://extensions/shortcuts</code>から、<strong>19個の機能すべてにキーボードショートカットを割り当てられます</strong>。マウスに手を伸ばさず、キー操作だけで検索から入力補助まで完結できます。</p>
+        <p><code>chrome://extensions/shortcuts</code>から、<strong>20個の機能すべてにキーボードショートカットを割り当てられます</strong>。マウスに手を伸ばさず、キー操作だけで検索から入力補助まで完結できます。</p>
         <div class="chiprow" style="margin-top:10px;">
           <span class="chip">🟥 ラクサーチ</span><span class="chip">📖 説明書を検索</span><span class="chip">🔍 Google検索</span><span class="chip">🔎 ラクサーチホーム</span><span class="chip">📋 コピー</span><span class="chip">✂️ 切り取り</span><span class="chip">✂️ 入力欄を丸ごと切り取り</span><span class="chip">📥 貼り付け</span><span class="chip">📌 ピン留め</span><span class="chip">🔕 ミニメニュー一時停止/再開</span><span class="chip"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ④自動コピーON/OFF</span><span class="chip"><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ⑤自動コピーON/OFF</span><span class="chip">🔕 ④⑤自動コピー一時停止/再開</span><span class="chip">✕ 開いたタブを閉じる</span><span class="chip">📋 ラクサーチダッシュボード</span><span class="chip">⚙️ 設定・使い方</span><span class="chip">🔍 フリマウォッチ確認・登録</span><span class="chip">✅ 確認パネル(簡易)を開く</span><span class="chip">🔍 フリマウォッチ自動通知ON/OFF</span>
         </div>
@@ -2106,7 +2154,7 @@
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">クリップボード履歴</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">✓(記録する: ON、残す件数: 60件)</td></tr>
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">「現在のコピー」表示</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">✓(ON、自動で消えるまで5秒)</td></tr>
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">操作結果の通知を表示する</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">✓(ON)</td></tr>
-            <tr><td style="border:1px solid var(--line); padding:6px 10px;">説明書検索の追加キーワード(商標・知的財産・リコール・医療機器・不具合・故障)</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">初期はすべてOFF(自分で追加・並び替え可能)</td></tr>
+            <tr><td style="border:1px solid var(--line); padding:6px 10px;">説明書検索の追加キーワード(商標・知的財産・リコール・医療機器・不具合・故障・リモコン・バッテリー・付属品・危険物)</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">初期はすべてOFF(自分で追加・並び替え可能)</td></tr>
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">フリマ確認・登録パネル</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">両方表示する。最初にカーソルを合わせる欄: 上限(フリマウォッチ)</td></tr>
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">右クリックメニューの表示項目</td><td style="border:1px solid var(--line); padding:6px 10px;">🟥🟥ラクサーチ🟥🟥・⚙️設定・使い方のみ表示</td><td style="border:1px solid var(--line); padding:6px 10px;">初期は「⚙️設定・使い方」以外OFF(使いたい項目だけ自分でON)</td></tr>
             <tr><td style="border:1px solid var(--line); padding:6px 10px;">データの引っ越し</td><td style="border:1px solid var(--line); padding:6px 10px;">✗</td><td style="border:1px solid var(--line); padding:6px 10px;">書き出し・取り込みとも可</td></tr>
@@ -2129,7 +2177,9 @@
       <details class="qa" data-cat="mini"><summary>ダブルクリックで反応する文字の種類は決まっていますか?</summary><div class="a">初期状態では半角英数字とハイフンだけが対象です。漢字・ひらがな・カタカナ、全角文字は対象外です。設定で「ひらがな・カタカナも含める」をONにすると対象が広がりますが、漢字は常に対象外のままです。</div></details>
       <details class="qa" data-cat="mini"><summary>型番に「/」や「+」が含まれていると、選択範囲はどうなりますか?</summary><div class="a">半角英数字とハイフン以外の記号(/、+、(、)、スペースなど)はすべて区切りとして扱われ、その手前で選択が止まります。例えば「ZV-KSB9/HD」をダブルクリックすると「ZV-KSB9」までしか選択されません。記号を含めて丸ごと選びたい時は、手動でドラッグして範囲選択してください。</div></details>
       <details class="qa" data-cat="mini"><summary>ダブルクリックとトリプルクリックは何が違いますか?</summary><div class="a">ダブルクリックは型番らしき部分(半角英数字・ハイフンの塊)だけを自動選択します。トリプルクリックは文字種を問わず、クリックした段落・タイトルのブロックを丸ごとコピーします。売れた商品のタイトル全体をコピーしたい時などはトリプルクリックが向いています。</div></details>
-      <details class="qa" data-cat="mini"><summary>ミニメニューを一時的に出したくない時は?</summary><div class="a">右クリックの「🔕一時停止/再開」や、ツールバー・ミニメニューの「⚙️ミニメニュー簡易設定」から、いつでもすぐにON/OFFを切り替えられます。「ミニメニューの自動表示」と「自動コピー」は別々に一時停止できます。</div></details>
+      <details class="qa" data-cat="mini"><summary>ミニメニューを一時的に出したくない時は?</summary><div class="a">右クリックの「🔕一時停止/再開」や、ツールバー・ミニメニューの「⚙️ミニメニュー簡易設定」から、いつでもすぐにON/OFFを切り替えられます。「ミニメニューの自動表示」と「自動コピー」は別々に一時停止できます。2つを1回でまとめて止めることもできます(下の「まとめて一時停止」の質問をご覧ください)。</div></details>
+      <details class="qa" data-cat="mini"><summary>ミニメニューと自動コピーを、1回でまとめて止められますか?</summary><div class="a">はい。ツールバーのアイコンを右クリックして「🔕 まとめて一時停止/再開」を選ぶと、ミニメニューの自動表示と、④⑤の自動コピーが、同時に止まります。もう一度選ぶと、両方が元に戻ります。「⚙️ミニメニュー簡易設定」の一番上のチェックや、ショートカットキー(chrome://extensions/shortcuts で割り当て)でも同じ操作ができます。止めても、各機能の設定(ON/OFF)は変わらず、再開すれば元のとおりに動きます。片方だけ止まっている時に押すと、両方が止まります。両方が止まっている時だけ、両方が再開します。ご契約の方向けの機能です。</div></details>
+      <details class="qa" data-cat="mini"><summary>ツールバーのアイコンに「停止」「一部」と出ているのは、なぜですか?</summary><div class="a">一時停止の状態を知らせる印です。ミニメニューと自動コピーの両方が止まっている時は「停止」、どちらか片方だけ止まっている時は「一部」と出ます。再開すると、印は消えます(ラクサーチからのお知らせが未読の時は、未読の数が出ます。止まっている間は、「停止」「一部」を優先して表示します)。</div></details>
       <details class="qa" data-cat="mini"><summary>深堀検索は複数の型番を同時に覚えておけますか?</summary><div class="a">いいえ、深堀検索が記憶するのは直前の1件だけです。複数の型番をそれぞれ個別に覚えておきたい場合は、クリップボード履歴をお使いください(履歴・ピン留めの各項目が、それぞれ自分の内容を個別に記憶します)。</div></details>
       <details class="qa" data-cat="mini"><summary>Googleスプレッドシートでは使えますか?</summary><div class="a">スプレッドシートの表(セルが並ぶ画面)はCanvas(絵)として描画されているため、ダブルクリックでの型番自動選択は動作しません。セルをダブルクリックして編集モード(カーソルが点滅する状態)にすれば、その中の文字は通常の入力欄と同じ扱いになり、動作する場合があります。なお右クリックメニューの項目が二重に表示されることがありますが、これはGoogle側の仕様によるもので、どちらを押しても同じ動作です。</div></details>
       <details class="qa" data-cat="mini"><summary>画像をコピーした直後にダブルクリックすると何が起きますか?</summary><div class="a">クリップボードの中身は「最後に行った操作」で必ず上書きされる仕組み(Windows・ブラウザ共通)のため、画像がテキストで上書きされて消えてしまいます。画像を貼り付けたい作業の直前は、自動コピーを一時的にOFFにするか、ダブルクリックを避けてください。</div></details>
@@ -2148,7 +2198,8 @@
       <details class="qa" data-cat="tools"><summary>定型文はパソコンを変えても引き継がれますか?</summary><div class="a">はい。定型文・検索サイトの設定はGoogleアカウントに紐づいて自動的に同期されます。</div></details>
       <details class="qa" data-cat="tools"><summary>電卓はどこで使えますか?</summary><div class="a">①フリマウォッチ確認・登録パネルの中(計算結果を上限・下限欄へそのまま反映可能)、②ラクサーチダッシュボードの中、の2箇所で使えます。</div></details>
       <details class="qa" data-cat="tools"><summary>商標・知的財産・リコール・医療機器の検索は、専用のデータベースではなくGoogle検索なのはなぜですか?</summary><div class="a">商標・特許情報(J-PlatPat等)やリコール情報(消費者庁のリコール情報サイト等)、医療機器の情報の公式データベースは、キーワードをURLに乗せて直接検索結果を開く、という単純な方法に対応していないため(ログインやフォーム入力を介した検索が必要な作りになっています)、他の検索項目のように直接開くことができません。そのため、あえて「選んだ文字+商標」のようにGoogle検索する、というシンプルな形にしています。公式データベースそのものではない点にご注意のうえ、気になる場合は検索結果から公式サイトのページをご確認ください。</div></details>
-      <details class="qa" data-cat="tools"><summary>説明書検索の追加キーワードは、自分で増やしたり並び替えたりできますか?</summary><div class="a">はい。設定画面の「📖 説明書を検索の設定」で、商標・知的財産・リコール・医療機器・不具合・故障の6つ(既定はすべてOFF)を自由にチェック・削除でき、ご自身でよく確認したい言葉(例:PSEマーク)を追加することもできます。並び順もドラッグで自由に変更でき、検索サイト一覧と同じく同時にチェックできるのは最大8個までです。</div></details>
+      <details class="qa" data-cat="tools"><summary>説明書検索の追加キーワードは、自分で増やしたり並び替えたりできますか?</summary><div class="a">はい。設定画面の「📖 説明書を検索の設定」で、商標・知的財産・リコール・医療機器・不具合・故障・リモコン・バッテリー・付属品・危険物の10語(既定はすべてOFF)を自由にチェック・削除でき、ご自身でよく確認したい言葉(例:PSEマーク)を追加することもできます。並び順もドラッグで自由に変更でき、検索サイト一覧と同じく同時にチェックできるのは最大8個までです。</div></details>
+      <details class="qa" data-cat="tools"><summary>説明書を検索の「リモコン」「バッテリー」「付属品」「危険物」は、何に使えますか?</summary><div class="a">出品前の確認用に、「選んだ文字+リモコン」「+バッテリー」「+付属品」「+危険物」のGoogle検索を、説明書の検索と同時に開けます。付属品の有無や、電池を含む商品の取り扱い・発送できるかを調べる入口としてお使いください(最初はすべてOFFで、設定画面でチェックを入れた言葉だけが開きます)。Google検索を開くだけで、発送の可否などを判定するものではありません。各配送会社・各サイトの最新のルールをご確認ください。すでにお使いの方にも、設定の一覧の末尾に、OFFの状態で1回だけ追加されます(あとで削除すると、再び追加されることはありません)。</div></details>
       <details class="qa" data-cat="tools"><summary>貼り付けの時に一瞬別のウィンドウが出るのは不具合ですか?</summary><div class="a">いいえ、不具合ではありません。Chromeの仕組み上、クリップボードを安全に読み取るために必要な標準的な方法です。中身はほぼ空白で、読み取った内容が外部に送信されることは一切なく、読み取り終わればすぐ自動で閉じます。</div></details>
       <details class="qa" data-cat="tools"><summary>「現在のコピー」表示とは何ですか?</summary><div class="a">コピー・切り取りに成功するたびに、画面右下に今クリップボードに入っている内容を表示する機能です。最後の操作で必ず上書きされるクリップボードの仕組み上、別の場所でコピーしたことに気づかず古い内容を貼ってしまう事故を防げます。表示が消えるまでの秒数は設定で調整できます(初期値5秒、0で消えない)。<strong>この表示をクリックすると、ラクサーチダッシュボードが開きます。</strong></div></details>
       <details class="qa" data-cat="tools"><summary>ラクサーチダッシュボードは、どこから開けますか?</summary><div class="a">次のどれからでも開けます。どれも同じダッシュボードが開き、すでに開いていれば前に出てくるだけで、新しく増えることはありません。①ツールバーのアイコンのメニューの「ラクサーチダッシュボード」 ②ミニメニューの「ラクサーチダッシュボード」 ③画面右下に出る「📋 現在のコピー」表示をクリック ④簡易パネルの「ダッシュボードで開く ↗」 ⑤入力欄の右クリックメニュー(設定でONにした時だけ) ⑥ショートカットキー(初期状態は未設定)。独立した、本物のウィンドウとして開くので、タスクバーにも出ます。</div></details>
@@ -2259,7 +2310,7 @@
 
       <h3 style="margin:28px 0 -4px; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.02em;">🔔 通知・データ保存・トラブルシューティング</h3>
       <details class="qa" data-cat="setting"><summary>拡張機能のデータはどこに保存されますか?</summary><div class="a">定型文・検索サイトの設定はGoogleアカウントに紐づく同期ストレージに、クリップボード履歴・フリマウォッチのデータ・在庫管理はパソコンごとのローカルストレージに保存されます。設定画面の「保存容量の確認」で、それぞれの使用量をいつでも確認できます。</div></details>
-      <details class="qa" data-cat="setting"><summary>ショートカットキーはどこで設定しますか?</summary><div class="a"><code>chrome://extensions/shortcuts</code>から、19個の機能すべてにキーボードショートカットを割り当てられます。初期状態ではどのキーも設定されていません。</div></details>
+      <details class="qa" data-cat="setting"><summary>ショートカットキーはどこで設定しますか?</summary><div class="a"><code>chrome://extensions/shortcuts</code>から、20個の機能すべてにキーボードショートカットを割り当てられます。初期状態ではどのキーも設定されていません。</div></details>
       <details class="qa" data-cat="setting"><summary>ショートカットキーを設定したのに反応しません。</summary><div class="a">設定したキーが、Chrome本体や見ているサイト自身がすでに使っているキーと被っている場合、そちらの動作が優先されます。別のサイトや空白のページで試すか、被っていなさそうな別のキーの組み合わせに変えてみてください。</div></details>
       <details class="qa" data-cat="setting"><summary>ツールバーメニューのアイコンが見当たりません。</summary><div class="a">初期状態ではパズルのピースアイコン🧩の中に隠れています。アイコンを右クリックして「固定」を選ぶと、ツールバーに常時表示されるようになります。</div></details>
       <details class="qa" data-cat="setting"><summary>右クリックメニューやツールバーメニューの項目は減らせますか?</summary><div class="a">はい。使わない項目はチェックを外して非表示にでき、⠿をドラッグして並び替えもできます。</div></details>
