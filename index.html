@@ -544,6 +544,8 @@
   }
   .checkout-modal h3 { margin: 0 0 8px; font-size: 17px; }
   .checkout-modal p { margin: 0 0 16px; font-size: 13px; color: var(--ink-soft); }
+  /* 注記は、文の途中で折り返さない(3つのかたまりごとに1行)。とても狭い画面だけ、文字を少し小さくして、はみ出しを防ぐ */
+  @media (max-width: 360px) { .checkout-modal .stripeNote { font-size: 10.5px !important; letter-spacing: -0.02em; } }
   .checkout-modal input[type="email"] {
     width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px;
     font-size: 15px; background: var(--paper); color: var(--ink); box-sizing: border-box; font-family: inherit;
@@ -2477,7 +2479,7 @@
   <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
     <h3 id="checkoutModalTitle">メールアドレスを入力してください</h3>
     <p>ご契約に使用するメールアドレスです。入力後、決済代行会社 <strong>Stripe</strong> の決済ページへ進みます。</p>
-    <p class="stripeNote" style="margin:-6px 0 16px; font-size:12px;">🔒 カード情報は、Stripe の画面に入力します。カード番号は、ラクサーチは受け取らず、保持しません。</p>
+    <p class="stripeNote" style="margin:-6px 0 16px; font-size:12px;"><span style="display:block; white-space:nowrap;">🔒 カード情報は、Stripe の画面に入力します。</span><span style="display:block; white-space:nowrap;">カード番号は、ラクサーチは受け取らず、</span><span style="display:block; white-space:nowrap;">保持しません。</span></p>
     <input type="email" id="checkoutEmailInput" placeholder="you@example.com" autocomplete="email">
     <div class="checkout-error" id="checkoutError" hidden></div>
     <div class="checkout-modal-actions">
