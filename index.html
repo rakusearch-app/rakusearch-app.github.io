@@ -2577,7 +2577,15 @@
       });
       var data = await res.json();
       if (data && data.url) {
-        window.location.href = data.url;
+        // 【2026-10-25・安全のための確認】飛び先は、Stripeの決済ページ(checkout.stripe.com)だけ。サーバー側の不具合・乗っ取りで、別のアドレスが返ってきても、飛ばない。
+        if (/^https:\/\/checkout\.stripe\.com\//.test(String(data.url))) {
+          window.location.href = data.url;
+          return;
+        }
+        err.textContent = "決済ページのアドレスを確認できませんでした。お手数ですが、お問い合わせからご連絡ください。";
+        err.hidden = false;
+        btn.disabled = false;
+        btn.textContent = "次へ →";
         return;
       }
       if (res.status === 409 || (data && data.error === "already_subscribed")) {
