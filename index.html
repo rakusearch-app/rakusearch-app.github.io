@@ -616,6 +616,7 @@
         <a class="btn-store" href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener">Chromeウェブストアで入手</a>
         <span class="heronote">その後は月額2,480円。<b>右クリックの「ラクサーチ」はずっと無料</b>で使えます</span>
       </div>
+      <p class="stripeNote" style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">🔒 お支払いは、決済代行会社 <strong>Stripe</strong> の決済ページで行います(カード番号は、Stripeが処理し、ラクサーチは保持しません)</p>
       <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、<a href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Chromeウェブストアからの拡張機能の追加</a>(無料)が別途必要です。</p>
     </div>
     <div class="fanstage">
@@ -2121,6 +2122,7 @@
           <li>1台の端末で利用可能(パソコンの切り替えは自由)</li>
         </ul>
         <a class="btn-primary" style="width:100%; justify-content:center;" href="javascript:void(0)" onclick="openCheckoutModal()">初回14日間無料で始める</a>
+        <p class="stripeNote" style="margin:10px 0 0; font-size:12.5px; color:var(--ink-soft); text-align:center;">🔒 お支払いは、決済代行会社 <strong>Stripe</strong> が処理します。カード番号は、ラクサーチは保持しません。</p>
         <p style="margin-top:10px; font-size:12.5px; color:var(--ink-soft);">※ご利用には、<a href="https://chromewebstore.google.com/detail/eplnbolkoalcgjghacnbafbafpabemkp" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline;">Chromeウェブストアからの拡張機能の追加</a>(無料)が別途必要です。</p>
       </div>
     </div>
@@ -2474,7 +2476,8 @@
 <div class="checkout-overlay" id="checkoutOverlay" hidden>
   <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
     <h3 id="checkoutModalTitle">メールアドレスを入力してください</h3>
-    <p>ご契約に使用するメールアドレスです。入力後、決済ページへ進みます。</p>
+    <p>ご契約に使用するメールアドレスです。入力後、決済代行会社 <strong>Stripe</strong> の決済ページへ進みます。</p>
+    <p class="stripeNote" style="margin:-6px 0 16px; font-size:12px;">🔒 カード情報は、Stripe の画面に入力します。カード番号は、ラクサーチは受け取らず、保持しません。</p>
     <input type="email" id="checkoutEmailInput" placeholder="you@example.com" autocomplete="email">
     <div class="checkout-error" id="checkoutError" hidden></div>
     <div class="checkout-modal-actions">
