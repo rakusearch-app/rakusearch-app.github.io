@@ -1,4 +1,22 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="favicon.svg"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}
+  /* 動きで見る(押すと再生) */
+  .demoBlock{margin:20px 0 6px}
+  .demoBlock h4{margin:0 0 10px;font-size:16px;color:var(--ink)}
+  .demoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media (max-width:640px){.demoGrid{grid-template-columns:1fr}}
+  .demoCard{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .demoBtn{display:block;position:relative;width:100%;padding:0;border:0;background:none;cursor:pointer;font:inherit;color:inherit}
+  .demoBtn img{display:block;width:100%;height:auto;aspect-ratio:4/3;background:#eef0f4}
+  .demoPlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(36,27,20,.86);color:#fff;border-radius:999px;padding:10px 20px;font-size:15px;font-weight:700;white-space:nowrap}
+  .demoStop{display:none;position:absolute;right:10px;bottom:10px;background:rgba(36,27,20,.78);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+  .demoBtn[aria-pressed="true"] .demoPlay{display:none}
+  .demoBtn[aria-pressed="true"] .demoStop{display:block}
+  .demoBtn:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+  .demoCard figcaption{padding:10px 14px 13px;font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+  .demoCard figcaption b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px}
+  @media (min-width:641px){.demoGrid .demoCard:nth-child(5){grid-column:1 / -1;justify-self:center;width:calc(50% - 7px)}}
+  .demoNote{font-size:12.5px;color:var(--ink-soft);margin:10px 2px 0;line-height:1.7}
+</style></head><body>
 <title>ラクサーチ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -839,6 +857,23 @@
           <p style="margin:0;"><strong><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> ダブルクリック</strong> — 型番を自動選択すると同時に、自動でクリップボードにコピー。範囲をドラッグして選ぶ手間すら不要で、ダブルクリックひとつで「選択+コピー」が同時に完了します(英数字・ハイフンはもちろん、ひらがな・カタカナの表記ゆれも自動で吸収)。</p>
           <p style="margin:0;"><strong><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg><svg class="mkMouse" viewBox="0 0 24 24" role="img" aria-label="マウス" fill="none"><rect x="5.5" y="1.8" width="13" height="20.4" rx="6.5" fill="#fff" stroke="#241B14" stroke-width="2"/><path d="M5.5 10.5h13" stroke="#241B14" stroke-width="2"/><path d="M12 5.4v3" stroke="#D2361F" stroke-width="2.4" stroke-linecap="round"/></svg> トリプルクリック</strong>(3回連続クリック) — その段落・タイトルの文章を丸ごと自動でコピー。長い商品説明や発送先住所など、選択がしづらい範囲もワンクリック感覚でまとめてコピーできます。</p>
           <p style="margin:0;"><strong>🖐️ 手動ドラッグ選択</strong> — 好きな範囲を自分で選んでも、同じようにメニューが出せます。</p>
+        </div>
+        
+        <div class="demoBlock">
+          <h4>動きで見る(押すと再生)</h4>
+          <div class="demoGrid">
+          <figure class="demoCard"><button type="button" class="demoBtn" aria-pressed="false" aria-label="ダブルクリックの動画(押すと再生・もう一度押すと停止)" data-gif="demo/dblclick.gif" data-poster="demo/dblclick.poster.jpg"><img src="demo/dblclick.poster.jpg" alt="ダブルクリックで選ばれた型番と、その場に出たミニメニュー(動画の1枚目)" width="720" height="540" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>ダブルクリック</b>型番をダブルクリック → 選ばれて、ミニメニューが出ます。「ラクサーチ」を押すと、登録したサイトが一度に開きます。</figcaption></figure>
+          <figure class="demoCard"><button type="button" class="demoBtn" aria-pressed="false" aria-label="トリプルクリックの動画(押すと再生・もう一度押すと停止)" data-gif="demo/triple.gif" data-poster="demo/triple.poster.jpg"><img src="demo/triple.poster.jpg" alt="トリプルクリックで丸ごと選ばれたタイトルと、ミニメニュー(動画の1枚目)" width="720" height="540" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>トリプルクリック</b>タイトルや段落を、トリプルクリック → 丸ごとコピーされます(設定でON)。続けて検索メニューも出せます。</figcaption></figure>
+          <figure class="demoCard"><button type="button" class="demoBtn" aria-pressed="false" aria-label="範囲選択の動画(押すと再生・もう一度押すと停止)" data-gif="demo/drag.gif" data-poster="demo/drag.poster.jpg"><img src="demo/drag.poster.jpg" alt="ドラッグで範囲選択した商品名と、ミニメニュー(動画の1枚目)" width="720" height="540" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>範囲選択</b>好きな範囲をドラッグで選ぶだけ。スペースを含む商品名も、そのまま検索できます。</figcaption></figure>
+          <figure class="demoCard"><button type="button" class="demoBtn" aria-pressed="false" aria-label="ひらがな・カタカナの動画(押すと再生・もう一度押すと停止)" data-gif="demo/kana.gif" data-poster="demo/kana.poster.jpg"><img src="demo/kana.poster.jpg" alt="ひらがな・カタカナ込みの商品名が、まるごと選ばれた画面(動画の1枚目)" width="720" height="540" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>ひらがな・カタカナ</b>初期設定では、英数字の部分だけが選ばれます。「①の対象を広げる」をONにすると、ひらがな・カタカナ込みの名前も、まるごと選べます。</figcaption></figure>
+          <figure class="demoCard"><button type="button" class="demoBtn" aria-pressed="false" aria-label="開いたタブを閉じるの動画(押すと再生・もう一度押すと停止)" data-gif="demo/close.gif" data-poster="demo/close.poster.jpg"><img src="demo/close.poster.jpg" alt="ミニメニューの「開いたタブを閉じる」を押す直前の画面(動画の1枚目)" width="720" height="540" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>開いたタブを閉じる</b>初期設定では、続けて検索するとタブがたまります。「開いたタブを閉じる」を押すと、ラクサーチで開いたタブだけが、まとめて閉じます(ピン留めしたタブは閉じません)。設定で「自動クローズ」をONにしておけば、次の検索で前のタブが自動で閉じるので、最初からたまりません。</figcaption></figure>
+          </div>
+          <p class="demoNote">※実際の画面の動きです。サイトが開く部分は、見やすくしたイメージです。商品名・型番は、架空のものです。</p>
         </div>
         <p style="margin-top:14px;">どの選び方でも、選んだ・コピーした直後にミニメニューが出現。「ラクサーチ」「説明書を検索」「Google検索」「ラクサーチホーム」「フォルダー」「コピー」「切り取り」「貼り付け」「📌ピン留め」「ラクサーチダッシュボード」など、使いたい機能をワンクリックで選ぶだけで、すぐに検索や入力補助が実行されます。</p>
         <p style="margin-top:10px;">ダブルクリックで自動選択するか、手動のドラッグ選択だけに絞るかは設定で選べます。入力フォームの入力中など<strong>邪魔に感じる時は、右クリックの「🔕一時停止/再開」からすぐにオフ</strong>にできます(ミニメニューだけ・自動コピーだけ・両方、から選んで一時停止可能。ツールバーメニューの「⚙️ミニメニュー簡易設定」やショートカットキーからも同じように切替できます)。<strong>2つを1回でまとめて止めたい時</strong>は、ツールバーのアイコンを右クリックして「🔕 まとめて一時停止/再開」を選ぶのが、いちばん手軽です(簡易設定の一番上のチェックや、ショートカットキーでも同じです)。止まっている間は、アイコンに「停止」(片方だけ止まっている時は「一部」)と表示されるので、止めたまま忘れる心配がありません。</p>
@@ -3068,6 +3103,18 @@
   onChange();
   if (mq.addEventListener) mq.addEventListener("change", onChange); else if (mq.addListener) mq.addListener(onChange);
   window.addEventListener("hashchange", function () { try { openCatOf(document.querySelector(location.hash)); } catch (e) { /* 何もしない */ } });
+})();
+</script>
+<script>
+(function () {
+  document.querySelectorAll(".demoBtn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var img = b.querySelector("img");
+      var on = b.getAttribute("aria-pressed") === "true";
+      img.src = on ? b.dataset.poster : b.dataset.gif;
+      b.setAttribute("aria-pressed", on ? "false" : "true");
+    });
+  });
 })();
 </script>
 </body></html>
