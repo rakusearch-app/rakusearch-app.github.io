@@ -11,6 +11,7 @@
   .demoStop{display:none;position:absolute;right:10px;bottom:10px;background:rgba(36,27,20,.78);color:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
   .demoBtn[data-state="playing"] .demoPlay{display:none}
   .demoBtn[data-state="playing"] .demoStop{display:block}
+  .demoBtn[data-state="loading"] img{opacity:.6}
   .demoBtn[data-state="ended"] .demoPlay{left:auto;top:auto;right:12px;bottom:12px;transform:none;font-size:14px;padding:7px 14px}
   .demoBtn:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
   .demoCard figcaption{padding:10px 14px 13px;font-size:13.5px;color:var(--ink-soft);line-height:1.65}
@@ -1360,7 +1361,7 @@
             <figcaption><b>ツールバーの確認パネル</b>ツールバーのアイコンから開く「✅ 確認パネル」でも、同じ確認の作業ができます(ダッシュボードで開くリンクつき)。ダッシュボードの「自動で閉じる」設定がONなら、次の検索で、前のタブが閉じてから、新しいタブが開きます。</figcaption></figure>
           <figure class="demoCard"><button type="button" class="demoBtn" data-state="idle" data-ms="59640" aria-pressed="false" aria-label="確認の記録(グラフ)の動画(押すと再生・もう一度押すと停止)" data-gif="demo/graph.gif" data-poster="demo/graph.poster.jpg"><img src="demo/graph.poster.jpg" alt="確認した件数の、日・週・月・年のグラフの画面(動画の1枚目)" width="960" height="720" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
             <figcaption><b>確認の記録(グラフ)</b>確認した件数が、日・週・月・年の棒グラフになります。累計の件数も分かります。毎日の積み重ねが、見えます。</figcaption></figure>
-          <figure class="demoCard"><button type="button" class="demoBtn" data-state="idle" data-ms="82590" aria-pressed="false" aria-label="さーちゃんのお世話の動画(押すと再生・もう一度押すと停止)" data-gif="demo/sachan.gif" data-poster="demo/sachan.poster.jpg"><img src="demo/sachan.poster.jpg" alt="さーちゃんのお世話のボタンと、「今日 1 / 7」の画面(動画の1枚目)" width="960" height="720" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+          <figure class="demoCard"><button type="button" class="demoBtn" data-state="idle" data-ms="60960" aria-pressed="false" aria-label="さーちゃんのお世話の動画(押すと再生・もう一度押すと停止)" data-gif="demo/sachan.gif" data-poster="demo/sachan.poster.jpg"><img src="demo/sachan.poster.jpg" alt="さーちゃんのお世話のボタンと、「今日 1 / 7」の画面(動画の1枚目)" width="960" height="720" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
             <figcaption><b>さーちゃんのお世話</b>確認を進めると、ごはん・キャベツ・水などの、お世話ができます。1つお世話をすると、次は、確認を5件進めるか、10分たつと、押せます(「今日 n / 7」で、進み具合が分かります)。ひとことの中身は、お楽しみです。</figcaption></figure>
           </div>
           <p class="demoNote">※フリマウォッチ社の公式の機能ではなく、同社とは提携関係にありません。ここで確認するのは、ラクサーチの中の「全データ」です。実際の画面の動きです(ツールバーの外枠は、見やすくしたイメージです)。さーちゃん・らくちぃのひとことの中身は、お楽しみのため、映していません。商品名・型番・金額は、架空のものです。</p>
@@ -3200,20 +3201,34 @@
 <script>
 (function () {
   // 動画は、押した時だけ読み込む。決めた回数(3回/2回)で止まり、最後の画面を残して「↻ もう一度」を出す
-  function setState(b, st) {
+  // 押すと、まず「読み込み中…」を出し、読み込みが終わってから、動画を動かす。「↻ もう一度」に切り替える時間は、動き始めてから数える(読み込みの時間を含めない)
+  function setState(b, st, msg) {
     b.dataset.state = st;
-    b.setAttribute("aria-pressed", st === "playing" ? "true" : "false");
-    b.querySelector(".demoPlay").textContent = st === "ended" ? "↻ もう一度" : "▶ 押すと再生";
+    b.setAttribute("aria-pressed", st === "playing" || st === "loading" ? "true" : "false");
+    b.setAttribute("aria-busy", st === "loading" ? "true" : "false");
+    b.querySelector(".demoPlay").textContent = msg || (st === "ended" ? "↻ もう一度" : st === "loading" ? "⏳ 読み込み中…" : "▶ 押すと再生");
   }
   document.querySelectorAll(".demoBtn").forEach(function (b) {
     b.addEventListener("click", function () {
       var img = b.querySelector("img");
       clearTimeout(b._t);
-      if (b.dataset.state === "playing") { img.src = b.dataset.poster; setState(b, "idle"); return; }
+      b._gen = (b._gen || 0) + 1;
+      var gen = b._gen;
+      if (b.dataset.state === "playing" || b.dataset.state === "loading") { img.src = b.dataset.poster; setState(b, "idle"); return; }
       img.src = b.dataset.poster;
-      requestAnimationFrame(function () { img.src = b.dataset.gif; });
-      setState(b, "playing");
-      b._t = setTimeout(function () { setState(b, "ended"); }, Number(b.dataset.ms));
+      setState(b, "loading");
+      var pre = new Image();
+      pre.onload = function () {
+        if (b._gen !== gen) return;
+        img.src = b.dataset.gif;
+        setState(b, "playing");
+        b._t = setTimeout(function () { setState(b, "ended"); }, Number(b.dataset.ms));
+      };
+      pre.onerror = function () {
+        if (b._gen !== gen) return;
+        setState(b, "idle", "読み込めませんでした。もう一度押してください");
+      };
+      pre.src = b.dataset.gif;
     });
   });
 })();
