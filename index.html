@@ -17,6 +17,8 @@
   .demoCard figcaption b{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px}
   @media (min-width:641px){.demoGrid .demoCard:nth-child(5){grid-column:1 / -1;justify-self:center;width:calc(50% - 7px)}}
   @media (min-width:641px){.demoGrid3 .demoCard:nth-child(3){grid-column:1 / -1;justify-self:center;width:calc(50% - 7px)}}
+  .demoGrid1{grid-template-columns:minmax(0,1fr)}
+  @media (min-width:641px){.demoGrid1 .demoCard{width:calc(60% - 7px);justify-self:center}}
   .demoNote{font-size:12.5px;color:var(--ink-soft);margin:10px 2px 0;line-height:1.7}
 </style></head><body>
 <title>ラクサーチ</title>
@@ -941,6 +943,16 @@
 <div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>ツールバーのアイコンを右クリックして、「🔕 まとめて一時停止/再開」を選ぶ</b><small>ミニメニューと④⑤の自動コピーが、同時に止まります</small></div></div><div class="mkDown">▼ 止まっている間は</div><div class="mkRow"><span class="mkN">2</span><div><b>アイコンに「停止」と表示されます</b><small>片方だけ止まっている時は「一部」。もう一度選ぶと、元に戻ります</small></div></div></div>
           <figcaption style="font-size:13px; color:var(--ink-soft); text-align:center; margin-top:8px;">アイコンを右クリック→「まとめて一時停止/再開」→止まっている間は、アイコンに「停止」(片方だけなら「一部」)と表示されます。</figcaption>
         </figure>
+
+        <div class="demoBlock">
+          <h4>動きで見る(押すと再生)</h4>
+          <div class="demoGrid demoGrid1">
+          <figure class="demoCard"><button type="button" class="demoBtn" data-state="idle" data-ms="48870" aria-pressed="false" aria-label="まとめて一時停止/再開の動画(押すと再生・もう一度押すと停止)" data-gif="demo/pause.gif" data-poster="demo/pause.poster.jpg"><img src="demo/pause.poster.jpg" alt="ツールバーのアイコンを右クリックして「まとめて一時停止/再開」を押した場面(動画の1枚目)" width="960" height="720" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>まとめて一時停止/再開</b>アイコンを右クリック →「まとめて一時停止/再開」を押すと、ミニメニューの自動表示と、④⑤の自動コピーが、同時に止まります。アイコンには「停止」の印が出ます。もう一度押すと、元に戻ります。</figcaption></figure>
+          </div>
+          <p class="demoNote">※ツールバーのアイコンと右クリックのメニューは、見やすくしたイメージです。押した結果(止まる・「停止」の印・再開)は、実際の動きです。商品名・型番は、架空のものです。</p>
+        </div>
+
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">🔁</div>
@@ -1001,6 +1013,16 @@
 <div class="mkAlt"><div class="mkRow"><span class="mkN">1</span><div><b>ページA(メルカリ等)で、型番を選んで検索</b><small>選んだ型番は、自動で記憶されます</small></div></div><div class="mkDown">▼ 新しいタブへ</div><div class="mkRow"><span class="mkN">2</span><div><b>ページB(検索結果)では、何も選択しなくてOK</b><small>選び直しは、不要です</small></div></div><div class="mkDown">▼ クリック</div><div class="mkRow"><span class="mkN">3</span><div><b>ツールバーメニューの「ラクサーチ」などを押す</b><small>同じ型番のまま、続けて検索できます(🟥ラクサーチ・🔎ラクサーチホーム・📖説明書を検索・🔍Google検索・📁フォルダー)</small></div></div></div>
           <figcaption style="font-size:13px; color:var(--ink-soft); text-align:center; margin-top:8px;">ページAで型番をコピー・検索→新しいタブでは何も選択していなくても→ツールバーメニューをクリックするだけで→同じ型番のまま検索が続けられる、という流れ</figcaption>
         </figure>
+
+        <div class="demoBlock">
+          <h4>動きで見る(押すと再生)</h4>
+          <div class="demoGrid demoGrid1">
+          <figure class="demoCard"><button type="button" class="demoBtn" data-state="idle" data-ms="47490" aria-pressed="false" aria-label="深堀検索の動画(押すと再生・もう一度押すと停止)" data-gif="demo/deep.gif" data-poster="demo/deep.poster.jpg"><img src="demo/deep.poster.jpg" alt="ツールバーメニューの「ラクサーチホーム」を押して、同じ型番で検索した場面(動画の1枚目)" width="960" height="720" loading="lazy" decoding="async"><span class="demoPlay">▶ 押すと再生</span><span class="demoStop">■ 止める</span></button>
+            <figcaption><b>深堀検索</b>一度検索した型番は、自動で記憶されます。新しく開いたタブでも、ツールバーメニューの「ラクサーチホーム」「説明書を検索」などを押すだけで、選び直さず、同じ型番のまま、検索を続けられます。</figcaption></figure>
+          </div>
+          <p class="demoNote">※ツールバーの部分は、見やすくしたイメージです(押した結果は、実際の動きです)。商品名・型番は、架空のものです。</p>
+        </div>
+
       </div>
       <div class="feat" style="grid-column: 1 / -1;">
         <div class="ico">📋</div>
